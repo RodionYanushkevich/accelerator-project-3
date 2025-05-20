@@ -1,21 +1,68 @@
 <!DOCTYPE html>
-<html lang="ru" data-validate="html">
+<html class="page" lang="ru" data-validate="html">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internship</title>
-    <link rel="stylesheet" href="sass/style.scss">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship</title>
+  <link rel="stylesheet" href="sass/style.scss">
+</head>
+<!-- пример использования спрайта -->
+<!-- <img src="/__spritemap#sprite-logo-view" alt="Это спрайт">
+  <svg>
+    <use href="/__spritemap#sprite-user"></use>
+  </svg> -->
+<!-- примеры требуемых атрибутов data-test="*" -->
 
-  <body class="page-body">
-    <!-- пример использования спрайта -->
-    <img src="/__spritemap#sprite-logo-view" alt="Это спрайт">
-    <svg>
-      <use href="/__spritemap#sprite-user"></use>
-    </svg>
-    <!-- примеры требуемых атрибутов data-test="*" -->
-    <div data-test="hero">hero</div>
+<body class="page-body body">
+  <main class="body__main">
+    <section class="hero" data-test="hero">
+      <h1 class="vissually-hidden">Проект "Стажировка"</h1>
+
+      <img class="hero__logo logo" src="img/logo.svg" alt="Логотип Internship" width="52" height="52">
+
+      <nav class="hero__nav naviagtion">
+        <button class="navigation__button button" type="button">
+          <span class="navigation__description">меню</span>
+          <svg width="46" height="46">
+            <use>123</use>
+          </svg>
+        </button>
+        <ul class="navigation__list">
+          <li class="navigation__item"><a class="navigation__link" href="#">О проекте</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#">Программы</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#">как поехать</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#">отзывы</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#">новости</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#">контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="hero__swiper swiper-container">
+        <ul class="hero__list swiper-wrapper">
+          <li class="hero__list-item swiper-slide ">
+            <div class="hero-card">
+              <h2 class="hero-card__title">Глобальный
+                профессиональный
+                опыт обучения
+                за рубежом</h2>
+              <p class="hero-card__description">Погрузитесь в академическую
+                программу, проходя практику
+                в разных городах, ощущая
+                настоящий студенческий стиль жизни!</p>
+              <button class="hero-card__button button" type="button">
+                <span class="button__description">подробнее</span>
+                <svg width="34" height="34">
+                  <use>123</use>
+                </svg>
+              </button>
+            </div>
+          </li>
+        </ul>
+        <div class="hero__pagination swiper-pagination"></div>
+      </div>
+
+    </section>
     <div data-test="about">about</div>
     <div data-test="programs">programs</div>
     <div data-test="grant">grant</div>
@@ -24,8 +71,9 @@
     <div data-test="reviews">reviews</div>
     <div data-test="contacts">contacts</div>
     <div data-test="form">form</div>
-    <div data-test="footer">footer</div>
-    <script type="module" src="js/main.js"></script>
-  </body>
+  </main>
+  <div data-test="footer">footer</div>
+  <script type="module" src="js/main.js"></script>
+</body>
 
 </html>
