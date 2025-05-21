@@ -1,31 +1,561 @@
 <!DOCTYPE html>
-<html lang="ru" data-validate="html">
+<html class="page" lang="ru" data-validate="html">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internship</title>
-    <link rel="stylesheet" href="sass/style.scss">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship</title>
+  <link rel="stylesheet" href="sass/style.scss">
+</head>
+<!-- пример использования спрайта -->
+<!-- <img src="/__spritemap#sprite-logo-view" alt="Это спрайт">
+  <svg>
+    <use href="/__spritemap#sprite-user"></use>
+  </svg> -->
+<!-- примеры требуемых атрибутов data-test="*" -->
 
-  <body class="page-body">
-    <!-- пример использования спрайта -->
-    <img src="/__spritemap#sprite-logo-view" alt="Это спрайт">
-    <svg>
-      <use href="/__spritemap#sprite-user"></use>
-    </svg>
-    <!-- примеры требуемых атрибутов data-test="*" -->
-    <div data-test="hero">hero</div>
-    <div data-test="about">about</div>
-    <div data-test="programs">programs</div>
-    <div data-test="grant">grant</div>
-    <div data-test="news">news</div>
-    <div data-test="FAQ">FAQ</div>
-    <div data-test="reviews">reviews</div>
-    <div data-test="contacts">contacts</div>
-    <div data-test="form">form</div>
-    <div data-test="footer">footer</div>
-    <script type="module" src="js/main.js"></script>
-  </body>
+<body class="page-body body">
+  <main class="body__main">
+    <section class="hero" data-test="hero">
+      <h1 class="visually-hidden">Проект "Стажировка"</h1>
+
+      <img class="hero__logo logo" src="img/logo.svg" alt="Логотип Internship" width="52" height="52">
+
+      <nav class="hero__nav navigation">
+        <button class="navigation__button button" type="button">
+          <span class="navigation__description">меню</span>
+          <svg width="46" height="46">
+            <use></use>
+          </svg>
+        </button>
+        <ul class="navigation__list">
+          <li class="navigation__item"><a class="navigation__link" href="#">О проекте</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#">Программы</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#">как поехать</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#">отзывы</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#">новости</a></li>
+          <li class="navigation__item"><a class="navigation__link" href="#">контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="hero__swiper swiper-container">
+        <ul class="hero__list swiper-wrapper">
+          <li class="hero__list-item swiper-slide ">
+            <div class="hero-card">
+              <h2 class="hero-card__title">Глобальный
+                профессиональный
+                опыт обучения
+                за рубежом</h2>
+              <p>Погрузитесь в академическую
+                программу, проходя практику
+                в разных городах, ощущая
+                настоящий студенческий стиль жизни!</p>
+              <!-- a? -->
+              <button class="hero-card__button button" type="button">
+                <span class="button__description">подробнее</span>
+                <svg width="34" height="34">
+                  <use></use>
+                </svg>
+              </button>
+
+            </div>
+          </li>
+        </ul>
+        <div class="hero__pagination swiper-pagination"></div>
+      </div>
+    </section>
+
+    <section class="about" data-test="about">
+      <div class="about__container">
+        <h2 class="about__title">О проекте «Стажировка»</h2>
+        <p>«Стажировка» — совместный проект
+          правительств и волонтёрских бригад.</p>
+      </div>
+
+      <article class="about__mission mission">
+        <h3>Наша цель</h3>
+        <p>Наша деятельность направлена
+          на повышение квалификации молодых
+          специалистов на ранних и средних
+          стадиях карьеры, предоставляя
+          им инструменты для решения сложных
+          проблем, с которыми сталкиваются в мире.
+          Цель центра — наделить этих людей
+          способностью инициировать значимые
+          изменения.</p>
+        <button class="mission__button  button" type="button">
+          <span class="button__description">подробнее о проекте</span>
+          <svg width="34" height="34">
+            <use></use>
+          </svg>
+        </button>
+      </article>
+
+      <ul class="about__list advanages">
+        <li class="advanages__item">
+          <h3>Более 250 программ</h3>
+          <p>учебных и рабочих, разной
+            длительностью от 3 месяцев
+            до 1 года</p>
+        </li>
+        <li class="advanages__item">
+          <h3>Более 3000 участников</h3>
+          <p>уже успешно прошли программу от «Стажировка» и остались в разных странах</p>
+        </li>
+        <li class="advanages__item">
+          <h3>участники из 60 стран</h3>
+          <p>студенты со всего мира приезжают на программу
+            «Стажировки» от 3 месяцев до 1 года</p>
+
+        </li>
+        <li class="advanages__item">
+          <h3>от 4 200 $
+            до 8 400 $</h3>
+          <p>грант всем участникам
+            для комфортного прохождения
+            программы</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="programs" data-test="programs">
+      <h2 class="programs__title title">Программы</h2>
+
+      <div class="programs__swiper swiper-container">
+        <ul class="programs__list swiper-wrapper">
+          <li class="programs__list-item swiper-slide">
+
+            <article class="programs-card">
+              <h3 class="programs-card__title">Стажировки</h3>
+              <p>Получите незаменимый опыт
+                работы в крупнейших мировых
+                компаниях.</p>
+              <a class="programs-card__link" href="#" title="стажировки" aria-label="ссылка на стажировки">
+                <svg width="10" height="10">
+                  <use></use>
+                </svg>
+              </a>
+            </article>
+
+          </li>
+        </ul>
+
+        <button class="swiper-button programs__swiper-button swiper-button-prev" type="button">
+          <span class="visually-hidden">Предидущий слайд</span>
+          <svg class="swiper-button__icon" width="14" height="9">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+        <button class="swiper-button programs__swiper-button swiper-button-next" type="button">
+          <span class="visually-hidden">Следующий слайд</span>
+          <svg class="swiper-button__icon" width="14" height="9">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+
+      </div>
+
+      <button class="programs__button button" type="button">
+        <span class="button__description">все программы</span>
+        <svg width="10" height="10">
+          <use></use>
+        </svg>
+      </button>
+
+    </section>
+
+    <section class="grant" data-test="grant">
+      <div class="grant__container">
+        <h2 class="grant__title">Как поехать</h2>
+        <p>Свяжитесь с координатором, чтобы узнать
+          полную информацию. Вы получите
+          актуальные сведения о доступных
+          программах и городах, в которых можете
+          пройти программу.</p>
+
+        <picture>
+          <source type="image/webp" media="(min-width:1440px)" srcset="img/grant/@1x.webp 1x, img/grant/@2x.webp 2x" width="498" height="363">
+          <source type="image/webp" media="(min-width:768px)" srcset="img/grant/@1x.webp 1x, img/grant/@2x.webp 2x" width="678" height="375">
+          <img class="grant__img" src="img/grant/@1x.webp" srcset="img/grant/@2x.webp" alt="изображение стрелок направлений" width="290" height="200">
+        </picture>
+      </div>
+      <div class="garnd__list-container">
+        <h3 class="grant__subtitle">Чтобы получить грант
+          на обучение, вам нужно:</h3>
+
+        <ol class="grant__list">
+          <li class="grant__item">Быть в возрасте от 16 до 30 лет</li>
+          <li class="grant__item">Иметь оконченное среднее образование</li>
+          <li class="grant__item">Иметь документально подтверждённое отсутствие
+            судимости и пройти консульскую проверку</li>
+          <li class="grant__item">За последние 2 года быть не больше 3х месяцев
+            подряд непрерывно в одной стране</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="news" data-test="news">
+      <h2 class="news__title title">Новости и материалы</h2>
+
+      <ul class="news__navigation-list">
+        <li class="news__navigation-item"><a class="news__navigation-link" href="#">общее</a></li>
+        <li class="news__navigation-item"><a class="news__navigation-link" href="#">Волонтёрство</a></li>
+        <li class="news__navigation-item"><a class="news__navigation-link" href="#">Стажировки</a></li>
+        <li class="news__navigation-item"><a class="news__navigation-link" href="#">Карьера</a></li>
+        <li class="news__navigation-item"><a class="news__navigation-link" href="#">путешествия</a></li>
+      </ul>
+
+      <div class="news__swiper swiper-container">
+        <ul class="news__list swiper-wrapper">
+          <li class="news__list-item swiper-slide">
+
+            <article class="news-card">
+              <time class="news-card__date" datetime="2023-03-23">23/03/2023</time>
+              <h3 class="news-card__title">Интервью с участницей
+                программы стажировки</h3>
+              <p>Саша рассказывает, как попала
+                в программу и как прошла 6-
+                месячная стажировка в ISOFound</p>
+              <a class="news-card__link link" href="#" title="Интервью с участницей
+              программы стажировки" aria-label="ссылка на Интервью с участницей
+              программы стажировки">
+                <svg width="10" height="10">
+                  <use></use>
+                </svg>
+              </a>
+            </article>
+
+          </li>
+
+          <li class="news__list-item swiper-slide">
+
+            <article class="news-card">
+              <time class="news-card__date" datetime="2023-03-20">20/03/2023</time>
+              <h3 class="news-card__title">Путешествуем по миру</h3>
+              <p>Какие места посещают наши
+                студенты весной</p>
+              <a class="news-card__link link" href="#" title="Путешествуем по миру" aria-label="ссылка на программу стажировким по миру">
+                <svg width="10" height="10">
+                  <use></use>
+                </svg>
+              </a>
+            </article>
+
+          </li>
+        </ul>
+
+        <button class="swiper-button programs__swiper-button swiper-button-prev" type="button">
+          <span class="visually-hidden">Предидущий слайд</span>
+          <svg class="swiper-button__icon" width="14" height="9">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+        <button class="swiper-button programs__swiper-button swiper-button-next" type="button">
+          <span class="visually-hidden">Следующий слайд</span>
+          <svg class="swiper-button__icon" width="14" height="9">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+
+      </div>
+    </section>
+
+    <section class="faq" data-test="FAQ">
+
+      <h2 class="faq__title title">Вопросы и ответы</h2>
+
+      <ul class="faq__accordion-list">
+
+        <li class="faq__accordion-item accordion">
+          <h3>Кто организатор? Какие сроки у программы?</h3>
+
+          <button class="accordion__button" type="button">
+            <span class="visually-hidden">кнопка показать / скрыть ответ</span>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-minus"></use>
+            </svg>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-plus"></use>
+            </svg>
+          </button>
+          <p>рыба</p>
+        </li>
+
+        <li class="faq__accordion-item accordion">
+          <h3>Что такое грант на обучение?</h3>
+
+          <button class="accordion__button" type="button">
+            <span class="visually-hidden">кнопка показать / скрыть ответ</span>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-minus"></use>
+            </svg>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-plus"></use>
+            </svg>
+          </button>
+          <p>рыба</p>
+        </li>
+
+        <li class="faq__accordion-item accordion accordion--checked">
+          <h3>Как определяется
+            стоимость программы?</h3>
+
+          <button class="accordion__button accordion__button--checked" type="button">
+            <span class="visually-hidden">кнопка показать / скрыть ответ</span>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-minus"></use>
+            </svg>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-plus"></use>
+            </svg>
+          </button>
+          <p>Полная стоимость определяется
+            организаторами в зависимости
+            от направления. В большинстве
+            случаев грант «Стажировка»
+            не покрывает полную стоимость
+            программы, и поэтому
+            предусматривается определённая
+            доля личного участия.</p>
+        </li>
+        <li class="faq__accordion-item accordion">
+          <h3>Признаётся ли учёба
+            в рамках проекта для
+            дальнейшего обучения?</h3>
+
+          <button class="accordion__button" type="button">
+            <span class="visually-hidden">кнопка показать / скрыть ответ</span>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-minus"></use>
+            </svg>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-plus"></use>
+            </svg>
+          </button>
+          <p>рыба</p>
+        </li>
+
+        <li class="faq__accordion-item accordion">
+          <h3>Как выглядит полный
+            процесс регистрации
+            на программу
+            «Стажировка»?</h3>
+
+          <button class="accordion__button" type="button">
+            <span class="visually-hidden">кнопка показать / скрыть ответ</span>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-minus"></use>
+            </svg>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-plus"></use>
+            </svg>
+          </button>
+          <p>рыба</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="reviews" data-test="reviews">
+      <h2 class="reviews__title title">Отзывы</h2>
+      <div class="reviews__swiper swiper-container">
+        <ul class="reviews__list swiper-wrapper">
+
+          <!-- слайд 1 -->
+          <li class="reviews__list-item swiper-slide">
+            <div class="reviews-card">
+              <div class="reviews-card__wrapper">
+                <picture>
+                  <source type="image/webp" media="(min-width:768px)" srcset="img/review/@1x.webp 1x, img/review/@2x.webp 2x" width="90" height="90">
+                  <img class="reviews-card__image" src="img/review/@1x.webp" srcset="img/review/@2x.webp" alt="" width="60" height="60">
+                </picture>
+                <h3 class="reviews-card__title">Лола Алекс</h3>
+              </div>
+
+              <dl class="reviews-card__details">
+
+                <dt class="reviews-card__details-title">программа</dt>
+                <dd class="reviews-card__details-description">Masa Art Challenge</dd>
+
+                <dt class="reviews-card__details-title">Дата</dt>
+                <dd class="reviews-card__details-description">Осень 2022</dd>
+              </dl>
+
+              <blockquote>
+                Я могу с уверенностью сказать,
+                что это был один из самых
+                незабываемых опытов в жизни!
+              </blockquote>
+
+              <blockquote>
+                Я рекомендую программу
+                «Стажировка» всем студентам,
+                желающим получить незабываемые
+                впечатления. Сочетание
+                путешествий, общения и значимой
+                работы действительно отличает
+                её от других программ, и я чувствую
+                огромную благодарность
+                за предоставленную
+                мне возможность.</blockquote>
+
+            </div>
+          </li>
+        </ul>
+
+        <button class="swiper-button reviews__swiper-button swiper-button-prev" type="button">
+          <span class="visually-hidden">Предидущий слайд</span>
+          <svg class="swiper-button__icon" width="22" height="22">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+        <button class="swiper-button reviews__swiper-button swiper-button-next" type="button">
+          <span class="visually-hidden">Предидущий слайд</span>
+          <svg class="swiper-button__icon" width="22" height="22">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+
+      </div>
+
+    </section>
+
+    <section class="contacts" data-test="contacts">
+      <h2 class="contacts__title title">Контакты</h2>
+
+      <ul class="contacts__list">
+
+        <li class="contacts__list-item contacts__list-item--address">
+          <h3 class="contacts__item-title">центральный офис</h3>
+          <address class="contacts__item-description">г. Новосибирск, ул. Щетинкина 68, культурный центр</address>
+        </li>
+
+        <li class="contacts__list-item contacts__list-item--phone">
+          <h3 class="contacts__item-title">Телефон</h3>
+          <a class="contacts__item-description contacts__link" href="tel:+796387687676">+7 963 876 876 76</a>
+        </li>
+
+        <li class="contacts__list-item contacts__list-item--email">
+          <h3 class="contacts__item-title">Email</h3>
+          <a class="contacts__item-description" href="mailto:Info@stazh.ru">Info@stazh.ru</a>
+        </li>
+
+      </ul>
+
+      <picture>
+        <source type="image/webp" media="(min-width:1440px)" srcset="img/contacts/@1x.webp 1x, img/contacts/@2x.webp 2x" width="1240" height="486">
+        <source type="image/webp" media="(min-width:768px)" srcset="img/contacts/@1x.webp 1x, img/contacts/@2x.webp 2x" width="678" height="500">
+        <img class="contacts__img" src="img/contacts/@1x.webp" srcset="img/contacts/@2x.webp" alt="Мы на карте" width="290" height="240">
+      </picture>
+    </section>
+
+    <section class="form-section" data-test="form">
+
+      <h2 class="form-section__title">Напишите нам</h2>
+
+      <p class="form-section__description">Оставьте ваши контакты, если у вас остались
+        вопросы — мы на них ответим!</p>
+
+      <form class="form-section__form form" method="post" action="https://echo.htmlacademy.ru">
+
+        <div class="form__wrapper">
+          <label class="form__label" for="name">Имя</label>
+          <input class="form__input" type="text" id="name" name="name" required autocomplete="off">
+        </div>
+
+        <div class="form__wrapper">
+          <label class="form__label" for="phone">Телефон</label>
+          <input class="form__input" type="tel" id="phone" name="phone" required autocomplete="off">
+        </div>
+
+        <div class="form__wrapper">
+          <label class="form__label" for="message">Ваше сообщение</label>
+          <textarea class="form__input" id="message" name="message" required autocomplete="off"></textarea>
+        </div>
+
+        <div class="form__wrapper">
+          <label class="form__label" for="city">Выберите город</label>
+          <select class="form__input" id="city" name="city" required autocomplete="off">
+            <option value="moscow">Москва</option>
+            <option value="spb">Санкт-Петербург</option>
+            <option value="kazan">Казань</option>
+          </select>
+        </div>
+
+        <input class="form__checkbox" type="checkbox" id="privacy-policy-agree" name="privacy-policy-agree">
+        <label class="form__label" for="privacy-policy-agree">Я согласен на обработку моих персональных данных</label>
+
+        <button class="mission__button  button" type="button">
+          <span class="button__description">отправить</span>
+          <svg width="34" height="34">
+            <use></use>
+          </svg>
+        </button>
+
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer" data-test="footer">
+
+    <a class="footer__logo-link" href="#">
+      <img class="footer__logo-image" src="img/.svg" alt="Логотип Internship" width="52" height="52">
+    </a>
+
+    <ul class="footer__list footer-navigation">
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#about">О проекте</a>
+      </li>
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#programs">Программы</a>
+      </li>
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#grant">Как поехать</a>
+      </li>
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#reviews">Отзывы</a>
+      </li>
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#news">Новости</a>
+      </li>
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#contacts">Контакты</a>
+      </li>
+    </ul>
+
+    <div class="footer__container">
+      <a class="footer__privacy-policy-link" href="#">Политика конфиденциальности</a>
+      <a class="footer__copyrights" href="#">Стажировка © 2023 Все права защищены</a>
+    </div>
+
+    <ul class="footer__social social">
+
+      <li class="social__item">
+        <a class="social__link social__link--vk" href="#" aria-label="мы в VK">
+          <svg width="26" height="26">
+            <use href="/__spritemap#sprite-vk"></use>
+          </svg>
+        </a>
+      </li>
+
+      <li class="social__item">
+        <a class="social__link social__link--ok" href="#" aria-label="Одноклассники">
+          <svg width="26" height="26">
+            <use href="/__spritemap#sprite-ok"></use>
+          </svg>
+        </a>
+      </li>
+
+      <li class="social__item">
+        <a class="social__link social__link--reddit" href="#" aria-label="Реддит">
+          <svg width="26" height="26">
+            <use href="/__spritemap#sprite-reddit"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+
+  </footer>
+  <script type="module" src="js/main.js"></script>
+</body>
 
 </html>
