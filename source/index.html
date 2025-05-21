@@ -352,11 +352,72 @@
           </button>
           <p>рыба</p>
         </li>
-
       </ul>
     </section>
 
-    <div data-test="reviews">reviews</div>
+    <section class="reviews" data-test="reviews">
+      <h2 class="reviews__title title">Отзывы</h2>
+      <div class="reviews__swiper swiper-container">
+        <ul class="reviews__list swiper-wrapper">
+
+          <!-- слайд 1 -->
+          <li class="reviews__list-item swiper-slide">
+            <div class="reviews-card">
+              <div class="reviews-card__wrapper">
+                <picture>
+                  <source type="image/webp" media="(min-width:768px)" srcset="img/review/@1x.webp 1x, img/review/@2x.webp 2x" width="90" height="90">
+                  <img class="reviews-card__image" src="img/review/@1x.webp" srcset="img/review/@2x.webp" alt="" width="60" height="60">
+                </picture>
+                <h3 class="reviews-card__title">Лола Алекс</h3>
+              </div>
+
+              <dl class="reviews-card__details">
+
+                <dt class="reviews-card__details-title">программа</dt>
+                <dd class="reviews-card__details-description">Masa Art Challenge</dd>
+
+                <dt class="reviews-card__details-title">Дата</dt>
+                <dd class="reviews-card__details-description">Осень 2022</dd>
+              </dl>
+
+              <blockquote>
+                Я могу с уверенностью сказать,
+                что это был один из самых
+                незабываемых опытов в жизни!
+              </blockquote>
+
+              <blockquote>
+                Я рекомендую программу
+                «Стажировка» всем студентам,
+                желающим получить незабываемые
+                впечатления. Сочетание
+                путешествий, общения и значимой
+                работы действительно отличает
+                её от других программ, и я чувствую
+                огромную благодарность
+                за предоставленную
+                мне возможность.</blockquote>
+
+            </div>
+          </li>
+        </ul>
+
+        <button class="swiper-button reviews__swiper-button swiper-button-prev" type="button">
+          <span class="visually-hidden">Предидущий слайд</span>
+          <svg class="swiper-button__icon" width="22" height="22">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+        <button class="swiper-button reviews__swiper-button swiper-button-next" type="button">
+          <span class="visually-hidden">Предидущий слайд</span>
+          <svg class="swiper-button__icon" width="22" height="22">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+
+      </div>
+
+    </section>
     <div data-test="contacts">contacts</div>
     <div data-test="form">form</div>
   </main>
