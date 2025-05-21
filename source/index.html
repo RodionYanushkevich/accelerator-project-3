@@ -17,11 +17,11 @@
 <body class="page-body body">
   <main class="body__main">
     <section class="hero" data-test="hero">
-      <h1 class="vissually-hidden">Проект "Стажировка"</h1>
+      <h1 class="visually-hidden">Проект "Стажировка"</h1>
 
       <img class="hero__logo logo" src="img/logo.svg" alt="Логотип Internship" width="52" height="52">
 
-      <nav class="hero__nav naviagtion">
+      <nav class="hero__nav navigation">
         <button class="navigation__button button" type="button">
           <span class="navigation__description">меню</span>
           <svg width="46" height="46">
@@ -165,8 +165,8 @@
     </section>
 
     <section class="grant" data-test="grant">
-      <div class="grand__container">
-        <h2 class="grand__title">Как поехать</h2>
+      <div class="grant__container">
+        <h2 class="grant__title">Как поехать</h2>
         <p>Свяжитесь с координатором, чтобы узнать
           полную информацию. Вы получите
           актуальные сведения о доступных
@@ -174,21 +174,21 @@
           пройти программу.</p>
 
         <picture>
-          <source type="image/webp" media="(min-width:1440px)" srcset="img/grand/@1x.webp 1x, img/grand/@2x.webp 2x" width="498" height="363">
-          <source type="image/webp" media="(min-width:768px)" srcset="img/grand/@1x.webp 1x, img/grand/@2x.webp 2x" width="678" height="375">
-          <img class="grand__img" src="img/grand/@1x.webp" srcset="img/grand/@2x.webp" alt="изображение стрелок направлений" width="290" height="200">
+          <source type="image/webp" media="(min-width:1440px)" srcset="img/grant/@1x.webp 1x, img/grant/@2x.webp 2x" width="498" height="363">
+          <source type="image/webp" media="(min-width:768px)" srcset="img/grant/@1x.webp 1x, img/grant/@2x.webp 2x" width="678" height="375">
+          <img class="grant__img" src="img/grant/@1x.webp" srcset="img/grant/@2x.webp" alt="изображение стрелок направлений" width="290" height="200">
         </picture>
       </div>
       <div class="garnd__list-container">
-        <h3 class="grand__subtitle">Чтобы получить грант
+        <h3 class="grant__subtitle">Чтобы получить грант
           на обучение, вам нужно:</h3>
 
-        <ol class="grand__list">
-          <li class="grand__item">Быть в возрасте от 16 до 30 лет</li>
-          <li class="grand__item">Иметь оконченное среднее образование</li>
-          <li class="grand__item">Иметь документально подтверждённое отсутствие
+        <ol class="grant__list">
+          <li class="grant__item">Быть в возрасте от 16 до 30 лет</li>
+          <li class="grant__item">Иметь оконченное среднее образование</li>
+          <li class="grant__item">Иметь документально подтверждённое отсутствие
             судимости и пройти консульскую проверку</li>
-          <li class="grand__item">За последние 2 года быть не больше 3х месяцев
+          <li class="grant__item">За последние 2 года быть не больше 3х месяцев
             подряд непрерывно в одной стране</li>
         </ol>
       </div>
@@ -260,7 +260,101 @@
       </div>
     </section>
 
-    <section class="FAQ" data-test="FAQ"></section>
+    <section class="faq" data-test="FAQ">
+
+      <h2 class="faq__title title">Вопросы и ответы</h2>
+
+      <ul class="faq__accordion-list">
+
+        <li class="faq__accordion-item accordion">
+          <h3>Кто организатор? Какие сроки у программы?</h3>
+
+          <button class="accordion__button" type="button">
+            <span class="visually-hidden">кнопка показать / скрыть ответ</span>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-minus"></use>
+            </svg>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-plus"></use>
+            </svg>
+          </button>
+          <p>рыба</p>
+        </li>
+
+        <li class="faq__accordion-item accordion">
+          <h3>Что такое грант на обучение?</h3>
+
+          <button class="accordion__button" type="button">
+            <span class="visually-hidden">кнопка показать / скрыть ответ</span>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-minus"></use>
+            </svg>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-plus"></use>
+            </svg>
+          </button>
+          <p>рыба</p>
+        </li>
+
+        <li class="faq__accordion-item accordion accordion--checked">
+          <h3>Как определяется
+            стоимость программы?</h3>
+
+          <button class="accordion__button accordion__button--checked" type="button">
+            <span class="visually-hidden">кнопка показать / скрыть ответ</span>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-minus"></use>
+            </svg>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-plus"></use>
+            </svg>
+          </button>
+          <p>Полная стоимость определяется
+            организаторами в зависимости
+            от направления. В большинстве
+            случаев грант «Стажировка»
+            не покрывает полную стоимость
+            программы, и поэтому
+            предусматривается определённая
+            доля личного участия.</p>
+        </li>
+        <li class="faq__accordion-item accordion">
+          <h3>Признаётся ли учёба
+            в рамках проекта для
+            дальнейшего обучения?</h3>
+
+          <button class="accordion__button" type="button">
+            <span class="visually-hidden">кнопка показать / скрыть ответ</span>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-minus"></use>
+            </svg>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-plus"></use>
+            </svg>
+          </button>
+          <p>рыба</p>
+        </li>
+
+        <li class="faq__accordion-item accordion">
+          <h3>Как выглядит полный
+            процесс регистрации
+            на программу
+            «Стажировка»?</h3>
+
+          <button class="accordion__button" type="button">
+            <span class="visually-hidden">кнопка показать / скрыть ответ</span>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-minus"></use>
+            </svg>
+            <svg width="18" height="18">
+              <use href="/__spritemap#sprite-plus"></use>
+            </svg>
+          </button>
+          <p>рыба</p>
+        </li>
+
+      </ul>
+    </section>
 
     <div data-test="reviews">reviews</div>
     <div data-test="contacts">contacts</div>
