@@ -447,9 +447,114 @@
         <img class="contacts__img" src="img/contacts/@1x.webp" srcset="img/contacts/@2x.webp" alt="Мы на карте" width="290" height="240">
       </picture>
     </section>
-    <div data-test="form">form</div>
+
+    <section class="form-section" data-test="form">
+
+      <h2 class="form-section__title">Напишите нам</h2>
+
+      <p class="form-section__description">Оставьте ваши контакты, если у вас остались
+        вопросы — мы на них ответим!</p>
+
+      <form class="form-section__form form" method="post" action="https://echo.htmlacademy.ru">
+
+        <div class="form__wrapper">
+          <label class="form__label" for="name">Имя</label>
+          <input class="form__input" type="text" id="name" name="name" required autocomplete="off">
+        </div>
+
+        <div class="form__wrapper">
+          <label class="form__label" for="phone">Телефон</label>
+          <input class="form__input" type="tel" id="phone" name="phone" required autocomplete="off">
+        </div>
+
+        <div class="form__wrapper">
+          <label class="form__label" for="message">Ваше сообщение</label>
+          <textarea class="form__input" id="message" name="message" required autocomplete="off"></textarea>
+        </div>
+
+        <div class="form__wrapper">
+          <label class="form__label" for="city">Выберите город</label>
+          <select class="form__input" id="city" name="city" required autocomplete="off">
+            <option value="moscow">Москва</option>
+            <option value="spb">Санкт-Петербург</option>
+            <option value="kazan">Казань</option>
+          </select>
+        </div>
+
+        <input class="form__checkbox" type="checkbox" id="privacy-policy-agree" name="privacy-policy-agree">
+        <label class="form__label" for="privacy-policy-agree">Я согласен на обработку моих персональных данных</label>
+
+        <button class="mission__button  button" type="button">
+          <span class="button__description">отправить</span>
+          <svg width="34" height="34">
+            <use></use>
+          </svg>
+        </button>
+
+      </form>
+    </section>
   </main>
-  <div data-test="footer">footer</div>
+
+  <footer class="footer" data-test="footer">
+
+    <a class="footer__logo-link" href="#">
+      <img class="footer__logo-image" src="img/.svg" alt="Логотип Internship" width="52" height="52">
+    </a>
+
+    <ul class="footer__list footer-navigation">
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#about">О проекте</a>
+      </li>
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#programs">Программы</a>
+      </li>
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#grant">Как поехать</a>
+      </li>
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#reviews">Отзывы</a>
+      </li>
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#news">Новости</a>
+      </li>
+      <li class="footer-navigation__list-item">
+        <a class="footer-navigation__link" href="#contacts">Контакты</a>
+      </li>
+    </ul>
+
+    <div class="footer__container">
+      <a class="footer__privacy-policy-link" href="#">Политика конфиденциальности</a>
+      <a class="footer__copyrights" href="#">Стажировка © 2023 Все права защищены</a>
+    </div>
+
+    <ul class="footer__social social">
+
+      <li class="social__item">
+        <a class="social__link social__link--vk" href="#" aria-label="мы в VK">
+          <svg width="26" height="26">
+            <use href="/__spritemap#sprite-vk"></use>
+          </svg>
+        </a>
+      </li>
+
+      <li class="social__item">
+        <a class="social__link social__link--ok" href="#" aria-label="Одноклассники">
+          <svg width="26" height="26">
+            <use href="/__spritemap#sprite-ok"></use>
+          </svg>
+        </a>
+      </li>
+
+      <li class="social__item">
+        <a class="social__link social__link--reddit" href="#" aria-label="Реддит">
+          <svg width="26" height="26">
+            <use href="/__spritemap#sprite-reddit"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+
+  </footer>
   <script type="module" src="js/main.js"></script>
 </body>
 
