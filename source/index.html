@@ -126,7 +126,7 @@
           <li class="programs__list-item swiper-slide">
 
             <article class="programs-card">
-              <h2 class="programs-card__title">Стажировки</h2>
+              <h3 class="programs-card__title">Стажировки</h3>
               <p>Получите незаменимый опыт
                 работы в крупнейших мировых
                 компаниях.</p>
@@ -194,8 +194,74 @@
       </div>
     </section>
 
-    <div data-test="news">news</div>
-    <div data-test="FAQ">FAQ</div>
+    <section class="news" data-test="news">
+      <h2 class="news__title title">Новости и материалы</h2>
+
+      <ul class="news__navigation-list">
+        <li class="news__navigation-item"><a class="news__navigation-link" href="#">общее</a></li>
+        <li class="news__navigation-item"><a class="news__navigation-link" href="#">Волонтёрство</a></li>
+        <li class="news__navigation-item"><a class="news__navigation-link" href="#">Стажировки</a></li>
+        <li class="news__navigation-item"><a class="news__navigation-link" href="#">Карьера</a></li>
+        <li class="news__navigation-item"><a class="news__navigation-link" href="#">путешествия</a></li>
+      </ul>
+
+      <div class="news__swiper swiper-container">
+        <ul class="news__list swiper-wrapper">
+          <li class="news__list-item swiper-slide">
+
+            <article class="news-card">
+              <time class="news-card__date" datetime="2023-03-23">23/03/2023</time>
+              <h3 class="news-card__title">Интервью с участницей
+                программы стажировки</h3>
+              <p>Саша рассказывает, как попала
+                в программу и как прошла 6-
+                месячная стажировка в ISOFound</p>
+              <a class="news-card__link link" href="#" title="Интервью с участницей
+              программы стажировки" aria-label="ссылка на Интервью с участницей
+              программы стажировки">
+                <svg width="10" height="10">
+                  <use></use>
+                </svg>
+              </a>
+            </article>
+
+          </li>
+
+          <li class="news__list-item swiper-slide">
+
+            <article class="news-card">
+              <time class="news-card__date" datetime="2023-03-20">20/03/2023</time>
+              <h3 class="news-card__title">Путешествуем по миру</h3>
+              <p>Какие места посещают наши
+                студенты весной</p>
+              <a class="news-card__link link" href="#" title="Путешествуем по миру" aria-label="ссылка на программу стажировким по миру">
+                <svg width="10" height="10">
+                  <use></use>
+                </svg>
+              </a>
+            </article>
+
+          </li>
+        </ul>
+
+        <button class="swiper-button programs__swiper-button swiper-button-prev" type="button">
+          <span class="visually-hidden">Предидущий слайд</span>
+          <svg class="swiper-button__icon" width="14" height="9">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+        <button class="swiper-button programs__swiper-button swiper-button-next" type="button">
+          <span class="visually-hidden">Следующий слайд</span>
+          <svg class="swiper-button__icon" width="14" height="9">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+
+      </div>
+    </section>
+
+    <section class="FAQ" data-test="FAQ"></section>
+
     <div data-test="reviews">reviews</div>
     <div data-test="contacts">contacts</div>
     <div data-test="form">form</div>
