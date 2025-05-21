@@ -1,0 +1,36 @@
+.hero {
+  position: relative;
+  box-sizing: border-box;
+
+  padding: 74px 15px 20px;
+  min-height: 568px;
+
+  @media ($tablet-breakpoint) {
+    padding: 86px 45px 60px;
+
+    min-height: 1024px;
+  }
+
+  @media ($desktop-breakpoint) {
+    padding: 86px 100px 60px;
+
+    min-height: 800px;
+  }
+}
+
+.hero__logo,
+.hero__nav {
+  position: absolute;
+  top: 21px;
+}
+
+.hero__nav {
+  left: unset;
+  right: 15px;
+}
+
+.hero__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
