@@ -118,8 +118,82 @@
       </ul>
     </section>
 
-    <div data-test="programs">programs</div>
-    <div data-test="grant">grant</div>
+    <section class="programs" data-test="programs">
+      <h2 class="programs__title title">Программы</h2>
+
+      <div class="programs__swiper swiper-container">
+        <ul class="programs__list swiper-wrapper">
+          <li class="programs__list-item swiper-slide">
+
+            <article class="programs-card">
+              <h2 class="programs-card__title">Стажировки</h2>
+              <p>Получите незаменимый опыт
+                работы в крупнейших мировых
+                компаниях.</p>
+              <a class="programs-card__link" href="#" title="стажировки" aria-label="ссылка на стажировки">
+                <svg width="10" height="10">
+                  <use></use>
+                </svg>
+              </a>
+            </article>
+
+          </li>
+        </ul>
+
+        <button class="swiper-button programs__swiper-button swiper-button-prev" type="button">
+          <span class="visually-hidden">Предидущий слайд</span>
+          <svg class="swiper-button__icon" width="14" height="9">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+        <button class="swiper-button programs__swiper-button swiper-button-next" type="button">
+          <span class="visually-hidden">Следующий слайд</span>
+          <svg class="swiper-button__icon" width="14" height="9">
+            <use href="__spritemap#sprite-button-arrow"></use>
+          </svg>
+        </button>
+
+      </div>
+
+      <button class="programs__button button" type="button">
+        <span class="button__description">все программы</span>
+        <svg width="10" height="10">
+          <use></use>
+        </svg>
+      </button>
+
+    </section>
+
+    <section class="grant" data-test="grant">
+      <div class="grand__container">
+        <h2 class="grand__title">Как поехать</h2>
+        <p>Свяжитесь с координатором, чтобы узнать
+          полную информацию. Вы получите
+          актуальные сведения о доступных
+          программах и городах, в которых можете
+          пройти программу.</p>
+
+        <picture>
+          <source type="image/webp" media="(min-width:1440px)" srcset="img/grand/@1x.webp 1x, img/grand/@2x.webp 2x" width="498" height="363">
+          <source type="image/webp" media="(min-width:768px)" srcset="img/grand/@1x.webp 1x, img/grand/@2x.webp 2x" width="678" height="375">
+          <img class="grand__img" src="img/grand/@1x.webp" srcset="img/grand/@2x.webp" alt="изображение стрелок направлений" width="290" height="200">
+        </picture>
+      </div>
+      <div class="garnd__list-container">
+        <h3 class="grand__subtitle">Чтобы получить грант
+          на обучение, вам нужно:</h3>
+
+        <ol class="grand__list">
+          <li class="grand__item">Быть в возрасте от 16 до 30 лет</li>
+          <li class="grand__item">Иметь оконченное среднее образование</li>
+          <li class="grand__item">Иметь документально подтверждённое отсутствие
+            судимости и пройти консульскую проверку</li>
+          <li class="grand__item">За последние 2 года быть не больше 3х месяцев
+            подряд непрерывно в одной стране</li>
+        </ol>
+      </div>
+    </section>
+
     <div data-test="news">news</div>
     <div data-test="FAQ">FAQ</div>
     <div data-test="reviews">reviews</div>
