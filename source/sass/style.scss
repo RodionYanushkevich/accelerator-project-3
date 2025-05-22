@@ -12,8 +12,16 @@
 
 /* OTHERS */
 @import "./blocks/others/button";
+@import "./blocks/others/title";
 
 /* BlOCKS */
+
+/* HERO */
 @import "./blocks/hero/hero";
 @import "./blocks/hero/navigation";
 @import "./blocks/hero/hero-card";
+
+/* ABOUT */
+@import "./blocks/about/about";
+@import "./blocks/about/mission";
+@import "./blocks/about/advanages";
