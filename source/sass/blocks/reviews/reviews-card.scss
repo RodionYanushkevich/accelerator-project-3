@@ -1,0 +1,91 @@
+.reviews-card {
+  color: $base-secondary;
+
+  box-sizing: border-box;
+  padding: 32px 17px;
+  gap: 25px;
+
+  border: 2px solid #316dc2;
+  border-radius: 16px;
+}
+
+.reviews-card__title {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+
+  @media ($tablet-breakpoint) {
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+  @media ($desktop-breakpoint) {
+    font-size: 18px;
+    line-height: 133%;
+  }
+}
+
+.reviews-card__details-title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.reviews-card__details-description {
+  font-size: 12px;
+  line-height: 117%;
+
+  color: $base-primary;
+
+  @media ($tablet-breakpoint) {
+    font-size: 14px;
+    line-height: 143%;
+  }
+
+  @media ($desktop-breakpoint) {
+    font-size: 14px;
+    line-height: 129%;
+  }
+}
+
+.reviews-card blockquote {
+  margin: 0;
+  padding: 0;
+
+  // text-transform: none;
+
+  font-size: 16px;
+  line-height: 112%;
+
+  @media ($tablet-breakpoint) {
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+  @media ($desktop-breakpoint) {
+    font-size: 24px;
+    line-height: 108%;
+  }
+}
+
+.reviews-card blockquote + blockquote {
+  font-size: 14px;
+  line-height: 143%;
+
+  color: $base-primary;
+
+  @media ($tablet-breakpoint) {
+    font-size: 16px;
+    line-height: 125%;
+  }
+
+  @media ($desktop-breakpoint) {
+    font-size: 16px;
+    line-height: 162%;
+  }
+}

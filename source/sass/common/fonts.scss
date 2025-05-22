@@ -1,0 +1,8 @@
+/* здесь подключите шрифты */
+
+// @include font-face("Manrope", 800, url("/fonts/manrope/Manrope-extrabold.woff2") format("woff2"));
+// @include font-face("Manrope", 700, url("/fonts/manrope/Manrope-bold.woff2") format("woff2"));
+// @include font-face("Manrope", 600, url("/fonts/manrope/Manrope-semibold.woff2") format("woff2"));
+@include font-face("Manrope", 500, url("/fonts/manrope/Manrope-Medium.woff2") format("woff2"));
+@include font-face("Manrope", 400, url("/fonts/manrope/Manrope-Regular.woff2") format("woff2"));
+@include font-face("Manrope", 300, url("/fonts/manrope/Manrope-Light.woff2") format("woff2"));

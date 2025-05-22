@@ -1,0 +1,63 @@
+.form {
+  background-color: $base-secondary;
+}
+
+.form__title {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 122%;
+
+  color: $base-white;
+
+  @media ($tablet-breakpoint) {
+    font-size: 28px;
+    line-height: 100%;
+  }
+
+  @media ($desktop-breakpoint) {
+    font-size: 32px;
+    line-height: 112%;
+  }
+}
+
+.form__description {
+  margin: 0;
+  padding: 0;
+
+  font-size: 14px;
+  line-height: 143%;
+
+  @media ($tablet-breakpoint) {
+    font-size: 16px;
+    line-height: 125%;
+  }
+
+  @media ($desktop-breakpoint) {
+    line-height: 162%;
+  }
+}
+
+.form__label {
+  font-size: 12px;
+  line-height: 117%;
+  color: $primary-lighter;
+  opacity: 0.8;
+
+  @media ($tablet-breakpoint) {
+    font-size: 14px;
+    line-height: 143%;
+  }
+
+  @media ($desktop-breakpoint) {
+    font-size: 14px;
+    line-height: 129%;
+  }
+}
+
+.form__checkbox + label {
+  color: $base-white;
+  opacity: 1;
+}

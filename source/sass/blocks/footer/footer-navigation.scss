@@ -1,0 +1,26 @@
+.footer-navigation {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.footer-navigation__link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  text-align: center;
+
+  color: inherit;
+  text-decoration: none;
+
+  @media ($tablet-breakpoint) {
+    font-size: 16px;
+    line-height: 125%;
+  }
+
+  @media ($desktop-breakpoint) {
+    // font-size: 16px;
+    line-height: 106%;
+  }
+}

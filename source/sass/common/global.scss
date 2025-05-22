@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+
+  min-width: $mobile;
+  width: 100%;
+
+  font-family: $font-primary;
+  font-style: normal;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+
+  color: $base-primary;
+
+  background-color: #f0efe9;
+}
+
+img {
+  display: block;
+  object-fit: contain;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
