@@ -1,0 +1,45 @@
+.accordion {
+  box-sizing: border-box;
+
+  border: 2px solid #316dc2;
+  border-radius: 16px;
+}
+
+.accordion h3 {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 112%;
+}
+
+.accordion p {
+  margin: 0;
+  padding: 0;
+
+  font-size: 14px;
+  line-height: 143%;
+
+  @media ($tablet-breakpoint) {
+    font-size: 16px;
+    line-height: 125%;
+  }
+
+  @media ($desktop-breakpoint) {
+    line-height: 162%;
+  }
+}
+
+.accordion--checked {
+  background-color: $base-secondary;
+}
+
+.accordion--checked h3 {
+  color: $base-white;
+}
+
+.accordion--checked p {
+  color: $primary-lighter;
+}
+

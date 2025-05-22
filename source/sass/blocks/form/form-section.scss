@@ -1,0 +1,15 @@
+.form-section {
+  margin: 40px 0;
+  padding: 0 10px;
+
+  color: $primary-lighter;
+
+  @media ($tablet-breakpoint) {
+    padding: 0;
+    margin: 50px auto;
+  }
+
+  @media ($desktop-breakpoint) {
+    margin: 60px auto;
+  }
+}

@@ -1,0 +1,32 @@
+.footer {
+  padding: 40px 15px;
+
+  @media ($tablet-breakpoint) {
+    padding: 40px 45px;
+  }
+
+  @media ($desktop-breakpoint) {
+    padding: 60px 100px 40px;
+  }
+}
+
+.footer__copyrights,
+.footer__privacy-policy-link {
+  font-size: 12px;
+  line-height: 117%;
+  color: inherit;
+
+  @media ($tablet-breakpoint) {
+    line-height: 100%;
+  }
+
+  @media ($desktop-breakpoint) {
+    font-size: 14px;
+    line-height: 129%;
+  }
+}
+
+.footer__copyrights {
+  opacity: 0.6;
+  text-decoration: none;
+}

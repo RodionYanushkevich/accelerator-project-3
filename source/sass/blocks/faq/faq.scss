@@ -1,0 +1,21 @@
+.faq {
+  padding: 50px 15px;
+
+  @media ($tablet-breakpoint) {
+    padding: 50px 45px;
+  }
+
+  @media ($desktop-breakpoint) {
+    padding: 60px 206px;
+  }
+}
+
+.faq__accordion-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  color: $base-secondary;
+}
+
