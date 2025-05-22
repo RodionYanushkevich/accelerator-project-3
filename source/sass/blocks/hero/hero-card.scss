@@ -1,14 +1,30 @@
 .hero-card {
+  margin-top: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+
   color: $base-secondary;
 }
 
 .hero-card__title {
+  box-sizing: border-box;
   margin: 0;
-  padding: 0;
+
+  border-radius: 0 16px 16px 0;
+  padding: 20px 14px 16px;
+
+  // width: 290px;
+  // height: 140px;
+
+  display: flex;
 
   font-weight: 400;
   font-size: 22px;
   line-height: 118%;
+
+  background-color: $base-white;
 
   @media ($tablet-breakpoint) {
     font-size: 36px;
@@ -22,12 +38,22 @@
 }
 
 .hero-card p {
+  box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 0 14px 15px;
+
+  width: calc(100% - 23px);
+  margin-top: -0.5px;
+
+  // height: 115px;
 
   font-size: 16px;
   line-height: 125%;
+
   color: $base-primary;
+  border-radius: 0 0 14px;
+
+  // background-color: $base-white;
 
   @media ($tablet-breakpoint) {
     font-size: 36px;
@@ -37,4 +63,47 @@
   @media ($desktop-breakpoint) {
     line-height: 162%;
   }
+}
+
+.hero-card picture {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.hero-card__img {
+  background-color: #ffffe0;
+
+  // переделать абсолют на дескрипшины?
+  // width: 100%;
+  // height: 100%;
+}
+
+.hero-card__nebo-wrapper--seccond {
+  background: linear-gradient(to bottom, transparent 50%, $base-white 50%);
+}
+
+.hero-card__nebo-wrapper {
+  border-radius: 0 0 0 14px;
+  background: linear-gradient(to bottom, transparent 82%, $base-white 64px);
+}
+
+
+.hero-card__title.nebo--tr {
+  --nb-r: 20px;
+  --nb-w: 20px;
+  --nb-h: 20px;
+}
+
+.hero-card__nebo-wrapper.nebo--br {
+  --nb-r: 20px;
+  --nb-w: 115px;
+  --nb-h: 20px;
+}
+
+.hero-card__nebo-wrapper--seccond.nebo--br {
+  --nb-r: 20px;
+  --nb-w: 10px;
+  --nb-h: 115px;
 }

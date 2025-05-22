@@ -1,9 +1,12 @@
 .hero {
   position: relative;
   box-sizing: border-box;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
   padding: 74px 15px 20px;
   min-height: 568px;
+  height: 100%;
 
   @media ($tablet-breakpoint) {
     padding: 86px 45px 60px;
