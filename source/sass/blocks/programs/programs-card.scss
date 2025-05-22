@@ -1,0 +1,39 @@
+.programs-card h3 {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 112%;
+
+  color: $base-secondary;
+
+  @media ($tablet-breakpoint) {
+    font-size: 20px;
+    line-height: 70%;
+  }
+
+  @media ($desktop-breakpoint) {
+    font-size: 24px;
+    line-height: 71%;
+  }
+}
+
+.programs-card p {
+  margin: 0;
+  padding: 0;
+
+  font-size: 12px;
+  line-height: 117%;
+
+  @media ($tablet-breakpoint) {
+    font-size: 14px;
+    line-height: 143%;
+  }
+
+  @media ($desktop-breakpoint) {
+    font-size: 14px;
+    line-height: 129%;
+  }
+}
+
