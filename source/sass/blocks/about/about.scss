@@ -1,4 +1,8 @@
 .about {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   padding: 50px 15px;
 
   @media ($tablet-breakpoint) {
@@ -7,6 +11,20 @@
 
   @media ($desktop-breakpoint) {
     padding: 60px 100px;
+  }
+}
+
+.about__container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media ($tablet-breakpoint) {
+    gap: 30px;
+  }
+
+  @media ($desktop-breakpoint) {
+    // gap: 30px;
   }
 }
 
@@ -25,5 +43,11 @@
   @media ($desktop-breakpoint) {
     font-size: 22px;
     line-height: 145%;
+  }
+}
+
+.about__list.advanages {
+  @media ($tablet-breakpoint) {
+    margin-top: 30px;
   }
 }

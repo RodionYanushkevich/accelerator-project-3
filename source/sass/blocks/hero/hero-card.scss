@@ -80,30 +80,39 @@
   // height: 100%;
 }
 
-.hero-card__nebo-wrapper--seccond {
-  background: linear-gradient(to bottom, transparent 50%, $base-white 50%);
+// .hero-card__nebo-wrapper--seccond {
+//   background: linear-gradient(to bottom, transparent 50%, $base-white 50%);
+// }
+
+// .hero-card__nebo-wrapper {
+//   border-radius: 0 0 0 14px;
+//   background: linear-gradient(to bottom, transparent 82%, $base-white 64px);
+// }
+
+
+// .hero-card__title.nebo--tr {
+//   --nb-r: 20px;
+//   --nb-w: 20px;
+//   --nb-h: 20px;
+// }
+
+// .hero-card__nebo-wrapper.nebo--br {
+//   --nb-r: 20px;
+//   --nb-w: 115px;
+//   --nb-h: 20px;
+// }
+
+// .hero-card__nebo-wrapper--seccond.nebo--br {
+//   --nb-r: 20px;
+//   --nb-w: 10px;
+//   --nb-h: 115px;
+// }
+
+.hero-card__button .button__description {
+  font-size: 12px;
 }
 
-.hero-card__nebo-wrapper {
-  border-radius: 0 0 0 14px;
-  background: linear-gradient(to bottom, transparent 82%, $base-white 64px);
-}
-
-
-.hero-card__title.nebo--tr {
-  --nb-r: 20px;
-  --nb-w: 20px;
-  --nb-h: 20px;
-}
-
-.hero-card__nebo-wrapper.nebo--br {
-  --nb-r: 20px;
-  --nb-w: 115px;
-  --nb-h: 20px;
-}
-
-.hero-card__nebo-wrapper--seccond.nebo--br {
-  --nb-r: 20px;
-  --nb-w: 10px;
-  --nb-h: 115px;
+.hero-card__button .button__wrapper {
+  width: 34px;
+  height: 34px;
 }

@@ -10,3 +10,16 @@
   text-decoration: none;
   color: inherit;
 }
+
+.navigation__button {
+  padding: 3px 4px 3px 20px;
+}
+
+.navigation__button .button__description {
+  font-size: 14px;
+}
+
+.navigation__button .button__wrapper {
+  width: 46px;
+  height: 46px;
+}

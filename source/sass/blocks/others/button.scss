@@ -2,36 +2,54 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding: 3px 4px 3px 20px;
+  padding: 4px 4px 4px 20px;
   column-gap: 20px;
+  width: min-content;
 
   color: $base-secondary;
   background: $base-white;
   text-decoration: none;
 
+
   border: 1px solid #316dc2;
   border-radius: 30px;
 
   cursor: pointer;
+
+  @media ($tablet-breakpoint) {
+    padding: 4px 4px 4px 30px;
+    column-gap: 30px;
+  }
 }
 
 .button__description {
   font-family: $font-primary;
   font-weight: 500;
-  font-size: 14px;
+
+  font-size: 12px;
   line-height: 100%;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   text-align: center;
   color: inherit;
+
+  @media ($tablet-breakpoint) {
+    font-size: 14px;
+  }
 }
 
 .button__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 46px;
-  height: 46px;
+
+  width: 34px;
+  height: 34px;
   border-radius: 44px;
   background-color: $base-secondary;
+
+  @media ($tablet-breakpoint) {
+    width: 46px;
+    height: 46px;
+  }
 }
