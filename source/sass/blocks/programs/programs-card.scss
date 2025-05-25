@@ -1,3 +1,11 @@
+.programs-card {
+  min-height: 400px;
+
+  @media ($tablet-breakpoint) {
+    min-height: 420px;
+  }
+}
+
 .programs-card h3 {
   margin: 0;
   padding: 0;
@@ -7,6 +15,7 @@
   line-height: 112%;
 
   color: $base-secondary;
+
 
   @media ($tablet-breakpoint) {
     font-size: 20px;

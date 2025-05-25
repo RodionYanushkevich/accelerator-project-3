@@ -11,6 +11,8 @@
 
   @media ($desktop-breakpoint) {
     padding: 60px 100px;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
@@ -24,7 +26,8 @@
   }
 
   @media ($desktop-breakpoint) {
-    // gap: 30px;
+    // flex: 0 0 auto;
+    width: 702px;
   }
 }
 
@@ -46,8 +49,19 @@
   }
 }
 
+.about__mission {
+  @media ($desktop-breakpoint) {
+    flex-grow: 1;
+    width: 30%;
+  }
+}
+
 .about__list.advanages {
   @media ($tablet-breakpoint) {
     margin-top: 30px;
+  }
+
+  @media ($desktop-breakpoint) {
+    width: 100%;
   }
 }
