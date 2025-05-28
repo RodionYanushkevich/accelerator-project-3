@@ -88,7 +88,7 @@
   flex-direction: column;
   gap: 15px;
 
-  counter-reset: list-counter;
+  counter-reset: grant__list-counter;
   list-style: none;
 
   font-size: 14px;
@@ -112,7 +112,7 @@
   box-sizing: border-box;
   padding: 24px 25px;
 
-  counter-increment: list-counter;
+  counter-increment: grant__list-counter;
 
   border-radius: 16px;
   border: 1px solid #f0efe9;
@@ -120,7 +120,7 @@
   background-color: inherit;
 
   &::before {
-    content: counter(list-counter) " ";
+    content: counter(grant__list-counter) "";
     position: absolute;
     left: -16px;
     top: -5px;
