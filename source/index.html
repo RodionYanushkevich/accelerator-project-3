@@ -367,13 +367,13 @@
           <!-- слайд 1 -->
           <li class="reviews__list-item swiper-slide">
             <div class="reviews-card">
-              <div class="reviews-card__wrapper">
+              <figure class="reviews-card__figure">
                 <picture>
-                  <source type="image/webp" media="(min-width:768px)" srcset="img/review/@1x.webp 1x, img/review/@2x.webp 2x" width="90" height="90">
-                  <img class="reviews-card__image" src="img/review/@1x.webp" srcset="img/review/@2x.webp" alt="" width="60" height="60">
+                  <source type="image/webp" media="(min-width:768px)" srcset="img/review/reviews-tablet-avatar-1@1x.webp 1x, img/review/reviews-tablet-avatar-1@2x.webp 2x" width="90" height="90">
+                  <img class="reviews-card__image" src="img/reviews/reviews-mobile-avatar-1@1x.webp" srcset="img/reviews/reviews-mobile-avatar-1@2x.webp" alt="" width="60" height="60">
                 </picture>
-                <h3 class="reviews-card__title">Лола Алекс</h3>
-              </div>
+                <figcaption class="reviews-card__figcaption">Лола Алекс</figcaption>
+              </figure>
 
               <dl class="reviews-card__details">
 
@@ -446,9 +446,9 @@
       </ul>
 
       <picture>
-        <source type="image/webp" media="(min-width:1440px)" srcset="img/contacts/@1x.webp 1x, img/contacts/@2x.webp 2x" width="1240" height="486">
-        <source type="image/webp" media="(min-width:768px)" srcset="img/contacts/@1x.webp 1x, img/contacts/@2x.webp 2x" width="678" height="500">
-        <img class="contacts__img" src="img/contacts/@1x.webp" srcset="img/contacts/@2x.webp" alt="Мы на карте" width="290" height="240">
+        <source type="image/webp" media="(min-width:1440px)" srcset="img/contacts/contacts-map-desktop@1x.webp 1x, img/contacts/contacts-map-desktop@2x.webp 2x" width="1240" height="486">
+        <source type="image/webp" media="(min-width:768px)" srcset="img/contacts/contacts-map-tablet@1x.webp 1x, img/contacts/contacts-map-tablet@2x.webp 2x" width="678" height="500">
+        <img class="contacts__img" src="img/contacts/contacts-map-mobile@1x.webp" srcset="img/contacts/contacts-map-mobile@2x.webp" alt="Мы на карте" width="290" height="240">
       </picture>
     </section>
 
@@ -456,11 +456,12 @@
 
       <form class="form-section__form form" method="post" action="https://echo.htmlacademy.ru">
 
-        <h2 class="form__title">Напишите нам</h2>
+        <div class="form__wrapper">
+          <h2 class="form__title">Напишите нам</h2>
 
-        <p class="form__description">Оставьте ваши контакты, если у вас остались
-          вопросы — мы на них ответим!</p>
-
+          <p class="form__description">Оставьте ваши контакты, если у вас остались
+            вопросы — мы на них ответим!</p>
+        </div>
         <div class="form__wrapper">
           <label class="form__label" for="name">Имя</label>
           <input class="form__input" type="text" id="name" name="name" required autocomplete="off">
@@ -473,12 +474,13 @@
 
         <div class="form__wrapper">
           <label class="form__label" for="message">Ваше сообщение</label>
-          <textarea class="form__input" id="message" name="message" required autocomplete="off"></textarea>
+          <textarea class="form__input" id="message" name="message" rows="4" required autocomplete="off"></textarea>
         </div>
 
         <div class="form__wrapper">
           <label class="form__label" for="city">Выберите город</label>
           <select class="form__input" id="city" name="city" required autocomplete="off">
+            <option value="" disabled selected hidden></option>
             <option value="moscow">Москва</option>
             <option value="spb">Санкт-Петербург</option>
             <option value="kazan">Казань</option>
@@ -486,13 +488,21 @@
         </div>
 
         <input class="form__checkbox" type="checkbox" id="privacy-policy-agree" name="privacy-policy-agree">
-        <label class="form__label" for="privacy-policy-agree">Я согласен на обработку моих персональных данных</label>
-
-        <button class="mission__button  button" type="button">
-          <span class="button__description">отправить</span>
-          <svg width="34" height="34">
-            <use></use>
+        <label class="form__label" for="privacy-policy-agree">
+          Я согласен на обработку моих персональных <br>
+          данных
+          <svg width="10" height="10">
+            <use href="__spritemap#sprite-check"></use>
           </svg>
+        </label>
+
+        <button class="form__button  button" type="button">
+          <span class="button__description">отправить</span>
+          <span class="button__wrapper">
+            <svg width="8" height="8">
+              <use href="/__spritemap#sprite-link-arrow"></use>
+            </svg>
+          </span>
         </button>
 
       </form>
@@ -535,7 +545,7 @@
 
       <li class="social__item">
         <a class="social__link social__link--vk" href="#" aria-label="мы в VK">
-          <svg width="26" height="26">
+          <svg width="12" height="8">
             <use href="/__spritemap#sprite-vk"></use>
           </svg>
         </a>
@@ -543,15 +553,15 @@
 
       <li class="social__item">
         <a class="social__link social__link--ok" href="#" aria-label="Одноклассники">
-          <svg width="26" height="26">
-            <use href="/__spritemap#sprite-ok"></use>
+          <svg width="8" height="12">
+            <use href="/__spritemap#sprite-odnoklassniki"></use>
           </svg>
         </a>
       </li>
 
       <li class="social__item">
         <a class="social__link social__link--reddit" href="#" aria-label="Реддит">
-          <svg width="26" height="26">
+          <svg width="12" height="12">
             <use href="/__spritemap#sprite-reddit"></use>
           </svg>
         </a>

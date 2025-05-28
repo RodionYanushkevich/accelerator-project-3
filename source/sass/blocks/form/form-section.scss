@@ -1,15 +1,43 @@
 .form-section {
-  margin: 40px 0;
-  padding: 0 10px;
+  box-sizing: border-box;
+  padding: 43px 10px 40px;
+
+  border-top: 40px solid #f0efe9;
+  border-bottom: 40px solid #f0efe9;
+
 
   color: $primary-lighter;
+
+  background-size: 100%;
+  background-position: 0 0;
+
+  // background-size: 100% calc(100% - 80px);
+  // background-position: 0 40px;
+  background-repeat: no-repeat;
+  background-image: url("/img/form/form-background-mobile@1x.webp");
 
   @media ($tablet-breakpoint) {
     padding: 0;
     margin: 50px auto;
+
+    background-image: url("/img/form/form-background-tablet@1x.webp");
   }
 
   @media ($desktop-breakpoint) {
     margin: 60px auto;
+
+    background-image: url("/img/form/form-background-desktop@1x.webp");
+  }
+
+  @media (resolution >= 2dppx) {
+    background-image: url("/img/form/form-background-mobile@2x.webp");
+
+    @media ($tablet-breakpoint) {
+      background-image: url("/img/form/form-background-tablet@2x.webp");
+    }
+
+    @media ($desktop-breakpoint) {
+      background-image: url("/img/form/form-background-desktop@2x.webp");
+    }
   }
 }

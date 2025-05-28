@@ -1,4 +1,9 @@
 .footer-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 20px;
+  column-gap: 30px;
   margin: 0;
   padding: 0;
 
@@ -6,10 +11,14 @@
 }
 
 .footer-navigation__link {
+  box-sizing: border-box;
   font-weight: 400;
   font-size: 14px;
   line-height: 143%;
   text-align: center;
+
+  padding: 10px;
+  margin: -10px;
 
   color: inherit;
   text-decoration: none;
@@ -20,7 +29,6 @@
   }
 
   @media ($desktop-breakpoint) {
-    // font-size: 16px;
     line-height: 106%;
   }
 }

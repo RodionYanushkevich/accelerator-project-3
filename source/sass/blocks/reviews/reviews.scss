@@ -1,4 +1,7 @@
 .reviews {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
   padding: 50px 15px;
 
   @media ($tablet-breakpoint) {
@@ -15,4 +18,8 @@
   padding: 0;
 
   list-style: none;
+}
+
+.reviews__title {
+  padding: 5px 0;
 }
