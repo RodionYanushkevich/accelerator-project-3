@@ -25,11 +25,23 @@
 .hero__nav {
   position: absolute;
   top: 21px;
+
+  @media ($tablet-breakpoint) {
+    top: 30px;
+  }
 }
 
 .hero__nav {
   left: unset;
   right: 15px;
+
+  @media ($tablet-breakpoint) {
+    right: 45px;
+  }
+
+  @media ($desktop-breakpoint) {
+    right: 100px;
+  }
 }
 
 .hero__list {

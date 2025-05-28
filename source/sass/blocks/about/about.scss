@@ -1,9 +1,12 @@
 .about {
+  justify-self: center;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 40px;
   padding: 50px 15px;
+  width: 100%;
+  max-width: $desktop;
 
   @media ($tablet-breakpoint) {
     padding: 50px 45px;
@@ -13,6 +16,12 @@
     padding: 60px 100px;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+}
+
+.about__title {
+  @media ($desktop-breakpoint) {
+    padding: 10px 0;
   }
 }
 
@@ -26,8 +35,8 @@
   }
 
   @media ($desktop-breakpoint) {
-    // flex: 0 0 auto;
     width: 702px;
+    gap: 20px;
   }
 }
 
@@ -58,10 +67,12 @@
 
 .about__list.advanages {
   @media ($tablet-breakpoint) {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   @media ($desktop-breakpoint) {
+    margin-top: 21px;
+
     width: 100%;
   }
 }

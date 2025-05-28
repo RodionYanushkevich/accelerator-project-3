@@ -26,6 +26,7 @@
   @media ($desktop-breakpoint) {
     font-size: 32px;
     line-height: 112%;
+    padding: 10px 0;
   }
 }
 
@@ -37,6 +38,7 @@
   line-height: 143%;
 
   @media ($tablet-breakpoint) {
+    width: 498px;
     font-size: 16px;
     line-height: 125%;
   }
@@ -54,5 +56,9 @@
 
   @media ($tablet-breakpoint) {
     width: 279px;
+  }
+
+  @media ($desktop-breakpoint) {
+    margin-top: 20px;
   }
 }

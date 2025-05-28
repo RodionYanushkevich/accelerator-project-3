@@ -12,17 +12,24 @@
   background-color: $base-secondary;
 
   @media ($tablet-breakpoint) {
-    padding: 50px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 72px 50px  50px 70px;
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(253px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(171px, 1fr));
+
+    justify-content: unset;
     row-gap: 54px;
     column-gap: 52px;
   }
 
   @media ($desktop-breakpoint) {
-    padding: 72px 50px 50px;
+    padding: 72px 100px 50px 120px;
+
     align-items: stretch;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(484px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(162px, 1fr));
   }
 }
 
@@ -42,9 +49,9 @@
   background-color: inherit;
 
   @media ($tablet-breakpoint) {
-    width: 253px;
     max-width: unset;
-    min-height: 191px;
+    width: 100%;
+    min-height: 100%;
   }
 
   @media ($desktop-breakpoint) {
@@ -54,7 +61,6 @@
     min-height: 142px;
     justify-content: space-between;
     align-items: center;
-
 
     min-width: 484px;
     gap: unset;
@@ -101,7 +107,10 @@
 
   @media ($desktop-breakpoint) {
     flex-grow: 0;
+
     max-width: 171px;
+    font-size: 26px;
+    line-height: 115%;
   }
 }
 
@@ -121,7 +130,5 @@
 
   @media ($desktop-breakpoint) {
     width: 201px;
-
-    // flex-grow: 1;
   }
 }
