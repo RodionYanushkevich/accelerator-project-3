@@ -8,7 +8,9 @@
 
 
   @media ($tablet-breakpoint) {
-    padding: 50px 45px;
+    // !!!!
+    padding: 50px 45px 112px;
+    row-gap: 30px;
   }
 
   @media ($desktop-breakpoint) {
@@ -45,6 +47,8 @@
   text-decoration: none;
 
   @media ($tablet-breakpoint) {
+    padding: 16px 22px;
+
     font-size: 14px;
     line-height: 100%;
   }
@@ -64,4 +68,8 @@
 // !!
 .news__swiper {
   min-height: 640px;
+
+  @media ($tablet-breakpoint) {
+    min-height: 730px;
+  }
 }

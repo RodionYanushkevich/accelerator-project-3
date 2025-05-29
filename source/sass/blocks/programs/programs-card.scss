@@ -11,6 +11,8 @@
   border-radius: 12px;
 
   @media ($tablet-breakpoint) {
+    padding: 10px 20px;
+    width: 324px;
     min-height: 420px;
   }
 }
@@ -31,6 +33,12 @@
   --nb-r: 12px;
   --nb-w: 100px;
   --nb-h: 18px;
+
+  @media ($tablet-breakpoint) {
+    --nb-r: 12px;
+    --nb-w: 87px;
+    --nb-h: 14px;
+  }
 }
 
 .programs-card h3 {
@@ -69,6 +77,7 @@
   @media ($tablet-breakpoint) {
     font-size: 14px;
     line-height: 143%;
+    min-width: 202px;
   }
 
   @media ($desktop-breakpoint) {

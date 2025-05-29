@@ -1,15 +1,23 @@
 .programs {
+  box-sizing: border-box;
   padding: 50px 15px;
   display: flex;
   flex-direction: column;
   gap: 30px;
 
   @media ($tablet-breakpoint) {
-    padding: 50px 45px;
+    // ! нижний паддинг
+    padding: 50px 45px 112px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
   }
 
   @media ($desktop-breakpoint) {
-    padding: 60px 100px;
+    // ! нижний паддинг
+    padding: 60px 100px 126px;
   }
 }
 
@@ -31,6 +39,10 @@
   background-color: transparent;
   padding-left: 30px;
   gap: 31px;
+
+  @media ($tablet-breakpoint) {
+    order: 2;
+  }
 }
 
 .programs__title {
@@ -39,6 +51,11 @@
   align-items: center;
 }
 
-// .programs__list-item {
-//   position: relative;
-// }
+.programs__swiper {
+  @media ($tablet-breakpoint) {
+    order: 3;
+
+    // !!!
+    width: 100%;
+  }
+}

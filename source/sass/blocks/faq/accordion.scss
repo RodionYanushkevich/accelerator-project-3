@@ -12,6 +12,10 @@
 
   transition: grid-template-rows 300ms;
 
+  @media ($tablet-breakpoint) {
+    border-radius: 16px;
+    padding: 30px;
+  }
 
   // !!!!
   &:active {
@@ -33,8 +37,21 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 112%;
+
+  @media ($tablet-breakpoint) {
+    padding-right: 30px;
+    font-size: 22px;
+    line-height: 118%;
+  }
 }
 
+.accordion br {
+  display: none;
+
+  @media (width = 768px) {
+    display: inline;
+  }
+}
 
 .accordion p {
   margin: 0;
@@ -78,6 +95,10 @@
   height: 40px;
   border-radius: 50%;
   background-color: $base-secondary;
+
+  @media ($tablet-breakpoint) {
+    align-self: start;
+  }
 
   border: none;
   cursor: pointer;
