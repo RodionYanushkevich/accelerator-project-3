@@ -1,32 +1,61 @@
 .form {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 15px 15px 27px;
   border-radius: 16px;
   background-color: $base-secondary;
+
+  @media ($tablet-breakpoint) {
+    width: 442px;
+    padding: 30px 40px 36px;
+  }
 }
 
 .form__wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  // @media ($tablet-breakpoint) {
+  //   gap: 20px;
+  // }
 }
 
 .form__input {
   box-sizing: border-box;
   border-radius: 8px;
-  padding: 16px;
   min-height: 50px;
 
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: $base-white;
+  color: $primary-lighter;
   background-color: transparent;
+
+  padding: 14px;
 }
 
 .form__wrapper select {
   margin-right: 10px;
   min-height: 52px;
+
+  @media ($tablet-breakpoint) {
+    margin-right: 0;
+  }
+}
+
+.form__wrapper textarea {
+  min-height: 94px;
+
+  @media ($tablet-breakpoint) {
+    min-height: 88px;
+  }
 }
 
 // классы
@@ -46,7 +75,9 @@ select option {
 
   @media ($tablet-breakpoint) {
     font-size: 28px;
+
     line-height: 100%;
+    padding: 11px 0;
   }
 
   @media ($desktop-breakpoint) {
@@ -63,6 +94,8 @@ select option {
   line-height: 143%;
 
   @media ($tablet-breakpoint) {
+    margin-top: 10px;
+    margin-bottom: 20px;
     font-size: 16px;
     line-height: 125%;
   }
@@ -131,7 +164,6 @@ select option {
   }
 }
 
-
 .form__label svg {
   display: none;
 }
@@ -159,6 +191,10 @@ select option {
   color: $base-white;
   background-color: transparent;
   width: calc(100% - 10px);
+
+  @media ($tablet-breakpoint) {
+    margin-top: 20px;
+  }
 }
 
 .form__button .button__description {

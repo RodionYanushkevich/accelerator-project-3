@@ -462,58 +462,61 @@
 
     <section class="form-section" data-test="form">
 
-      <form class="form-section__form form" method="post" action="https://echo.htmlacademy.ru">
+      <div class="form-section__wrapper">
+        <form class="form-section__form form" method="post" action="https://echo.htmlacademy.ru">
 
-        <div class="form__wrapper">
-          <h2 class="form__title">Напишите нам</h2>
+          <div class="form__wrapper">
+            <h2 class="form__title">Напишите нам</h2>
 
-          <p class="form__description">Оставьте ваши контакты, если у вас остались
-            вопросы — мы на них ответим!</p>
-        </div>
-        <div class="form__wrapper">
-          <label class="form__label" for="name">Имя</label>
-          <input class="form__input" type="text" id="name" name="name" required autocomplete="off">
-        </div>
+            <p class="form__description">Оставьте ваши контакты, если у вас остались
+              вопросы — мы на них ответим!</p>
+          </div>
 
-        <div class="form__wrapper">
-          <label class="form__label" for="phone">Телефон</label>
-          <input class="form__input" type="tel" id="phone" name="phone" required autocomplete="off">
-        </div>
+          <div class="form__wrapper">
+            <label class="form__label" for="name">Имя</label>
+            <input class="form__input" type="text" id="name" name="name" required autocomplete="off">
+          </div>
 
-        <div class="form__wrapper">
-          <label class="form__label" for="message">Ваше сообщение</label>
-          <textarea class="form__input" id="message" name="message" rows="4" required autocomplete="off"></textarea>
-        </div>
+          <div class="form__wrapper">
+            <label class="form__label" for="phone">Телефон</label>
+            <input class="form__input" type="tel" id="phone" name="phone" required autocomplete="off">
+          </div>
 
-        <div class="form__wrapper">
-          <label class="form__label" for="city">Выберите город</label>
-          <select class="form__input" id="city" name="city" required autocomplete="off">
-            <option value="" disabled selected hidden></option>
-            <option value="moscow">Москва</option>
-            <option value="spb">Санкт-Петербург</option>
-            <option value="kazan">Казань</option>
-          </select>
-        </div>
+          <div class="form__wrapper">
+            <label class="form__label" for="message">Ваше сообщение</label>
+            <textarea class="form__input" id="message" name="message" rows="4" required autocomplete="off"></textarea>
+          </div>
 
-        <input class="form__checkbox" type="checkbox" id="privacy-policy-agree" name="privacy-policy-agree">
-        <label class="form__label" for="privacy-policy-agree">
-          Я согласен на обработку моих персональных <br>
-          данных
-          <svg width="10" height="10">
-            <use href="__spritemap#sprite-check"></use>
-          </svg>
-        </label>
+          <div class="form__wrapper">
+            <label class="form__label" for="city">Выберите город</label>
+            <select class="form__input" id="city" name="city" required autocomplete="off">
+              <option value="" disabled selected hidden></option>
+              <option value="moscow">Москва</option>
+              <option value="spb">Санкт-Петербург</option>
+              <option value="kazan">Казань</option>
+            </select>
+          </div>
 
-        <button class="form__button  button" type="button">
-          <span class="button__description">отправить</span>
-          <span class="button__wrapper">
-            <svg width="8" height="8">
-              <use href="/__spritemap#sprite-link-arrow"></use>
+          <input class="form__checkbox" type="checkbox" id="privacy-policy-agree" name="privacy-policy-agree">
+          <label class="form__label" for="privacy-policy-agree">
+            Я согласен на обработку моих персональных <br>
+            данных
+            <svg width="10" height="10">
+              <use href="__spritemap#sprite-check"></use>
             </svg>
-          </span>
-        </button>
+          </label>
 
-      </form>
+          <button class="form__button  button" type="button">
+            <span class="button__description">отправить</span>
+            <span class="button__wrapper">
+              <svg width="8" height="8">
+                <use href="/__spritemap#sprite-link-arrow"></use>
+              </svg>
+            </span>
+          </button>
+
+        </form>
+      </div>
     </section>
   </main>
 

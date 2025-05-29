@@ -7,7 +7,12 @@
   padding: 40px 15px;
 
   @media ($tablet-breakpoint) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 40px 45px;
+
+    gap: 26px;
   }
 
   @media ($desktop-breakpoint) {
@@ -31,6 +36,7 @@
 
   @media ($tablet-breakpoint) {
     line-height: 100%;
+    text-align: start;
   }
 
   @media ($desktop-breakpoint) {
@@ -46,8 +52,16 @@
 
 .footer__privacy-policy-link {
   text-underline-offset: 5px;
+
+  @media ($tablet-breakpoint) {
+    text-underline-offset: 3px;
+  }
 }
 
 .footer .footer__social {
   margin-top: -5px;
+
+  @media ($tablet-breakpoint) {
+    margin-top: 0;
+  }
 }

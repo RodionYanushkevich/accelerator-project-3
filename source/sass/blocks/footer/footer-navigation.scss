@@ -8,7 +8,17 @@
   padding: 0;
 
   list-style: none;
+
+  @media ($tablet-breakpoint) {
+    column-gap: 15px;
+  }
 }
+
+// .footer-navigation__list-item {
+//   @media ($tablet-breakpoint) {
+//     height: 20px;
+//   }
+// }
 
 .footer-navigation__link {
   box-sizing: border-box;
@@ -24,8 +34,14 @@
   text-decoration: none;
 
   @media ($tablet-breakpoint) {
+    position: relative;
+    bottom: -1px;
+    padding: 0;
+    margin: 0;
     font-size: 16px;
     line-height: 125%;
+    text-align: center;
+    font-weight: 400;
   }
 
   @media ($desktop-breakpoint) {

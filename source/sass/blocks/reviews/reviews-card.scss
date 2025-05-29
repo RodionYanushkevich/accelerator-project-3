@@ -120,7 +120,11 @@
   }
 
   &:first-of-type {
-    margin-top: 5px;
+    margin-top: 10px;
+
+    @media ($tablet-breakpoint) {
+      margin-top: 5px;
+    }
   }
 
   &:not(:first-of-type) {
