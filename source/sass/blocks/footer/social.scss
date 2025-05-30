@@ -8,6 +8,10 @@
   gap: 10px;
 
   list-style: none;
+
+  @media ($desktop-breakpoint) {
+    gap: 20px;
+  }
 }
 
 .social__link {

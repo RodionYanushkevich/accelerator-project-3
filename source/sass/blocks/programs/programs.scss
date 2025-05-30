@@ -17,7 +17,7 @@
 
   @media ($desktop-breakpoint) {
     // ! нижний паддинг
-    padding: 60px 100px 126px;
+    padding: 60px 100px 122px;
   }
 }
 
@@ -49,6 +49,10 @@
   display: flex;
   height: 30px;
   align-items: center;
+
+  @media ($tablet-breakpoint) {
+    height: 60px;
+  }
 }
 
 .programs__swiper {

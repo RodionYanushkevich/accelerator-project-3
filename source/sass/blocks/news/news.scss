@@ -14,7 +14,8 @@
   }
 
   @media ($desktop-breakpoint) {
-    padding: 60px 100px;
+    padding: 60px 100px 132px;
+    row-gap: 40px;
   }
 }
 
@@ -71,5 +72,9 @@
 
   @media ($tablet-breakpoint) {
     min-height: 730px;
+  }
+
+  @media ($desktop-breakpoint) {
+    min-height: 400px;
   }
 }

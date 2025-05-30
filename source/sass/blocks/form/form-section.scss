@@ -8,6 +8,10 @@
   @media ($tablet-breakpoint) {
     padding: 50px 58px;
   }
+
+  @media ($desktop-breakpoint) {
+    padding: 60px 100px;
+  }
 }
 
 .form-section__wrapper {
@@ -34,8 +38,8 @@
   }
 
   @media ($desktop-breakpoint) {
-    margin: 60px auto;
-
+    background-size: 1240px 800px;
+    max-width: 1425px;
     background-image: url("/img/form/form-background-desktop@1x.webp");
   }
 

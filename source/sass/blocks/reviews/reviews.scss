@@ -10,7 +10,7 @@
   }
 
   @media ($desktop-breakpoint) {
-    padding: 60px 100px;
+    padding: 60px 100px 123px;
   }
 }
 
@@ -26,5 +26,9 @@
 
   @media ($tablet-breakpoint) {
     padding: 0;
+  }
+
+  @media ($desktop-breakpoint) {
+    padding: 5px 0;
   }
 }

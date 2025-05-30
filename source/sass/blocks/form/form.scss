@@ -11,16 +11,17 @@
     width: 442px;
     padding: 30px 40px 36px;
   }
+
+  @media ($desktop-breakpoint) {
+    width: 490px;
+    padding: 30px 70px 40px;
+  }
 }
 
 .form__wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
-
-  // @media ($tablet-breakpoint) {
-  //   gap: 20px;
-  // }
 }
 
 .form__input {
@@ -56,6 +57,10 @@
   @media ($tablet-breakpoint) {
     min-height: 88px;
   }
+
+  @media ($desktop-breakpoint) {
+    min-height: 90px;
+  }
 }
 
 // классы
@@ -83,6 +88,7 @@ select option {
   @media ($desktop-breakpoint) {
     font-size: 32px;
     line-height: 112%;
+    padding: 14px 0;
   }
 }
 
@@ -127,6 +133,12 @@ select option {
   margin: 0;
 }
 
+.form__label[for="city"] {
+  @media ($desktop-breakpoint) {
+    line-height: 100%;
+  }
+}
+
 .form__checkbox {
   display: none;
 }
@@ -138,8 +150,6 @@ select option {
   display: flex;
   align-items: center;
   gap: 10px;
-
-  // width: calc(100% - 90px);
 
   font-weight: 400;
   font-size: 12px;
@@ -157,7 +167,6 @@ select option {
 
     background-color: $base-white;
 
-    // background: transparent;
     flex-shrink: 0;
 
     cursor: pointer;
@@ -194,6 +203,10 @@ select option {
 
   @media ($tablet-breakpoint) {
     margin-top: 20px;
+  }
+
+  @media ($desktop-breakpoint) {
+    width: 100%;
   }
 }
 

@@ -17,6 +17,10 @@
 
   @media ($desktop-breakpoint) {
     padding: 60px 100px 40px;
+    justify-content: start;
+
+    column-gap: 52px;
+    row-gap: 25px;
   }
 }
 
@@ -24,6 +28,14 @@
   display: flex;
   flex-direction: column;
   row-gap: 13px;
+
+  @media ($desktop-breakpoint) {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+
+    order: 1;
+  }
 }
 
 .footer__copyrights,
@@ -56,6 +68,11 @@
   @media ($tablet-breakpoint) {
     text-underline-offset: 3px;
   }
+
+  @media ($desktop-breakpoint) {
+    text-underline-offset: 6px;
+    order: 1;
+  }
 }
 
 .footer .footer__social {
@@ -63,5 +80,11 @@
 
   @media ($tablet-breakpoint) {
     margin-top: 0;
+  }
+
+  @media ($desktop-breakpoint) {
+    // justify-self: end;
+
+    margin-left: auto;
   }
 }

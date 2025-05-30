@@ -17,6 +17,11 @@
     padding: 30px;
   }
 
+  @media ($desktop-breakpoint) {
+    // border-radius: 16px;
+    padding: 40px;
+  }
+
   // !!!!
   &:active {
     grid-template-rows: min-content 1fr;
@@ -43,6 +48,11 @@
     font-size: 22px;
     line-height: 118%;
   }
+
+  @media ($desktop-breakpoint) {
+    font-size: 28px;
+    line-height: 121%;
+  }
 }
 
 .accordion br {
@@ -68,6 +78,8 @@
   }
 
   @media ($desktop-breakpoint) {
+    margin-top: 21px;
+
     line-height: 162%;
   }
 }

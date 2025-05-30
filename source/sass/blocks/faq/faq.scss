@@ -11,6 +11,7 @@
   }
 
   @media ($desktop-breakpoint) {
+    row-gap: 60px;
     padding: 60px 206px;
   }
 }
@@ -22,8 +23,6 @@
   flex-direction: column;
   row-gap: 10px;
 
-  // width: 100%;
-
   list-style: none;
 
   color: $base-secondary;
@@ -32,4 +31,8 @@
 
 .faq__title {
   overflow: hidden;
+
+  @media ($desktop-breakpoint) {
+    padding: 11px 0;
+  }
 }

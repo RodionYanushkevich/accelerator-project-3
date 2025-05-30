@@ -12,8 +12,12 @@
   @media ($tablet-breakpoint) {
     column-gap: 16px;
   }
-}
 
+
+  @media ($desktop-breakpoint) {
+    column-gap: 30px;
+  }
+}
 
 .footer-navigation__link {
   box-sizing: border-box;
