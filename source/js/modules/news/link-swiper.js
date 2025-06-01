@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, A11y } from 'swiper/modules';
+import { A11y } from 'swiper/modules';
 
 const linkSwiperContainer = document.querySelector('.news__links-swiper');
 
@@ -23,12 +23,6 @@ const initSwiper = () => {
     speed: 300,
     spaceBetween: 10,
     slidesPerView: 'auto',
-    // spaceBetween: 10,
-    // breakpoints: {
-    //   768: {
-    //     slidesPerView: 3,
-    //   },
-    // },
   });
 };
 

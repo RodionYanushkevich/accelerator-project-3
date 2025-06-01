@@ -5,12 +5,15 @@
   justify-content: space-between;
   padding: 20px 15px;
 
-  grid-template-rows: min-content 0fr;
+
+  row-gap: 0;
+
   align-items: center;
   border: 2px solid #316dc2;
   border-radius: 14px;
 
-  transition: grid-template-rows 300ms;
+  grid-template-rows: min-content 0fr;
+  transition: grid-template-rows 1000ms;
 
   @media ($tablet-breakpoint) {
     border-radius: 16px;
@@ -18,17 +21,7 @@
   }
 
   @media ($desktop-breakpoint) {
-    // border-radius: 16px;
     padding: 40px;
-  }
-
-  // !!!!
-  &:active {
-    grid-template-rows: min-content 1fr;
-
-    &:not(.accordion--checked) p {
-      display: block;
-    }
   }
 }
 
@@ -64,13 +57,20 @@
 }
 
 .accordion p {
-  margin: 0;
-  margin-top: 20px;
-  padding: 0;
+  box-sizing: border-box;
   grid-column: 1/-1;
+  margin: 0;
+
+  // margin-top: 20px;
+  padding: 0;
+
+  overflow: hidden;
+  visibility: hidden;
 
   font-size: 14px;
   line-height: 143%;
+  opacity: 0;
+  transition: opacity 300ms;
 
   @media ($tablet-breakpoint) {
     font-size: 16px;
@@ -84,21 +84,29 @@
   }
 }
 
-.accordion:not(.accordion--checked) p {
-  display: none;
-}
+// .accordion:not(.accordion--open) p {
+//   // display: none;
+//   opacity: 0;
+// }
 
-.accordion--checked {
+.accordion--open {
   background-color: $base-secondary;
+  row-gap: 20px;
+
+  transition: all 1000ms;
+  grid-template-rows: min-content 1fr;
 }
 
-.accordion--checked h3 {
+.accordion--open p {
+  color: $primary-lighter;
+  visibility: visible;
+  opacity: 1;
+}
+
+.accordion--open h3 {
   color: $base-white;
 }
 
-.accordion--checked p {
-  color: $primary-lighter;
-}
 
 .accordion__button {
   position: relative;
@@ -108,18 +116,16 @@
   border-radius: 50%;
   background-color: $base-secondary;
 
+  border: none;
+  cursor: pointer;
+
   @media ($tablet-breakpoint) {
     align-self: start;
   }
 
-  border: none;
-  cursor: pointer;
-
-
   &::before,
   &::after {
     content: "";
-
     position: absolute;
     top: 50%;
     left: 50%;
@@ -127,7 +133,6 @@
     display: block;
 
     background-color: $base-white;
-
     transform: translateX(-50%) translateY(-50%);
   }
 
@@ -139,5 +144,59 @@
   &::after {
     width: 1px;
     height: 18px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: transparent;
+    outline: 1px solid $base-secondary;
+
+    &::before,
+    &::after {
+      background-color: $base-secondary;
+    }
+  }
+
+
+  &:active {
+    background-color: #275699;
+
+    &::before,
+    &::after {
+      background-color: $base-white;
+    }
+  }
+
+  &:disabled {
+    background-color: #a9afb7;
+    pointer-events: none;
+
+    &::before,
+    &::after {
+      background-color: $base-white;
+      opacity: 0.6;
+    }
+  }
+}
+
+.accordion__button--open {
+  background-color: $base-white;
+
+  &::after {
+    display: none;
+  }
+
+  &::before {
+    background-color: $base-secondary;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: transparent;
+    outline: 1px solid $base-white;
+
+    &::before {
+      background-color: $base-white;
+    }
   }
 }
