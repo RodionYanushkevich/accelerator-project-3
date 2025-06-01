@@ -4,20 +4,16 @@
   display: flex;
   flex-direction: column;
   justify-content: end;
-  padding: 74px 15px 20px;
-  min-height: 568px;
-  height: 100%;
+
+  // min-height: 568px;
+  // height: 100%;
 
   @media ($tablet-breakpoint) {
-    padding: 86px 45px 60px;
-
-    min-height: 1024px;
+    // min-height: 1024px;
   }
 
   @media ($desktop-breakpoint) {
-    padding: 86px 100px 60px;
-
-    min-height: 800px;
+    // min-height: 800px;
   }
 }
 
@@ -26,10 +22,18 @@
   position: absolute;
   top: 21px;
 
+  left: 15px;
+
   @media ($tablet-breakpoint) {
+    left: 45px;
     top: 30px;
   }
+
+  @media ($desktop-breakpoint) {
+    left: 100px;
+  }
 }
+
 
 .hero__nav {
   left: unset;

@@ -9,3 +9,18 @@
   }
 }
 
+@mixin reverse-border-radius($radius-width, $rotate) {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  display: block;
+  width: $radius-width;
+  aspect-ratio: 1;
+
+  background-repeat: no-repeat;
+  z-index: 2;
+  transform: translateX(100%) rotate($rotate);
+  background-image: url("/__spritemap#sprite-angle-view");
+}

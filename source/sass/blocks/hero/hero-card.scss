@@ -1,24 +1,40 @@
 .hero-card {
-  margin-top: auto;
   height: 100%;
   display: flex;
   flex-direction: column;
 
-
   color: $base-secondary;
 }
 
+.hero-card__wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+
+  @media ($tablet-breakpoint) {
+    display: flex;
+    flex-wrap: wrap;
+
+    bottom: 60px;
+    left: 45px;
+  }
+
+  @media ($desktop-breakpoint) {
+    left: 100px;
+  }
+}
+
 .hero-card__title {
+  position: relative;
+
   box-sizing: border-box;
+  display: flex;
   margin: 0;
+  width: calc(100% - 15px);
 
   border-radius: 0 16px 16px 0;
   padding: 20px 14px 16px;
 
-  // width: 290px;
-  // height: 140px;
-
-  display: flex;
 
   font-weight: 400;
   font-size: 22px;
@@ -26,26 +42,38 @@
 
   background-color: $base-white;
 
+
   @media ($tablet-breakpoint) {
+    width: calc(100% - 64px);
+    padding: 30px 69px 24px 40px;
+
+    border-radius: 0 30px 30px 0;
+
     font-size: 36px;
     line-height: 122%;
   }
 
   @media ($desktop-breakpoint) {
+    width: calc(100% - 372px);
+    padding: 40px 50px 30px;
+
     font-size: 54px;
     line-height: 115%;
   }
 }
 
 .hero-card p {
+  --element-width: 10px;
+
+
+  position: relative;
   box-sizing: border-box;
   margin: 0;
   padding: 0 14px 15px;
 
-  width: calc(100% - 23px);
-  margin-top: -0.5px;
+  width: calc(100% - 38px);
 
-  // height: 115px;
+  // margin-top: -0.5px;
 
   font-size: 16px;
   line-height: 125%;
@@ -53,66 +81,66 @@
   color: $base-primary;
   border-radius: 0 0 14px;
 
-  // background-color: $base-white;
+  background-color: $base-white;
+
+  &::after {
+    @include reverse-border-radius(10px, 0deg);
+  }
 
   @media ($tablet-breakpoint) {
-    font-size: 36px;
-    line-height: 122%;
+    padding: 0 44px 35px 40px;
+    width: 49.1%;
+    border-radius: 0 0 0 30px;
+
+    &::after {
+      display: none;
+    }
   }
 
   @media ($desktop-breakpoint) {
+    padding: 0 55px 35px 50px;
+    width: 37%;
+
     line-height: 162%;
   }
-}
-
-.hero-card picture {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
 }
 
 .hero-card__img {
   background-color: #ffffe0;
 
-  // переделать абсолют на дескрипшины?
-  // width: 100%;
-  // height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-// .hero-card__nebo-wrapper--seccond {
-//   background: linear-gradient(to bottom, transparent 50%, $base-white 50%);
-// }
+.hero-card__button-background-wrapper {
+  position: relative;
+  padding: 10px 15px;
+  width: min-content;
 
-// .hero-card__nebo-wrapper {
-//   border-radius: 0 0 0 14px;
-//   background: linear-gradient(to bottom, transparent 82%, $base-white 64px);
-// }
+  background-color: $base-white;
+  border-radius: 0 0 14px 14px;
 
+  &::after {
+    @include reverse-border-radius(10px ,0deg);
 
-// .hero-card__title.nebo--tr {
-//   --nb-r: 20px;
-//   --nb-w: 20px;
-//   --nb-h: 20px;
-// }
+    @media ($tablet-breakpoint) {
+      width: 26px;
+    }
+  }
 
-// .hero-card__nebo-wrapper.nebo--br {
-//   --nb-r: 20px;
-//   --nb-w: 115px;
-//   --nb-h: 20px;
-// }
+  @media ($tablet-breakpoint) {
+    padding: 0 40px 0 0;
 
-// .hero-card__nebo-wrapper--seccond.nebo--br {
-//   --nb-r: 20px;
-//   --nb-w: 10px;
-//   --nb-h: 115px;
-// }
+    border-radius: 0 0 30px;
+  }
 
-.hero-card__button .button__description {
-  font-size: 12px;
+  @media ($desktop-breakpoint) {
+    padding: 10px 50px 0 30px;
+  }
 }
 
-.hero-card__button .button__wrapper {
-  width: 34px;
-  height: 34px;
+.hero-card__button {
+  @media ($desktop-breakpoint) {
+    padding: 5px 5px 5px 30px;
+  }
 }
