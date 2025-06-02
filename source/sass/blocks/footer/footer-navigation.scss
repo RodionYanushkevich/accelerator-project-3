@@ -44,4 +44,18 @@
   @media ($desktop-breakpoint) {
     line-height: 106%;
   }
+
+  &:hover {
+    opacity: 0.7;
+    color: $base-secondary;
+  }
+
+  &:focus-visible {
+    outline: none;
+    color: $base-secondary;
+  }
+
+  &:active {
+    color: #275699;
+  }
 }
