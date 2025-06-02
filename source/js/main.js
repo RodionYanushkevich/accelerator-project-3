@@ -5,3 +5,4 @@ import 'swiper/css';
 
 import '../js/modules/news/link-swiper.js';
 import '../js/modules/faq/accordion.js';
+import '../js/modules/hero/hero-swiper.js';

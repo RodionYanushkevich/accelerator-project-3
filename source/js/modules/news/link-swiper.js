@@ -23,6 +23,9 @@ const initSwiper = () => {
     speed: 300,
     spaceBetween: 10,
     slidesPerView: 'auto',
+    a11y: {
+      enabled: true,
+    },
   });
 };
 
