@@ -1,25 +1,110 @@
 .accordion {
   box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  grid-template-rows: min-content 0fr;
 
-  border: 2px solid #316dc2;
-  border-radius: 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+
+  row-gap: 0;
+
+  border: 2px solid $base-secondary;
+  border-radius: 14px;
+
+  transition: all 300ms;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    background-color: $base-white;
+  }
+
+  &:hover .accordion__button,
+  &:focus-visible .accordion__button {
+    background-color: transparent;
+    outline: 1px solid $base-secondary;
+
+    &::before,
+    &::after {
+      background-color: $base-secondary;
+    }
+  }
+
+  &:active {
+    color: #275699;
+  }
+
+  &:active .accordion__button {
+    background-color: #275699;
+
+    &::before,
+    &::after {
+      background-color: $base-white;
+    }
+  }
+
+
+  @media ($tablet-breakpoint) {
+    border-radius: 16px;
+    padding: 30px;
+  }
+
+  @media ($desktop-breakpoint) {
+    padding: 40px;
+  }
 }
 
 .accordion h3 {
+  position: relative;
+  top: 1px;
+
   margin: 0;
   padding: 0;
 
   font-weight: 400;
   font-size: 16px;
   line-height: 112%;
+
+
+  @media ($tablet-breakpoint) {
+    padding-right: 30px;
+    font-size: 22px;
+    line-height: 118%;
+  }
+
+  @media ($desktop-breakpoint) {
+    font-size: 28px;
+    line-height: 121%;
+  }
+}
+
+.accordion br {
+  display: none;
+
+  @media (width = 768px) {
+    display: inline;
+  }
 }
 
 .accordion p {
+  box-sizing: border-box;
+  grid-column: 1/-1;
   margin: 0;
+
   padding: 0;
+
+  overflow: hidden;
+
+  visibility: hidden;
 
   font-size: 14px;
   line-height: 143%;
+  opacity: 0;
+  transition: opacity 300ms;
 
   @media ($tablet-breakpoint) {
     font-size: 16px;
@@ -27,19 +112,161 @@
   }
 
   @media ($desktop-breakpoint) {
+    margin-top: 21px;
+
     line-height: 162%;
   }
 }
 
-.accordion--checked {
-  background-color: $base-secondary;
+.accordion--open p {
+  color: $primary-lighter;
+  visibility: visible;
+  transition: all 300ms;
+
+  opacity: 1;
 }
 
-.accordion--checked h3 {
+.accordion--open {
+  grid-template-rows: min-content 1fr;
+  row-gap: 20px;
+
+  background-color: $base-secondary;
+
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    background-color: $base-secondary;
+    border: 2px solid $base-white;
+  }
+
+  &:hover .accordion__button,
+  &:focus-visible .accordion__button {
+    background-color: transparent;
+    outline: 1px solid $base-white;
+
+    &::before,
+    &::after {
+      background-color: $base-white;
+    }
+  }
+
+  &:active {
+    background-color: #275699;
+  }
+
+  &:active .accordion__button {
+    background-color: $base-white;
+
+    &::before {
+      background-color: #275699;
+    }
+  }
+}
+
+.accordion--open h3 {
   color: $base-white;
 }
 
-.accordion--checked p {
-  color: $primary-lighter;
+
+.accordion__button {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  background-color: $base-secondary;
+
+  border: none;
+  cursor: pointer;
+
+  @media ($tablet-breakpoint) {
+    align-self: start;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+
+    background-color: $base-white;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &::before {
+    width: 18px;
+    height: 1px;
+  }
+
+  &::after {
+    width: 1px;
+    height: 18px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: transparent;
+    outline: 1px solid $base-secondary;
+
+    &::before,
+    &::after {
+      background-color: $base-secondary;
+    }
+  }
+
+
+  &:active {
+    background-color: #275699;
+
+    &::before,
+    &::after {
+      background-color: $base-white;
+    }
+  }
+
+  &:disabled {
+    background-color: #a9afb7;
+    pointer-events: none;
+
+    &::before,
+    &::after {
+      background-color: $base-white;
+      opacity: 0.6;
+    }
+  }
 }
 
+.accordion__button--open {
+  background-color: $base-white;
+
+  &::after {
+    display: none;
+  }
+
+  &::before {
+    background-color: $base-secondary;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: transparent;
+    outline: 1px solid $base-white;
+
+    &::before {
+      background-color: $base-white;
+    }
+  }
+
+  &:active {
+    background-color: $base-white;
+
+    &::before {
+      background-color: #275699;
+    }
+  }
+}

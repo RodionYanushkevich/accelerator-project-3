@@ -1,15 +1,57 @@
 .form-section {
-  margin: 40px 0;
-  padding: 0 10px;
+  box-sizing: border-box;
+  padding-top: 40px;
+  padding-bottom: 40px;
 
   color: $primary-lighter;
 
   @media ($tablet-breakpoint) {
-    padding: 0;
-    margin: 50px auto;
+    padding: 50px 58px;
   }
 
   @media ($desktop-breakpoint) {
-    margin: 60px auto;
+    padding: 60px 100px;
+  }
+}
+
+.form-section__wrapper {
+  padding: 43px 10px 40px;
+
+  background-size: 100%;
+  background-position: 0 0;
+
+  background-repeat: no-repeat;
+  background-image: url("/img/form/form-background-mobile@1x.webp");
+
+  @media ($tablet-breakpoint) {
+    padding: 0;
+    border-radius: 16px;
+    display: flex;
+    justify-content: start;
+    max-width: 1070px;
+
+    background-size: 652px 780px;
+
+    background-position: right;
+
+    background-image: url("/img/form/form-background-tablet@1x.webp");
+  }
+
+  @media ($desktop-breakpoint) {
+    background-size: 1240px 800px;
+    max-width: 1425px;
+    background-image: url("/img/form/form-background-desktop@1x.webp");
+  }
+
+  @media (resolution >= 2dppx) {
+    background-image: url("/img/form/form-background-mobile@2x.webp");
+
+    @media ($tablet-breakpoint) {
+      background-image: url("/img/form/form-background-tablet@2x.webp");
+    }
+
+    @media ($desktop-breakpoint) {
+      background-image: url("/img/form/form-background-desktop@2x.webp");
+    }
   }
 }

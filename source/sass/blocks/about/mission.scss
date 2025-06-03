@@ -1,3 +1,14 @@
+.mission {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media ($tablet-breakpoint) {
+    gap: 30px;
+  }
+}
+
 .mission h3 {
   margin: 0;
   padding: 0;
@@ -15,6 +26,7 @@
   @media ($desktop-breakpoint) {
     font-size: 32px;
     line-height: 112%;
+    padding: 10px 0;
   }
 }
 
@@ -26,6 +38,7 @@
   line-height: 143%;
 
   @media ($tablet-breakpoint) {
+    width: 498px;
     font-size: 16px;
     line-height: 125%;
   }
@@ -33,5 +46,19 @@
   @media ($desktop-breakpoint) {
     font-size: 16px;
     line-height: 162%;
+  }
+}
+
+.mission__button {
+  margin-top: 10px;
+  background-color: transparent;
+  width: 223px;
+
+  @media ($tablet-breakpoint) {
+    width: 279px;
+  }
+
+  @media ($desktop-breakpoint) {
+    margin-top: 20px;
   }
 }

@@ -1,6 +1,56 @@
 .social {
   margin: 0;
   padding: 0;
+  color: $base-white;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 
   list-style: none;
+
+  @media ($desktop-breakpoint) {
+    gap: 20px;
+  }
+}
+
+.social__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+
+  border-radius: 50%;
+  background-color: $base-secondary;
+  color: $base-white;
+
+  @media ($tablet-breakpoint) {
+    width: 36px;
+    height: 36px;
+  }
+
+  &:hover svg {
+    opacity: 0.7;
+  }
+
+  &:focus-visible {
+    outline: none;
+    background-color: $base-white;
+  }
+
+  &:focus-visible svg {
+    color: $base-secondary;
+  }
+
+  &:active {
+    background-color: #275699;
+  }
+}
+
+.social__link svg {
+  @media ($tablet-breakpoint) {
+    width: 17px;
+    height: 17px;
+  }
 }

@@ -1,12 +1,16 @@
 .reviews {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
   padding: 50px 15px;
 
   @media ($tablet-breakpoint) {
-    padding: 50px 45px;
+    padding: 50px 45px 112px;
+    row-gap: 40px;
   }
 
   @media ($desktop-breakpoint) {
-    padding: 60px 100px;
+    padding: 60px 100px 123px;
   }
 }
 
@@ -15,4 +19,16 @@
   padding: 0;
 
   list-style: none;
+}
+
+.reviews__title {
+  padding: 5px 0;
+
+  @media ($tablet-breakpoint) {
+    padding: 0;
+  }
+
+  @media ($desktop-breakpoint) {
+    padding: 5px 0;
+  }
 }

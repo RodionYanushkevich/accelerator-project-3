@@ -1,20 +1,22 @@
 .hero {
   position: relative;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 
-  padding: 74px 15px 20px;
-  min-height: 568px;
+  // justify-content: end;
+  width: 100%;
+
+  // min-height: 568px;
+  // height: 100%;
 
   @media ($tablet-breakpoint) {
-    padding: 86px 45px 60px;
-
-    min-height: 1024px;
+    // min-height: 1024px;
   }
 
   @media ($desktop-breakpoint) {
-    padding: 86px 100px 60px;
-
-    min-height: 800px;
+    // min-height: 800px;
   }
 }
 
@@ -22,11 +24,32 @@
 .hero__nav {
   position: absolute;
   top: 21px;
+
+  left: 15px;
+  z-index: 2;
+
+  @media ($tablet-breakpoint) {
+    left: 45px;
+    top: 30px;
+  }
+
+  @media ($desktop-breakpoint) {
+    left: 100px;
+  }
 }
+
 
 .hero__nav {
   left: unset;
   right: 15px;
+
+  @media ($tablet-breakpoint) {
+    right: 45px;
+  }
+
+  @media ($desktop-breakpoint) {
+    right: 100px;
+  }
 }
 
 .hero__list {

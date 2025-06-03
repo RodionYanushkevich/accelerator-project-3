@@ -1,29 +1,94 @@
 .advanages {
   margin: 0;
-  padding: 20px;
+  padding: 42px 20px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 22px;
 
   color: $base-white;
   list-style: none;
   border-radius: 20px;
   background-color: $base-secondary;
+
+  @media ($tablet-breakpoint) {
+    padding: 72px 50px  50px 70px;
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(253px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(171px, 1fr));
+
+    justify-content: unset;
+    row-gap: 54px;
+    column-gap: 52px;
+  }
+
+  @media ($desktop-breakpoint) {
+    padding: 72px 100px 50px 120px;
+
+    align-items: stretch;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(484px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(162px, 1fr));
+  }
 }
 
 .advanages__item {
+  position: relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 16px 21px;
-  width: 250px;
+  padding: 15px 20px;
+
+  max-width: 450px;
+  min-height: 127px;
   gap: 15px;
 
   border: 1px solid #f0efe9;
   border-radius: 16px;
+  background-color: inherit;
+
+  @media ($tablet-breakpoint) {
+    max-width: unset;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  @media ($desktop-breakpoint) {
+    flex-direction: row;
+    padding: 30px 40px;
+    width: unset;
+    min-height: 142px;
+    justify-content: space-between;
+    align-items: center;
+
+    min-width: 484px;
+    gap: unset;
+  }
 }
 
+.advanages__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  display: block;
+  width: 42px;
+  height: 42px;
+
+  background-image: url("/__spritemap#sprite-star-view");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 22px;
+  background-color: inherit;
+
+  border-radius: 16px;
+
+  z-index: 1;
+
+  transform: translateX(-50%) translateY(-50%);
+}
 
 .advanages h3 {
   margin: 0;
@@ -34,6 +99,19 @@
   line-height: 125%;
   letter-spacing: 0.01em;
   text-transform: uppercase;
+
+  @media ($tablet-breakpoint) {
+    font-size: 20px;
+    line-height: 110%;
+  }
+
+  @media ($desktop-breakpoint) {
+    flex-grow: 0;
+
+    max-width: 171px;
+    font-size: 26px;
+    line-height: 115%;
+  }
 }
 
 .advanages p {
@@ -48,5 +126,9 @@
   @media ($tablet-breakpoint) {
     font-size: 16px;
     line-height: 125%;
+  }
+
+  @media ($desktop-breakpoint) {
+    width: 201px;
   }
 }

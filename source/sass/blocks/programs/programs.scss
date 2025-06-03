@@ -1,12 +1,23 @@
 .programs {
+  box-sizing: border-box;
   padding: 50px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 
   @media ($tablet-breakpoint) {
-    padding: 50px 45px;
+    // ! нижний паддинг
+    padding: 50px 45px 112px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 36px;
   }
 
   @media ($desktop-breakpoint) {
-    padding: 60px 100px;
+    // ! нижний паддинг
+    padding: 60px 100px 122px;
   }
 }
 
@@ -15,4 +26,40 @@
   padding: 0;
 
   list-style: none;
+}
+
+
+// !!!!!!!!!!!!! уберешь
+.swiper-button {
+  display: none;
+}
+
+
+.programs__button {
+  background-color: transparent;
+  padding-left: 30px;
+  gap: 31px;
+
+  @media ($tablet-breakpoint) {
+    order: 2;
+  }
+}
+
+.programs__title {
+  display: flex;
+  height: 30px;
+  align-items: center;
+
+  @media ($tablet-breakpoint) {
+    height: 60px;
+  }
+}
+
+.programs__swiper {
+  @media ($tablet-breakpoint) {
+    order: 3;
+
+    // !!!
+    width: 100%;
+  }
 }

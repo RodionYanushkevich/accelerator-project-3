@@ -1,5 +1,12 @@
 .about {
+  justify-self: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   padding: 50px 15px;
+  width: 100%;
+  max-width: $desktop;
 
   @media ($tablet-breakpoint) {
     padding: 50px 45px;
@@ -7,6 +14,29 @@
 
   @media ($desktop-breakpoint) {
     padding: 60px 100px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.about__title {
+  @media ($desktop-breakpoint) {
+    padding: 10px 0;
+  }
+}
+
+.about__container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media ($tablet-breakpoint) {
+    gap: 30px;
+  }
+
+  @media ($desktop-breakpoint) {
+    width: 702px;
+    gap: 20px;
   }
 }
 
@@ -25,5 +55,24 @@
   @media ($desktop-breakpoint) {
     font-size: 22px;
     line-height: 145%;
+  }
+}
+
+.about__mission {
+  @media ($desktop-breakpoint) {
+    flex-grow: 1;
+    width: 30%;
+  }
+}
+
+.about__list.advanages {
+  @media ($tablet-breakpoint) {
+    margin-top: 20px;
+  }
+
+  @media ($desktop-breakpoint) {
+    margin-top: 21px;
+
+    width: 100%;
   }
 }
