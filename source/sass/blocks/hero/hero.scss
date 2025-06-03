@@ -3,7 +3,10 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  overflow: hidden;
+
+  // justify-content: end;
+  width: 100%;
 
   // min-height: 568px;
   // height: 100%;

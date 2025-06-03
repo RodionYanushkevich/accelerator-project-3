@@ -1,4 +1,5 @@
 .hero-card {
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -7,22 +8,36 @@
 }
 
 .hero-card__wrapper {
+  box-sizing: border-box;
   position: absolute;
   bottom: 20px;
-  left: 15px;
+
+  // left: 15px;
+
+  width: 100%;
+
+  padding: 0 15px;
 
   @media ($tablet-breakpoint) {
     display: flex;
     flex-wrap: wrap;
+    padding: 0 64px 0 45px;
 
     bottom: 60px;
-    left: 45px;
+
+    // left: 45px;
   }
 
   @media ($desktop-breakpoint) {
-    left: 100px;
+    // left: 100px;
+    padding: 0 0 0 100px;
+    width: 1068px;
   }
 }
+
+// .hero__list-item:not(:nth-child(1)) {
+//   display: none;
+// }
 
 .hero-card__title {
   position: relative;
@@ -30,7 +45,7 @@
   box-sizing: border-box;
   display: flex;
   margin: 0;
-  width: calc(100% - 15px);
+  width: 100%;
 
   border-radius: 0 16px 16px 0;
   padding: 20px 14px 16px;
@@ -44,7 +59,7 @@
 
 
   @media ($tablet-breakpoint) {
-    width: calc(100% - 64px);
+    // width: calc(100% - 64px);
     padding: 30px 69px 24px 40px;
 
     border-radius: 0 30px 30px 0;
@@ -54,7 +69,8 @@
   }
 
   @media ($desktop-breakpoint) {
-    width: calc(100% - 372px);
+    // width: calc(100% - 372px);
+    // width: 100%;
     padding: 40px 50px 30px;
 
     font-size: 54px;
@@ -71,7 +87,7 @@
   margin: 0;
   padding: 0 14px 15px;
 
-  width: calc(100% - 38px);
+  width: calc(100% - 23px);
 
   // margin-top: -0.5px;
 
@@ -98,8 +114,8 @@
   }
 
   @media ($desktop-breakpoint) {
-    padding: 0 55px 35px 50px;
-    width: 37%;
+    padding: 0 54px 35px 50px;
+    width: 51.2%;
 
     line-height: 162%;
   }
@@ -143,4 +159,45 @@
   @media ($desktop-breakpoint) {
     padding: 5px 5px 5px 30px;
   }
+}
+
+.hero-card__pagination {
+  position: relative;
+  display: flex;
+  padding: 10px 16px;
+  width: min-content;
+  background-color: $base-white;
+  border-radius: 12px 12px 0 0;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  &::after {
+    @include reverse-border-radius(10px ,-90deg);
+
+    top: unset;
+    bottom: 0;
+  }
+}
+
+.hero-card__bullet {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+  background-color: transparent;
+
+  border: 2px solid $base-secondary;
+  flex-shrink: 0;
+
+  cursor: pointer;
+}
+
+.hero-card__bullet.swiper-pagination-bullet-active {
+  background-color: $base-secondary;
+  border: none;
+  pointer-events: none;
 }
