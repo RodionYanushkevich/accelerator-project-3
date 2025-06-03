@@ -11,6 +11,7 @@ new Swiper('.hero__swiper', {
   loop: true,
   speed: 300,
   slidesPerView: 1,
+  // initialSlide: 3,
   effect: 'fade',
   fadeEffect: {
     crossFade: true,
