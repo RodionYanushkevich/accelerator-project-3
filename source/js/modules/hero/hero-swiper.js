@@ -12,9 +12,12 @@ const paginationBulletsCreate = (swiper) => {
     const bullet = document.createElement('button');
     bullet.setAttribute('type', 'button');
     bullet.classList.add('hero-card__bullet', 'swiper-pagination-bullet');
+    bullet.setAttribute('tabIndex', '0');
 
     if (i === swiper.realIndex) {
       bullet.classList.add('swiper-pagination-bullet-active');
+      bullet.setAttribute('tabIndex', '-1');
+
     }
 
     const buttonDescription = document.createElement('span');
@@ -30,6 +33,25 @@ const paginationBulletsCreate = (swiper) => {
   }
 };
 
+const disableTabIndex = (swiper) => {
+  swiper.slides.forEach((slide) => {
+    const button = slide.querySelector('.hero-card__button');
+    if (!slide.classList.contains('swiper-slide-active')) {
+      button.setAttribute('tabindex', '-1');
+    }
+  });
+};
+
+const tabIndexToggle = (swiper) => {
+  swiper.slides.forEach((slide) => {
+    slide.querySelector('.hero-card__button').setAttribute('tabindex', '-1');
+  });
+
+  const activeSlide = swiper.slides[swiper.activeIndex];
+  activeSlide.querySelector('.hero-card__button').setAttribute('tabindex', '0');
+};
+
+
 new Swiper('.hero__swiper', {
   modules: [EffectFade, A11y],
   loop: true,
@@ -43,15 +65,18 @@ new Swiper('.hero__swiper', {
   on: {
     init: function () {
       paginationBulletsCreate(this);
+      disableTabIndex(this);
     },
     slideChange: function () {
       paginationBulletsCreate(this);
-    }
-  },
-  breakpoints: {
-    1440: {
-      allowTouchMove: false,
-      simulateTouch: false
+      tabIndexToggle(this);
+
+    },
+    breakpoints: {
+      1440: {
+        allowTouchMove: false,
+        simulateTouch: false
+      }
     }
   }
 });

@@ -1,6 +1,8 @@
 import Swiper from 'swiper';
 import { A11y } from 'swiper/modules';
 
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+
 const linkSwiperContainer = document.querySelector('.news__links-swiper');
 
 const swiperClassListToggle = (swiperContainer) => {
@@ -37,7 +39,8 @@ const destroySwiper = () => {
   }
 };
 
-const resizeListener = () => {
+
+const checkScreenSize = () => {
   if (window.innerWidth < 768 && !linksSwiper) {
     swiperClassListToggle(linkSwiperContainer);
     initSwiper();
@@ -46,5 +49,6 @@ const resizeListener = () => {
   }
 };
 
-window.addEventListener('resize', resizeListener);
-resizeListener();
+mediaQuery.addEventListener('change', checkScreenSize);
+
+checkScreenSize();
