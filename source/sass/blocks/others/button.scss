@@ -25,44 +25,46 @@
 
   &:hover {
     background-color: $base-secondary;
-  }
 
-  &:hover .button__description {
-    color: $base-white;
-  }
+    .button__description {
+      color: $base-white;
+    }
 
-  &:hover .button__wrapper {
-    background-color: $base-white;
-    color: $base-secondary;
-    transform: rotate(45deg);
+    .button__wrapper {
+      background-color: $base-white;
+      color: $base-secondary;
+      transform: rotate(45deg);
+    }
   }
 
   &:focus-visible {
     outline: none;
+
+    .button__wrapper {
+      transform: rotate(45deg);
+    }
   }
 
-  &:focus-visible .button__wrapper {
-    transform: rotate(45deg);
-  }
 
   &:active {
     background-color: $base-secondary;
+
+    .button__description,
+    svg {
+      transition: opacity 300ms;
+      opacity: 0.7;
+    }
+
+    .button__description {
+      color: $base-white;
+    }
+
+    .button__wrapper {
+      background-color: $base-white;
+      color: $base-secondary;
+    }
   }
 
-  &:active .button__description,
-  &:active svg {
-    transition: opacity 300ms;
-    opacity: 0.7;
-  }
-
-  &:active .button__description {
-    color: $base-white;
-  }
-
-  &:active .button__wrapper {
-    background-color: $base-white;
-    color: $base-secondary;
-  }
 
   &--disabled,
   &:disabled {
@@ -103,7 +105,7 @@
 
   width: 34px;
   height: 34px;
-  border-radius: 44px;
+  border-radius: 50%;
   color: $base-white;
   background-color: $base-secondary;
 
@@ -118,15 +120,15 @@
 .button--blue-background {
   &:hover {
     background-color: $base-white;
-  }
 
-  &:hover .button__description {
-    color: $base-secondary;
-  }
+    .button__description {
+      color: $base-secondary;
+    }
 
-  &:hover .button__wrapper {
-    background-color: $base-secondary;
-    color: $base-white;
+    .button__wrapper {
+      background-color: $base-secondary;
+      color: $base-white;
+    }
   }
 
   &:focus-visible .button__wrapper {
@@ -136,14 +138,14 @@
 
   &:active {
     background-color: $base-white;
-  }
 
-  &:active .button__description {
-    color: $base-secondary;
-  }
+    .button__wrapper {
+      background-color: $base-secondary;
+      color: $base-white;
+    }
 
-  &:active .button__wrapper {
-    background-color: $base-secondary;
-    color: $base-white;
+    .button__description {
+      color: $base-secondary;
+    }
   }
 }
