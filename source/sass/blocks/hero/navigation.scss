@@ -1,7 +1,11 @@
 .navigation {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 100%;
+  align-items: end;
+  padding: 0 15px;
 
   // &:hover {
   //   width: 100%;
@@ -9,11 +13,12 @@
 }
 
 .navigation__list {
-  // display: flex;
+  box-sizing: border-box;
+  display: flex;
 
-  display: none;
+  // display: none;
   flex-direction: column;
-  margin: 0 15px;
+  margin: 0;
   width: 100%;
   padding: 35px 25px;
 
@@ -50,12 +55,12 @@
 }
 
 .navigation__button {
-  position: absolute;
-  right: 15px;
   box-sizing: border-box;
   padding: 3px 4px 3px 20px;
   gap: unset;
   background-color: $base-white;
+
+
   width: 134px;
   justify-content: space-between;
 
@@ -66,7 +71,8 @@
   &:hover {
     transition: width 300ms;
 
-    width: calc(100% - 30px);
+    width: 100%;
+
 
     .button__wrapper {
       color: $base-secondary;
