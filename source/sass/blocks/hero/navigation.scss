@@ -1,30 +1,60 @@
 .navigation {
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: 100%;
-  align-items: end;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 0fr;
   padding: 0 15px;
+
+  gap: 4px;
+
+  width: 100%;
+
   min-width: 320px;
+
+  overflow: hidden;
+  transition: grid-template-rows 500ms;
+
+  &--open {
+    grid-template-rows: min-content 1fr;
+  }
 }
 
 .navigation__list {
   box-sizing: border-box;
+  padding: 0 25px;
   display: flex;
-
-  // display: none;
   flex-direction: column;
   margin: 0;
   width: 100%;
-  padding: 35px 25px;
-
   gap: 28px;
   list-style: none;
   color: $base-white;
   background-color: $base-secondary;
 
   border-radius: 16px;
+
+  opacity: 0;
+
+  overflow: hidden;
+
+  transition: opacity 500ms, padding 900ms;
+}
+
+.navigation__list--open {
+  padding: 35px 25px;
+
+  opacity: 1;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+  }
 }
 
 .navigation__dropdown-list {
@@ -44,26 +74,16 @@
   opacity: 0;
 
   &--open {
-    // overflow: visible;
-
     transition: opacity 500ms;
-    visibility: visible;
     opacity: 1;
+    visibility: visible;
   }
 }
 
-
-.navigation__button .button__description {
-  font-size: 14px;
-}
-
-.navigation__button .button__wrapper {
-  width: 46px;
-  height: 46px;
-  flex-shrink: 0;
-}
-
 .navigation__link {
+  margin: 0;
+  padding: 0;
+
   display: flex;
 
   text-decoration: none;
@@ -71,7 +91,7 @@
 
   font-weight: 500;
   font-size: 16px;
-  line-height: 100%;
+  line-height: 12px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
@@ -130,7 +150,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content 0fr;
-  overflow: hidden;
+
   row-gap: 0;
 
   transition: gap 300ms, grid-template-rows 600ms;
@@ -181,15 +201,27 @@
   }
 }
 
+.navigation__button .button__description {
+  font-size: 14px;
+}
+
+.navigation__button .button__wrapper {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+}
+
+
 .navigation__button {
   box-sizing: border-box;
   padding: 3px 4px 3px 20px;
   gap: unset;
-  background-color: $base-white;
-
+  justify-self: end;
+  justify-content: space-between;
 
   width: 134px;
-  justify-content: space-between;
+
+  background-color: $base-white;
 
   @media ($tablet-breakpoint) {
     padding: 4px 4px 4px 20px;
@@ -197,14 +229,47 @@
 
   &:hover {
     transition: width 300ms;
-
     width: 100%;
-
 
     .button__wrapper {
       color: $base-secondary;
-
       transform: rotate(0);
     }
+  }
+
+  &:focus-visible .button__wrapper {
+    transform: rotate(0);
+    opacity: 0.9;
+  }
+
+  &:active .button__wrapper {
+    transform: rotate(-225deg);
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      display: block;
+
+      background-color: $base-secondary;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    &::before {
+      width: 18px;
+      height: 1px;
+    }
+
+    &::after {
+      width: 1px;
+      height: 18px;
+    }
+  }
+
+  &:active svg {
+    display: none;
   }
 }
