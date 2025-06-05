@@ -31,8 +31,15 @@ dropdownNavigationButton.addEventListener('click', () => {
   });
 
   tabindexToggle();
+  document.body.classList.toggle('body--overlay-shown');
+  dropdownNavigationButton.classList.toggle('navigation__button--active');
 }
 );
+
+
+navigation.addEventListener('click', (e) => {
+
+  console.log(e.target);
+});
+
 tabindexToggle();
-
-

@@ -4,7 +4,7 @@
 import 'swiper/css';
 
 import '../js/modules/header/dropdown-navigation.js';
-import '../js/modules/header/dropdown-list-items.js';
+import '../js/modules/header/dropdown-sublist-items.js';
 import '../js/modules/hero/hero-swiper.js';
 import '../js/modules/news/link-swiper.js';
 import '../js/modules/faq/accordion.js';
