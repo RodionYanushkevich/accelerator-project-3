@@ -24,7 +24,7 @@
   <!-- !!!!!!!!!!!!!! -->
   <!-- липкий футер не забудь -->
   <header class="body__header header">
-    <img class="header__logo logo" src="img/logo.svg" alt="Логотип Internship" width="52" height="52">
+    <img class="header__logo logo header__logo--menuopen" src="img/logo.svg" alt="Логотип Internship" width="52" height="52">
     <nav class="header__nav navigation">
 
       <button class="navigation__button button" type="button">
@@ -264,14 +264,57 @@
               <picture>
                 <source type="image/webp" media="(min-width:1440px)" srcset="img/programs/slide-1/programs-desktop-slide-1@1x.webp 1x, img/programs/slide-1/programs-desktop-slide-1@2x.webp 2x" width="392" height="420">
                 <source type="image/webp" media="(min-width:768px)" srcset="img/programs/slide-1/programs-tablet-slide-1@1x.webp 1x, img/programs/slide-1/programs-tablet-slide-1@2x.webp 2x" width="324" height="420">
-                <img class="programs-card__img" src="img/programs/slide-1/programs-mobile-slide-1@1x.webp" srcset="img/programs/slide-1/programs-mobile-slide-1@2x.webp" alt="Девушки смотрят в бумаги" width="290" height="400">
+                <img class="programs-card__img" src="img/programs/slide-1/programs-mobile-slide-1@1x.webp" srcset="img/programs/slide-1/programs-mobile-slide-1@2x.webp" alt="Девушки смотрят в документы" width="290" height="400">
               </picture>
               <div class="programs-card__wrapper nebo nebo--tr">
                 <h3 class="programs-card__title">Стажировки</h3>
                 <p>Получите незаменимый опыт
                   работы в крупнейших мировых
                   компаниях.</p>
-                <a class="programs-card__link" href="#" title="стажировки" aria-label="ссылка на стажировки">
+                <a class="programs-card__link small-button" href="#" title="стажировки" aria-label="ссылка на стажировки">
+                  <svg width="8" height="8">
+                    <use href="/__spritemap#sprite-link-arrow"></use>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+          </li>
+          <li class="programs__list-item swiper-slide">
+
+            <article class="programs-card">
+              <picture>
+                <source type="image/webp" media="(min-width:1440px)" srcset="img/programs/slide-2/programs-desktop-slide-2@1x.webp 1x, img/programs/slide-2/programs-desktop-slide-2@2x.webp 2x" width="392" height="420">
+                <source type="image/webp" media="(min-width:768px)" srcset="img/programs/slide-2/programs-tablet-slide-2@1x.webp 1x, img/programs/slide-2/programs-tablet-slide-2@2x.webp 2x" width="324" height="420">
+                <img class="programs-card__img" src="img/programs/slide-2/programs-mobile-slide-2@1x.webp" srcset="img/programs/slide-2/programs-mobile-slide-2@2x.webp" alt="Фотография молодого мужчины" width="290" height="400">
+              </picture>
+              <div class="programs-card__wrapper nebo nebo--tr">
+                <h3 class="programs-card__title">Волонтёрство</h3>
+                <p>Помогайте другим 
+                  и развивайте свои<br>
+                  лидерские качества</p>
+                <a class="programs-card__link small-button" href="#" title="стажировки" aria-label="ссылка на стажировки">
+                  <svg width="8" height="8">
+                    <use href="/__spritemap#sprite-link-arrow"></use>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+          </li>
+          <li class="programs__list-item swiper-slide">
+
+            <article class="programs-card">
+              <picture>
+                <source type="image/webp" media="(min-width:1440px)" srcset="img/programs/slide-3/programs-desktop-slide-3@1x.webp 1x, img/programs/slide-3/programs-desktop-slide-3@2x.webp 2x" width="392" height="420">
+                <source type="image/webp" media="(min-width:768px)" srcset="img/programs/slide-3/programs-tablet-slide-3@1x.webp 1x, img/programs/slide-3/programs-tablet-slide-3@2x.webp 2x" width="324" height="420">
+                <img class="programs-card__img" src="img/programs/slide-3/programs-mobile-slide-3@1x.webp" srcset="img/programs/slide-3/programs-mobile-slide-3@2x.webp" alt="молодой мужчина делает записи держа учебник" width="290" height="400">
+              </picture>
+              <div class="programs-card__wrapper nebo nebo--tr">
+                <h3 class="programs-card__title">Учёба</h3>
+                <p>Получите образование и измените
+                  своё будущее.</p>
+                <a class="programs-card__link small-button" href="#" title="стажировки" aria-label="ссылка на стажировки">
                   <svg width="8" height="8">
                     <use href="/__spritemap#sprite-link-arrow"></use>
                   </svg>
@@ -282,20 +325,21 @@
           </li>
         </ul>
 
-        <button class="swiper-button programs__swiper-button swiper-button-prev" type="button">
+        <button class="programs__swiper-button swiper-button swiper-button-prev" type="button">
           <span class="visually-hidden">Предидущий слайд</span>
-          <svg class="swiper-button__icon" width="14" height="9">
-            <use href="__spritemap#sprite-button-arrow"></use>
+          <svg class="swiper-button__icon" width="12" height="12">
+            <use href="__spritemap#sprite-swiper-arrow"></use>
           </svg>
         </button>
-        <button class="swiper-button programs__swiper-button swiper-button-next" type="button">
+        <button class="programs__swiper-button swiper-button swiper-button-next" type="button">
           <span class="visually-hidden">Следующий слайд</span>
-          <svg class="swiper-button__icon" width="14" height="9">
-            <use href="__spritemap#sprite-button-arrow"></use>
+          <svg class="swiper-button__icon" width="12" height="12">
+            <use href="__spritemap#sprite-swiper-arrow"></use>
           </svg>
         </button>
-
+        <div class="programs__scrollbar swiper-scrollbar"></div>
       </div>
+
       <a class="programs__button button" href="#">
         <span class="button__description">все программы</span>
         <span class="button__wrapper">

@@ -1,0 +1,46 @@
+.swiper-button {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background-color: transparent;
+  color: $base-secondary;
+  border: none;
+
+  flex-shrink: 0;
+
+  transition:
+    background-color 150ms,
+    color 300ms;
+
+  cursor: pointer;
+
+  &:active svg,
+  &:hover svg {
+    opacity: 0.7;
+  }
+
+  &:focus-visible {
+    outline: none;
+    background-color: $base-white;
+  }
+
+  &:active {
+    background-color: $base-white;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    color: #a9afb7;
+  }
+}
+
+
+.swiper-button-prev {
+  transform: rotate(180deg);
+}

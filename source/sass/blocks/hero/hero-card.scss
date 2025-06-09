@@ -86,8 +86,9 @@
   }
 
   @media ($tablet-breakpoint) {
-    padding: 0 44px 35px 40px;
-    width: 49.1%;
+    box-sizing: content-box;
+    padding: 0 15px 35px 40px;
+    width: 285px;
     border-radius: 0 0 0 30px;
 
     &::after {
@@ -96,6 +97,7 @@
   }
 
   @media ($desktop-breakpoint) {
+    box-sizing: border-box;
     padding: 0 54px 35px 50px;
     width: 51.2%;
 
@@ -127,7 +129,7 @@
   }
 
   @media ($tablet-breakpoint) {
-    padding: 0 40px 0 0;
+    padding: 0 40px 0 15px;
 
     border-radius: 0 0 30px;
   }
@@ -154,11 +156,22 @@
   align-items: center;
   gap: 10px;
 
+
+  @media ($tablet-breakpoint) {
+    padding: 14px 20px;
+    border-radius: 20px 20px 0 0;
+    gap: 12px;
+  }
+
   &::after {
     @include reverse-border-radius(10px ,-90deg);
 
     top: unset;
     bottom: 0;
+
+    @media ($tablet-breakpoint) {
+      width: 20px;
+    }
   }
 }
 
@@ -174,10 +187,6 @@
 
   border: 2px solid $base-secondary;
   flex-shrink: 0;
-
-  // outline-offset: -2px;
-
-  // border: none;
   cursor: pointer;
 
   &:hover {
@@ -197,8 +206,8 @@
   }
 
   @media ($tablet-breakpoint) {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
   }
 }
 

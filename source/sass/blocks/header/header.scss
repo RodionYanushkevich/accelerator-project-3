@@ -6,7 +6,6 @@
   min-width: 320px;
 
   align-items: center;
-  z-index: 3;
 
   @media ($tablet-breakpoint) {
     padding: 0 45px;
@@ -20,6 +19,17 @@
 .header__logo {
   position: absolute;
   top: 1px;
+  z-index: 2;
 
-  z-index: -10;
+  @media ($tablet-breakpoint) {
+    top: 2px;
+  }
+}
+
+.header__nav {
+  z-index: 3;
+
+  @media ($tablet-breakpoint) {
+    margin-left: auto;
+  }
 }

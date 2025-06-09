@@ -9,7 +9,6 @@
   overflow: hidden;
 
   transition: grid-template-rows 500ms;
-  z-index: 3;
 
   &--open {
     grid-template-rows: min-content 1fr;
@@ -17,7 +16,6 @@
 
   @media ($tablet-breakpoint) {
     width: unset;
-    margin-left: auto;
   }
 }
 

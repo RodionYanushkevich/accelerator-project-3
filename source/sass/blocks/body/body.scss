@@ -16,12 +16,14 @@
     background-color: #0d1d33;
     z-index: 2;
     opacity: 0.4;
-
-    transition: opacity 300ms;
   }
 }
 
 .body__header {
   position: absolute;
-  top: 21px;
+  top: 20px;
+
+  @media ($tablet-breakpoint) {
+    top: 30px;
+  }
 }

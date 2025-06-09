@@ -1,23 +1,29 @@
 .programs {
+  position: relative;
   box-sizing: border-box;
   padding: 50px 15px;
   display: flex;
   flex-direction: column;
   gap: 30px;
 
+  overflow: hidden;
+
   @media ($tablet-breakpoint) {
-    // ! нижний паддинг
-    padding: 50px 45px 112px;
+    padding: 50px 45px 60px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: 36px;
   }
 
   @media ($desktop-breakpoint) {
-    // ! нижний паддинг
-    padding: 60px 100px 122px;
+    gap: 40px;
+    align-items: center;
+
+    align-self: center;
+    padding: 60px 100px 70px;
+    max-width: $desktop;
   }
 }
 
@@ -27,13 +33,6 @@
 
   list-style: none;
 }
-
-
-// !!!!!!!!!!!!! уберешь
-.swiper-button {
-  display: none;
-}
-
 
 .programs__button {
   background-color: transparent;
@@ -51,15 +50,104 @@
   align-items: center;
 
   @media ($tablet-breakpoint) {
+    width: 50%;
     height: 60px;
   }
 }
 
 .programs__swiper {
-  @media ($tablet-breakpoint) {
-    order: 3;
+  overflow: hidden;
+  width: 100%;
 
-    // !!!
+  @media ($tablet-breakpoint) {
+    overflow: unset;
+    width: 678px;
+    order: 3;
+  }
+
+  @media ($desktop-breakpoint) {
+    width: 1240px;
+  }
+}
+
+.programs__list-item.swiper-slide {
+  display: flex;
+  justify-content: center;
+
+  @media ($tablet-breakpoint) {
+    justify-content: flex-start;
+  }
+}
+
+.programs__swiper-button {
+  position: absolute;
+  top: 54px;
+  right: 15px;
+
+  @media ($tablet-breakpoint) {
+    top: unset;
+    bottom: 50px;
+    right: 45px;
+  }
+
+  @media ($desktop-breakpoint) {
+    bottom: 60px;
+    right: 100px;
+  }
+}
+
+.programs__swiper-button.swiper-button-prev {
+  right: 45px;
+
+  @media ($tablet-breakpoint) {
+    right: 77px;
+  }
+
+  @media ($desktop-breakpoint) {
+    right: 132px;
+  }
+}
+
+.programs__scrollbar.swiper-scrollbar {
+  @media (width < $tablet) {
+    display: none;
+  }
+
+  box-sizing: border-box;
+  position: relative;
+  margin-top: 50px;
+
+  // !динамично мож?
+  width: 562px;
+
+  height: 2px;
+  background-color: rgba(49, 109, 194, 0.2);
+
+  @media ($desktop-breakpoint) {
+    width: 1136px;
+
+    display: block !important;
+
+    // display: block !important;
+  }
+}
+
+.programs__scrollbar .swiper-scrollbar-drag {
+  position: relative;
+  top: -5px;
+  height: 10px;
+
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    display: block;
+    height: 2px;
     width: 100%;
+    background-color: $base-secondary;
   }
 }

@@ -15,9 +15,16 @@
     width: 324px;
     min-height: 420px;
   }
+
+  @media ($desktop-breakpoint) {
+    padding: 17px 50px 17px 20px;
+    width: 392px;
+  }
 }
 
 .programs-card__wrapper {
+  position: relative;
+  box-sizing: border-box;
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 1fr 30px;
@@ -27,6 +34,10 @@
   border-radius: 12px 0 12px 12px;
 
   background-color: $base-white;
+
+  @media ($desktop-breakpoint) {
+    min-height: 123px;
+  }
 }
 
 .programs-card__wrapper.nebo--tr {
@@ -35,9 +46,15 @@
   --nb-h: 18px;
 
   @media ($tablet-breakpoint) {
-    --nb-r: 12px;
-    --nb-w: 87px;
-    --nb-h: 14px;
+    --nb-r: 18px;
+    --nb-w: 75px;
+    --nb-h: 2px;
+  }
+
+  @media ($desktop-breakpoint) {
+    --nb-r: 16px;
+    --nb-w: 94px;
+    --nb-h: 9px;
   }
 }
 
@@ -77,12 +94,20 @@
   @media ($tablet-breakpoint) {
     font-size: 14px;
     line-height: 143%;
-    min-width: 202px;
+    min-width: 200px;
   }
 
   @media ($desktop-breakpoint) {
     font-size: 14px;
-    line-height: 129%;
+    line-height: 18px;
+  }
+}
+
+.programs-card br {
+  display: none;
+
+  @media (width = 768px) {
+    display: inline;
   }
 }
 
@@ -93,6 +118,7 @@
 }
 
 .programs-card__img {
+  background-color: #d3d3d3;
   border-radius: 12px;
 }
 
@@ -101,13 +127,9 @@
   grid-column: 2/2;
 
   align-self: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  color: $base-white;
 
-  background-color: $base-secondary;
-  border-radius: 50%;
+  @media ($desktop-breakpoint) {
+    position: absolute;
+    bottom: 13.5px;
+  }
 }
