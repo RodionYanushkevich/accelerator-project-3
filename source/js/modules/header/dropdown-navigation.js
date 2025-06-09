@@ -1,45 +1,78 @@
+// import { compensateOverflowPadding } from '../../util.js';
 
 const navigation = document.querySelector('.navigation');
+const navLinks = navigation.querySelectorAll('.navigation__link');
+const dropdownSubMenuList = navigation.querySelectorAll('.navigation__item--dropdown');
 
 const [dropdownNavigationButton, dropdownNavigationList] = navigation.children;
 
-const dropdownSubMenuList = navigation.querySelectorAll('.navigation__item--dropdown');
+let isMenuOpen = false;
 
-const navLinks = document.querySelectorAll('.navigation__list > *');
-
-const tabindexToggle = () => {
-  if (!dropdownNavigationList.classList.contains('navigation__list--open')) {
-    navLinks.forEach((link) => {
-      link.setAttribute('tabindex', '-1');
-    });
-  } else {
-    navLinks.forEach((link) => {
-      link.setAttribute('tabindex', '0');
-    });
-  }
+const updateTabindex = () => {
+  navLinks.forEach((link) => {
+    link.tabIndex = isMenuOpen ? 0 : -1;
+  });
 };
 
 
-dropdownNavigationButton.addEventListener('click', () => {
-  navigation.classList.toggle('navigation--open');
-  dropdownNavigationList.classList.toggle('navigation__list--open');
+const openNavigation = () => {
+  navigation.classList.add('navigation--open');
+  dropdownNavigationList.classList.add('navigation__list--open');
+  dropdownNavigationButton.classList.add('navigation__button--active');
+  document.body.classList.add('body--overlay-shown');
+
+  isMenuOpen = true;
+
+  updateTabindex();
+
+  document.addEventListener('keydown', handleEscapeKey);
+  document.addEventListener('click', handleOutsideClick);
+};
+
+const closeNavigation = (isClickOutside) => {
+
+  navigation.classList.remove('navigation--open');
+  dropdownNavigationList.classList.remove('navigation__list--open');
+  document.body.classList.remove('body--overlay-shown');
+  isMenuOpen = false;
+
+  updateTabindex();
 
   dropdownSubMenuList.forEach((subMenu) => {
-    if (subMenu.classList.contains('navigation__item--dropdown-open')) {
-      subMenu.classList.remove('navigation__item--dropdown-open');
-    }
+    subMenu.classList.remove('navigation__item--dropdown-open');
   });
 
-  tabindexToggle();
-  document.body.classList.toggle('body--overlay-shown');
-  dropdownNavigationButton.classList.toggle('navigation__button--active');
+  if (isClickOutside && dropdownNavigationButton.classList.contains('navigation__button--active')) {
+    setTimeout(() => {
+      dropdownNavigationButton.classList.remove('navigation__button--active');
+    }, 500);
+    // !!! ПЕРЕМЕННЫЕ ПО РУТ
+  } else {
+    dropdownNavigationButton.classList.remove('navigation__button--active');
+  }
+
+  document.removeEventListener('keydown', handleEscapeKey);
+  document.removeEventListener('click', handleOutsideClick);
+};
+
+function handleOutsideClick(e) {
+  if (!navigation.contains(e.target) || !e.target.closest('.navigation') && isMenuOpen) {
+    closeNavigation(true);
+  }
 }
-);
 
+function handleEscapeKey(e) {
+  if (e.key === 'Escape') {
+    closeNavigation(true);
+  }
+}
 
-navigation.addEventListener('click', (e) => {
-
-  console.log(e.target);
+dropdownNavigationButton.addEventListener('click', () => {
+  if (isMenuOpen) {
+    closeNavigation();
+  } else {
+    openNavigation();
+  }
 });
 
-tabindexToggle();
+updateTabindex();

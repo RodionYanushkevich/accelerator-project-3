@@ -3,20 +3,21 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content 0fr;
-  padding: 0 15px;
-
-  gap: 4px;
 
   width: 100%;
-
-  min-width: 320px;
-
+  gap: 4px;
   overflow: hidden;
+
   transition: grid-template-rows 500ms;
   z-index: 3;
 
   &--open {
     grid-template-rows: min-content 1fr;
+  }
+
+  @media ($tablet-breakpoint) {
+    width: unset;
+    margin-left: auto;
   }
 }
 
@@ -28,22 +29,32 @@
   margin: 0;
   width: 100%;
   gap: 28px;
-  list-style: none;
+
+
   color: $base-white;
   background-color: $base-secondary;
-
   border-radius: 16px;
+  overflow: hidden;
+
+  list-style: none;
 
   opacity: 0;
 
-  overflow: hidden;
-
   transition: opacity 500ms, padding 900ms;
+
+  @media ($tablet-breakpoint) {
+    width: min-content;
+    padding-right: 137px;
+  }
 }
 
 .navigation__list--open {
   padding: 35px 25px;
   opacity: 1;
+
+  @media ($tablet-breakpoint) {
+    padding-right: 137px;
+  }
 }
 
 .navigation__dropdown-list {
@@ -58,7 +69,6 @@
   list-style: none;
 
   overflow: hidden;
-
   visibility: hidden;
   opacity: 0;
 
@@ -72,17 +82,16 @@
 .navigation__link {
   margin: 0;
   padding: 0;
-
   display: flex;
-
-  text-decoration: none;
-  color: inherit;
 
   font-weight: 500;
   font-size: 16px;
   line-height: 12px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  text-decoration: none;
+
+  color: inherit;
 
   opacity: 0.7;
 
@@ -122,8 +131,6 @@
     background-size: 100%;
     background-image: url("/__spritemap#sprite-dropdown-arrow-view");
 
-    // transform: rotate(0);
-
     transition: transform 300ms;
   }
 
@@ -150,18 +157,8 @@
   row-gap: 20px;
 }
 
-.navigation__item--dropdown-open button {
-  color: red;
-
-  &::after {
-    transform: rotate(-180deg);
-  }
-
-  // &:hover {
-  //   &::after {
-  //     transform: rotate(0)
-  //   }
-  // }
+.navigation__item--dropdown-open button::after {
+  transform: rotate(-180deg);
 }
 
 .navigation__dropdown-link {
@@ -269,6 +266,7 @@
   background-color: $base-secondary;
   color: $base-white;
 
+  &:focus,
   &:hover {
     .button__wrapper {
       transform: rotate(-135deg);
@@ -280,7 +278,6 @@
   transform: rotate(-225deg);
   color: $base-secondary;
   background-color: $base-white;
-
 
   &::before,
   &::after {
@@ -302,8 +299,8 @@
     width: 1px;
     height: 18px;
   }
+}
 
-  svg {
-    display: none;
-  }
+.navigation__button--active svg {
+  display: none;
 }

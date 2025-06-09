@@ -22,9 +22,12 @@
 /* BODY */
 @import "./blocks/body/body";
 
+/* HEADER */
+@import "./blocks/header/header";
+@import "./blocks/header/navigation";
+
 /* HERO */
 @import "./blocks/hero/hero";
-@import "./blocks/hero/navigation";
 @import "./blocks/hero/hero-card";
 
 /* ABOUT */

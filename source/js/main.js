@@ -3,8 +3,10 @@
 // import {Navigation, Pagination} from "swiper/modules";
 import 'swiper/css';
 
+import '../js/util.js';
+
 import '../js/modules/header/dropdown-navigation.js';
-import '../js/modules/header/dropdown-sublist-items.js';
+import '../js/modules/header/dropdown-submenu.js';
 import '../js/modules/hero/hero-swiper.js';
 import '../js/modules/news/link-swiper.js';
 import '../js/modules/faq/accordion.js';
