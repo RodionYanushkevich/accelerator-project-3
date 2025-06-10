@@ -35,6 +35,11 @@
   }
 }
 
+// .news-card__container > * {
+//   position: relative;
+//   top: 1px;
+// }
+
 .news-card--big-card .news-card__container {
   @media ($desktop-breakpoint) {
     padding-right: 136px;
@@ -51,7 +56,7 @@
 .news-card__date {
   position: relative;
   border-radius: 0 12px 0 0;
-  padding: 12px 12px 6px 0;
+  padding: 13px 12px 5px 0;
 
   width: min-content;
 
@@ -88,7 +93,7 @@
   position: relative;
   box-sizing: border-box;
   margin: 0;
-  padding: 10px 18px 4px 0;
+  padding: 11px 18px 3px 0;
 
   width: 200px;
 
@@ -130,6 +135,8 @@
 }
 
 .news-card p {
+  position: relative;
+  top: 1px;
   margin: 0;
   padding: 0;
   font-size: 12px;
@@ -179,18 +186,4 @@
 .news-card__img {
   border-radius: 12px;
   background-color: #add8e6;
-}
-
-.news-card__link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  color: $base-white;
-
-  flex-shrink: 0;
-
-  background-color: $base-secondary;
-  border-radius: 50%;
 }

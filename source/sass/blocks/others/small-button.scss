@@ -10,6 +10,7 @@
   background-color: $base-secondary;
   border-radius: 50%;
 
+  flex-shrink: 0;
   transition:
     background-color 300ms,
     transform 300ms,

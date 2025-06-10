@@ -1,5 +1,7 @@
 import Swiper from 'swiper';
+// import { Navigation, Scrollbar } from 'swiper/modules';
 import { A11y, Navigation, Scrollbar } from 'swiper/modules';
+// import 'swiper/css/a11y';
 
 const programsSwiperContainer = document.querySelector('.programs__swiper');
 
@@ -7,10 +9,11 @@ const programsSwiperContainer = document.querySelector('.programs__swiper');
 // programsSwiper =
 
 new Swiper(programsSwiperContainer, {
+  // modules: [Navigation, Scrollbar],
   modules: [A11y, Navigation, Scrollbar],
   speed: 300,
   slidesPerView: 1,
-  a11y: { enabled: true },
+  // a11y: { enabled: true },
   autoHeight: true,
   spaceBetween: 20,
   navigation: {
