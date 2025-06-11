@@ -1,90 +1,71 @@
 import Swiper from 'swiper';
-import { Navigation, Scrollbar, Grid, Pagination } from 'swiper/modules';
+import { Navigation, A11y, Grid, Pagination } from 'swiper/modules';
 import 'swiper/css/grid';
 // import 'swiper/css/pagination';
 const newsSwiperContainer = document.querySelector('.news__swiper');
 
-const disableTabIndex = () => {
-  const paginationBullets = document.querySelectorAll('.swiper-pagination-bullet');
-  paginationBullets.forEach((bullet) => {
-    if (bullet.classList.contains('swiper-pagination-bullet-active')) {
-      bullet.setAttribute('tabindex', '-1');
+const SLIDES_TO_DUPLICATE_BY_BREAKPOINT = [8, 12, 16];
+
+const disableBulletTabIndex = () => {
+
+  const bullets = newsSwiperContainer.querySelectorAll('.swiper-pagination-bullet');
+
+  bullets.forEach((button) => {
+
+    if (button.classList.contains('swiper-pagination-bullet-active')) {
+      button.setAttribute('tabindex', '-1');
+      button.blur();
     } else {
-      bullet.setAttribute('tabindex', '0');
+      button.setAttribute('tabindex', '0');
     }
   });
 };
 
-const newsSwiper = new Swiper(newsSwiperContainer, {
-  modules: [Navigation, Scrollbar, Grid, Pagination],
-  speed: 300,
-  slidesPerView: 1,
-  slidesPerGroup: 1,
-  spaceBetween: 15,
-  grid: {
-    rows: 2,
-    fill: 'row',
-  },
-  navigation: {
-    nextEl: '.news__swiper-button.swiper-button-next',
-    prevEl: '.news__swiper-button.swiper-button-prev',
-  },
-  pagination: {
-    el: '.news__pagination.swiper-pagination',
-    clickable: true,
-    renderBullet: function (index, className) {
-      return `<button class="${className}" type='button'>${index + 1}</button>`;
-    }
-  },
-  on: {
-    init: function () {
-      disableTabIndex();
-      duplicateSlides(newsSwiperContainer);
 
-    },
-    slideChange: function () {
-      disableTabIndex();
+const updateTabIndex = (swiper) => {
+  const slides = swiper.wrapperEl.childNodes;
+  const activeIndex = swiper.activeIndex;
 
-    },
-  },
-  breakpoints: {
-    768: {
-      slidesPerGroup: 2,
-      spaceBetween: 30,
-      slidesPerView: 2,
-    },
-    // 1440: {
-    //   scrollbar: {
-    //     dragSize: 394,
-    //   },
-    //   slidesPerView: 2,
-    //   spaceBetween: 32,
-    //   allowTouchMove: false,
-    //   simulateTouch: false
-    // }
+  if (window.innerWidth <= 768) {
+    slides.forEach((slide, index) => {
+      const button = slide.querySelector('.news-card__link');
+
+      const isVisible = index === activeIndex || index === activeIndex + 4;
+
+      if (isVisible) {
+        button.setAttribute('tabindex', '0');
+      } else {
+        button.setAttribute('tabindex', '-1');
+      }
+    });
+  } else {
+
+    // !!!
+    slides.forEach((slide) => {
+      const button = slide.querySelector('.news-card__link');
+      if (button) {
+        button.setAttribute('tabindex', '0');
+      }
+    });
   }
-});
+};
 
-
-function duplicateSlides(container) {
-  const wrapper = container.querySelector('.swiper-wrapper');
-  const originalSlides = Array.from(container.querySelectorAll('.swiper-slide'));
-
+const duplicateSlides = (swiper) => {
+  const wrapper = swiper.wrapperEl;
+  const originalSlides = Array.from(swiper.slides);
   wrapper.innerHTML = '';
-
-  // const originalCount = originalSlides.length;
 
   const getSlidesCount = () => {
     if (window.innerWidth >= 1440) {
-      return 12;
+      return SLIDES_TO_DUPLICATE_BY_BREAKPOINT[2];
     }
     if (window.innerWidth >= 768) {
-      return 16;
+      return SLIDES_TO_DUPLICATE_BY_BREAKPOINT[1];
     }
-    return 8;
+    return SLIDES_TO_DUPLICATE_BY_BREAKPOINT[0];
   };
-
   const slidesToCreate = getSlidesCount();
+
 
   const fragment = document.createDocumentFragment();
 
@@ -109,4 +90,62 @@ function duplicateSlides(container) {
   }
 
   wrapper.appendChild(fragment);
-}
+  fragment.innerHTML = '';
+};
+
+
+// const newsSwiper =
+new Swiper(newsSwiperContainer, {
+  modules: [Navigation, Grid, Pagination],
+  speed: 300,
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  spaceBetween: 15,
+  // a11y: {
+  //   enabled: true,
+  // },
+  grid: {
+    rows: 2,
+    fill: 'row',
+  },
+  navigation: {
+    nextEl: '.news__swiper-button.swiper-button-next',
+    prevEl: '.news__swiper-button.swiper-button-prev',
+  },
+  pagination: {
+    el: '.news__pagination.swiper-pagination',
+    clickable: true,
+    renderBullet: function (index,) {
+      return `<button class="news__swiper-bullet swiper-pagination-bullet" type='button'>${index + 1}</button>`;
+    }
+  },
+  on: {
+    init: function () {
+      duplicateSlides(this);
+      updateTabIndex(this);
+      this.update();
+      disableBulletTabIndex();
+    },
+    slideChange: function () {
+      disableBulletTabIndex();
+      updateTabIndex(this);
+
+    },
+  },
+  breakpoints: {
+    768: {
+      slidesPerGroup: 2,
+      spaceBetween: 30,
+      slidesPerView: 2,
+    },
+    // 1440: {
+    //   scrollbar: {
+    //     dragSize: 394,
+    //   },
+    //   slidesPerView: 2,
+    //   spaceBetween: 32,
+    //   allowTouchMove: false,
+    //   simulateTouch: false
+    // }
+  }
+});

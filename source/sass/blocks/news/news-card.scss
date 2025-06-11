@@ -41,6 +41,8 @@
 // }
 
 .news-card--big-card .news-card__container {
+  width: 100%;
+
   @media ($desktop-breakpoint) {
     padding-right: 136px;
   }
