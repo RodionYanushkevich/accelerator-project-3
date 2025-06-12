@@ -124,9 +124,7 @@ const duplicateSlides = (swiper) => {
         }
       }
     } else {
-      if (slidesToCreate === SLIDES_TO_DUPLICATE_BY_BREAKPOINT[1]) {
-        originalIndex = i % 4;
-      } else if (slidesToCreate === SLIDES_TO_DUPLICATE_BY_BREAKPOINT[2]) {
+      if (slidesToCreate === SLIDES_TO_DUPLICATE_BY_BREAKPOINT[2]) {
         originalIndex = i % originalSlides.length;
       }
     }
@@ -243,6 +241,10 @@ new Swiper(newsSwiperContainer, {
   },
   breakpoints: {
     768: {
+      grid: {
+        rows: 2,
+        fill: 'row',
+      },
       slidesPerGroup: 2,
       spaceBetween: 30,
       slidesPerView: 2,
