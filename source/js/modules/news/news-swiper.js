@@ -140,6 +140,43 @@ const duplicateSlides = (swiper) => {
 };
 
 
+const paginationBulletsHide = (swiper) => {
+  const bullets = swiper.el.querySelectorAll('.swiper-pagination-bullet');
+  const totalSlides = swiper.slides.length;
+  const activeIndex = swiper.activeIndex;
+
+  if (totalSlides <= 4) {
+    bullets.forEach((bullet) => {
+      bullet.style.display = 'flex';
+    });
+    return;
+  }
+
+  bullets.forEach((bullet) => {
+    bullet.style.display = 'none';
+  });
+
+  let start, end;
+
+  if (activeIndex < 2) {
+    start = 0;
+    end = 3;
+  } else if (activeIndex >= totalSlides - 2) {
+    start = totalSlides - 4;
+    end = totalSlides - 1;
+  } else {
+    start = activeIndex - 2;
+    end = activeIndex + 1;
+  }
+
+  for (let i = start; i <= end; i++) {
+    if (bullets[i]) {
+      bullets[i].style.display = 'flex';
+    }
+  }
+
+};
+
 // const newsSwiper =
 new Swiper(newsSwiperContainer, {
   modules: [Navigation, Grid, Pagination],
@@ -184,10 +221,12 @@ new Swiper(newsSwiperContainer, {
         activeSlide.children[0].classList.add('news-card--big-card');
 
       }
+      paginationBulletsHide(this);
     },
     slideChange: function () {
       disableBulletTabIndex();
       updateTabIndex(this);
+      paginationBulletsHide(this);
 
       if (window.innerWidth >= 1440) {
         this.slides.forEach((slide) => {
