@@ -3,7 +3,9 @@
 }
 
 .body--overlay-shown {
-  overflow: hidden;
+  position: fixed;
+  overflow-y: scroll;
+
 
   &::after {
     content: "";
