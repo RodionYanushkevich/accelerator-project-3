@@ -4,7 +4,7 @@ import 'swiper/css/grid';
 // import 'swiper/css/pagination';
 const newsSwiperContainer = document.querySelector('.news__swiper');
 
-const SLIDES_TO_DUPLICATE_BY_BREAKPOINT = [8, 12, 16];
+const SLIDES_TO_DUPLICATE_BY_BREAKPOINT = [8, 16, 16];
 
 const disableBulletTabIndex = () => {
 
@@ -26,7 +26,15 @@ const updateTabIndex = (swiper) => {
   const slides = swiper.wrapperEl.childNodes;
   const activeIndex = swiper.activeIndex;
 
-  if (window.innerWidth <= 768) {
+  slides.forEach((slide) => {
+    const button = slide.querySelector('.news-card__link');
+    if (button) {
+      button.setAttribute('tabindex', '-1');
+
+    }
+  });
+
+  if (window.innerWidth < 768) {
     slides.forEach((slide, index) => {
       const button = slide.querySelector('.news-card__link');
 
@@ -38,14 +46,21 @@ const updateTabIndex = (swiper) => {
         button.setAttribute('tabindex', '-1');
       }
     });
-  } else {
+  }
+  if (window.innerWidth >= 768) {
 
-    // !!!
-    slides.forEach((slide) => {
-      const button = slide.querySelector('.news-card__link');
-      if (button) {
-        button.setAttribute('tabindex', '0');
-      }
+    const index2 = activeIndex;
+    const visibleIndexes = [
+      activeIndex + index2,
+      activeIndex + index2 + 1,
+      activeIndex + index2 + 2,
+      activeIndex + index2 + 3.
+    ];
+
+    visibleIndexes.forEach((index) => {
+
+      const button = slides[index].querySelector('.news-card__link');
+      button.setAttribute('tabindex', '0');
     });
   }
 };
@@ -66,22 +81,42 @@ const duplicateSlides = (swiper) => {
   };
   const slidesToCreate = getSlidesCount();
 
-
   const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < slidesToCreate; i++) {
     let originalIndex = null;
-    if (i < 4) {
-      if (i % 2 === 0) {
-        originalIndex = 0;
+
+    if (window.innerWidth < 768) {
+      if (i < 4) {
+        if (i % 2 === 0) {
+          originalIndex = 0;
+        } else {
+          originalIndex = 2;
+        }
       } else {
-        originalIndex = 2;
+        if (i % 2 === 0) {
+          originalIndex = 1;
+        } else {
+          originalIndex = 3;
+        }
       }
     } else {
-      if (i % 2 === 0) {
-        originalIndex = 1;
-      } else {
-        originalIndex = 3;
+      if (slidesToCreate === SLIDES_TO_DUPLICATE_BY_BREAKPOINT[1]) {
+        originalIndex = i % 4;
+      } else if (slidesToCreate === 6) {
+        if (i < 3) {
+          if (i % 2 === 0) {
+            originalIndex = 0;
+          } else {
+            originalIndex = 2;
+          }
+        } else {
+          if (i % 2 === 0) {
+            originalIndex = 1;
+          } else {
+            originalIndex = 3;
+          }
+        }
       }
     }
 
@@ -125,10 +160,46 @@ new Swiper(newsSwiperContainer, {
       updateTabIndex(this);
       this.update();
       disableBulletTabIndex();
+      if (window.innerWidth >= 1440) {
+
+        this.slides.forEach((slide) => {
+          slide.style.width = '286px';
+        });
+        const activeSlide = this.slides[this.activeIndex];
+        // activeSlide.children[0].classList.add('news-card--big-card');
+        activeSlide.style.width = '604px';
+        activeSlide.children[0].classList.add('news-card--big-card');
+
+
+      }
     },
     slideChange: function () {
       disableBulletTabIndex();
       updateTabIndex(this);
+      if (window.innerWidth >= 1440) {
+        this.slides.forEach((slide) => {
+          slide.style.width = '286px';
+          slide.children[0].classList.remove('news-card--big-card');
+
+        });
+        const activeSlide = this.slides[this.activeIndex];
+
+        // setTimeout(() => {
+        //   this.slides.forEach((slide, index) => {
+        //     if (index !== this.activeIndex && slide.children[0]) {
+        //       // slide.children[0].classList.remove('news-card--big-card');
+        //       slide.style.width = '286px';
+        //     }
+        //   });
+        // }, 50);
+
+
+        // this.slides[this.activeIndex - 1].children[0].classList.remove('news-card--big-card');
+        activeSlide.style.width = '604px';
+        activeSlide.children[0].classList.add('news-card--big-card');
+
+
+      }
 
     },
   },
@@ -138,14 +209,20 @@ new Swiper(newsSwiperContainer, {
       spaceBetween: 30,
       slidesPerView: 2,
     },
-    // 1440: {
-    //   scrollbar: {
-    //     dragSize: 394,
-    //   },
-    //   slidesPerView: 2,
-    //   spaceBetween: 32,
-    //   allowTouchMove: false,
-    //   simulateTouch: false
-    // }
+    1440: {
+      grid: {
+        rows: 1,
+        fill: 'row',
+      },
+
+      // slidesPerView: 'auto',
+      slidesPerView: 3,
+      slidesPerGroup: 1,
+      // slidesOffsetAfter: 30,
+      // slidesOffsetBefore: 30,
+      spaceBetween: 32,
+      // allowTouchMove: false,
+      // simulateTouch: false
+    }
   }
 });

@@ -16,7 +16,10 @@
   }
 
   @media ($desktop-breakpoint) {
-    padding: 60px 100px 132px;
+    // padding: 60px 100px 132px;
+    align-self: center;
+    width: 1240px;
+    padding: 0;
     row-gap: 40px;
   }
 }
@@ -30,9 +33,9 @@
   padding: 0;
   list-style: none;
 
-  // gap: 10px;
 
   @media ($tablet-breakpoint) {
+    gap: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,6 +54,7 @@
 
   @media ($tablet-breakpoint) {
     align-self: center;
+    width: unset;
   }
 }
 
@@ -95,7 +99,7 @@
     opacity: 1;
 
     @media ($tablet-breakpoint) {
-      padding: 14px 22px;
+      padding: 14px 20px;
     }
   }
 
@@ -154,7 +158,9 @@
 }
 
 .news__swiper .swiper-slide {
-  //
+  @media ($desktop-breakpoint) {
+    transition: width 1000ms;
+  }
 }
 
 .news__swiper {
@@ -165,6 +171,20 @@
 
   @media ($tablet-breakpoint) {
     width: 678px;
+    overflow: hidden;
+    gap: 30px;
+  }
+
+  @media ($desktop-breakpoint) {
+    // width: min-content;
+
+    width: 922px;
+
+    // width: 982px;
+
+    overflow: visible;
+
+    // gap: 30px;
   }
 }
 
@@ -201,12 +221,18 @@
 
   cursor: pointer;
 
+
   &:hover,
   &:focus-visible {
     border: 2px solid $base-secondary;
     width: 26px;
     height: 26px;
     opacity: 1;
+
+    @media ($tablet-breakpoint) {
+      width: 32px;
+      height: 32px;
+    }
   }
 
   &:focus-visible {
@@ -223,6 +249,14 @@
   &:disabled {
     color: #a9afb7;
     pointer-events: none;
+  }
+
+  @media ($tablet-breakpoint) {
+    width: 32px;
+    height: 32px;
+
+    font-size: 16px;
+    line-height: 125%;
   }
 }
 

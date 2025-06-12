@@ -1,11 +1,15 @@
 .news-card {
   box-sizing: border-box;
   position: relative;
-
-  width: min-content;
+  width: 286px;
+  transition: width 1000ms;
+  overflow: hidden;
 
   @media ($desktop-breakpoint) {
-    // width: unset;
+    width: 100%;
+
+    // &--big-card {
+    // }
   }
 }
 
@@ -19,15 +23,16 @@
   display: flex;
   flex-direction: column;
   z-index: 1;
-
+  transition: width 500ms;
 
   @media ($tablet-breakpoint) {
     width: 240px;
   }
 
   @media ($desktop-breakpoint) {
-    width: 100%;
-    padding-right: 42px;
+    width: 244px;
+
+    // padding-right: 42px;
 
     // min-width: 244px;
 
@@ -41,10 +46,10 @@
 // }
 
 .news-card--big-card .news-card__container {
-  width: 100%;
+  // padding-right: 136px;
 
   @media ($desktop-breakpoint) {
-    padding-right: 136px;
+    width: 468px;
   }
 }
 
@@ -62,6 +67,7 @@
 
   width: min-content;
 
+  // min-width: none;
   font-size: 12px;
   line-height: 100%;
   letter-spacing: 0.01em;
@@ -105,7 +111,7 @@
 
   border-radius: 0 12px 0 0;
   background-color: $primary-lighter;
-
+  transition: width 500ms;
 
   &::after {
     @include reverse-border-radius(16px,0);
@@ -118,6 +124,9 @@
 
 
   @media ($tablet-breakpoint) {
+    position: relative;
+
+    // top: 1px;
     font-size: 20px;
     line-height: 120%;
     width: 207px;
@@ -148,6 +157,9 @@
 
 
   @media ($tablet-breakpoint) {
+    // position: unset;
+    top: 0;
+
     font-size: 14px;
     line-height: 143%;
   }
@@ -164,6 +176,8 @@
   align-items: center;
   padding: 12px 10px 10px 0;
   gap: 10px;
+
+  // width: 263px;
 
   border-radius: 0 12px 0 0;
   background-color: $primary-lighter;
@@ -182,10 +196,18 @@
   @media ($tablet-breakpoint) {
     padding: 12px 18px 15px 0;
     gap: 16px;
+
+    // width: 240px;
   }
 }
 
 .news-card__img {
   border-radius: 12px;
   background-color: #add8e6;
+
+  width: 100%;
+
+  // height: 100%;
+  object-fit: cover; /* или contain, в зависимости от потребностей */
+  display: block;
 }
