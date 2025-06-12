@@ -1,9 +1,13 @@
 .news-card {
   box-sizing: border-box;
   position: relative;
-  width: 286px;
+  width: 290px;
   transition: width 1000ms;
   overflow: hidden;
+
+  @media ($tablet-breakpoint) {
+    width: 324px;
+  }
 
   @media ($desktop-breakpoint) {
     width: 100%;
@@ -23,7 +27,7 @@
   display: flex;
   flex-direction: column;
   z-index: 1;
-  transition: width 500ms;
+  transition: width 1000ms;
 
   @media ($tablet-breakpoint) {
     width: 240px;
@@ -111,7 +115,7 @@
 
   border-radius: 0 12px 0 0;
   background-color: $primary-lighter;
-  transition: width 500ms;
+  transition: width 1000ms;
 
   &::after {
     @include reverse-border-radius(16px,0);
@@ -197,6 +201,8 @@
     padding: 12px 18px 15px 0;
     gap: 16px;
 
+    justify-content: space-between;
+
     // width: 240px;
   }
 }
@@ -204,10 +210,13 @@
 .news-card__img {
   border-radius: 12px;
   background-color: #add8e6;
+  object-fit: contain; /* или contain, в зависимости от потребностей */
 
-  width: 100%;
+  @media ($desktop-breakpoint) {
+    width: 100%;
 
-  // height: 100%;
-  object-fit: cover; /* или contain, в зависимости от потребностей */
-  display: block;
+    // height: 100%;
+    object-fit: cover; /* или contain, в зависимости от потребностей */
+    display: block;
+  }
 }

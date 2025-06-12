@@ -47,7 +47,7 @@ const updateTabIndex = (swiper) => {
       }
     });
   }
-  if (window.innerWidth >= 768) {
+  if (window.innerWidth < 1440) {
 
     const index2 = activeIndex;
     const visibleIndexes = [
@@ -61,6 +61,29 @@ const updateTabIndex = (swiper) => {
 
       const button = slides[index].querySelector('.news-card__link');
       button.setAttribute('tabindex', '0');
+    });
+  }
+  if (window.innerWidth >= 1440) {
+    const totalSlides = slides.length;
+    let visibleIndexes = [];
+
+    if (activeIndex >= totalSlides - 3) {
+      if (activeIndex === totalSlides - 1) {
+        visibleIndexes = [activeIndex];
+      } else if (activeIndex === totalSlides - 2) {
+        visibleIndexes = [activeIndex, activeIndex + 1];
+      } else {
+        visibleIndexes = [activeIndex, activeIndex + 1, activeIndex + 2];
+      }
+    } else {
+      visibleIndexes = [activeIndex, activeIndex + 1, activeIndex + 2];
+    }
+
+    visibleIndexes.forEach((index) => {
+      const button = slides[index].querySelector('.news-card__link');
+      if (button) {
+        button.setAttribute('tabindex', '0');
+      }
     });
   }
 };
@@ -103,20 +126,8 @@ const duplicateSlides = (swiper) => {
     } else {
       if (slidesToCreate === SLIDES_TO_DUPLICATE_BY_BREAKPOINT[1]) {
         originalIndex = i % 4;
-      } else if (slidesToCreate === 6) {
-        if (i < 3) {
-          if (i % 2 === 0) {
-            originalIndex = 0;
-          } else {
-            originalIndex = 2;
-          }
-        } else {
-          if (i % 2 === 0) {
-            originalIndex = 1;
-          } else {
-            originalIndex = 3;
-          }
-        }
+      } else if (slidesToCreate === SLIDES_TO_DUPLICATE_BY_BREAKPOINT[2]) {
+        originalIndex = i % originalSlides.length;
       }
     }
 
@@ -160,22 +171,24 @@ new Swiper(newsSwiperContainer, {
       updateTabIndex(this);
       this.update();
       disableBulletTabIndex();
+
       if (window.innerWidth >= 1440) {
+        this.update();
+        const activeSlide = this.slides[this.activeIndex];
 
         this.slides.forEach((slide) => {
           slide.style.width = '286px';
         });
-        const activeSlide = this.slides[this.activeIndex];
-        // activeSlide.children[0].classList.add('news-card--big-card');
+
         activeSlide.style.width = '604px';
         activeSlide.children[0].classList.add('news-card--big-card');
-
 
       }
     },
     slideChange: function () {
       disableBulletTabIndex();
       updateTabIndex(this);
+
       if (window.innerWidth >= 1440) {
         this.slides.forEach((slide) => {
           slide.style.width = '286px';
@@ -183,22 +196,8 @@ new Swiper(newsSwiperContainer, {
 
         });
         const activeSlide = this.slides[this.activeIndex];
-
-        // setTimeout(() => {
-        //   this.slides.forEach((slide, index) => {
-        //     if (index !== this.activeIndex && slide.children[0]) {
-        //       // slide.children[0].classList.remove('news-card--big-card');
-        //       slide.style.width = '286px';
-        //     }
-        //   });
-        // }, 50);
-
-
-        // this.slides[this.activeIndex - 1].children[0].classList.remove('news-card--big-card');
         activeSlide.style.width = '604px';
         activeSlide.children[0].classList.add('news-card--big-card');
-
-
       }
 
     },
@@ -214,12 +213,9 @@ new Swiper(newsSwiperContainer, {
         rows: 1,
         fill: 'row',
       },
-
-      // slidesPerView: 'auto',
-      slidesPerView: 3,
+      // centeredSlides: true,
+      slidesPerView: 1,
       slidesPerGroup: 1,
-      // slidesOffsetAfter: 30,
-      // slidesOffsetBefore: 30,
       spaceBetween: 32,
       // allowTouchMove: false,
       // simulateTouch: false
