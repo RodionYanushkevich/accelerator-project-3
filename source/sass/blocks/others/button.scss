@@ -106,6 +106,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
+
   color: $base-white;
   background-color: $base-secondary;
 
@@ -118,6 +119,15 @@
 }
 
 .button--blue-background {
+  border-color: $base-white;
+  color: $base-white;
+  background-color: transparent;
+
+  .button__wrapper {
+    background-color: $base-white;
+    color: $base-secondary;
+  }
+
   &:hover {
     background-color: $base-white;
 

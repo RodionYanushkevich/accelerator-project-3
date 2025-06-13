@@ -175,6 +175,21 @@ const paginationBulletsHide = (swiper) => {
 
 };
 
+const preventLastSlidesScroll = (swiper) => {
+  const LAST_SLIDES_COUNT = 2;
+  const isLastSlides = swiper.activeIndex >= swiper.slides.length - LAST_SLIDES_COUNT;
+
+  // Динамически меняем параметры
+  swiper.params.allowTouchMove = !isLastSlides;
+  swiper.params.simulateTouch = !isLastSlides;
+  if (swiper.activeIndex >= swiper.slides.length - 3) {
+    swiper.slideTo(swiper.slides.length - 3, 500);
+    swiper.slides.swiper.slides.length.classList.add('swiper-slide-active');
+
+  }
+};
+
+
 // const newsSwiper =
 new Swiper(newsSwiperContainer, {
   modules: [Navigation, Grid, Pagination],
@@ -218,6 +233,7 @@ new Swiper(newsSwiperContainer, {
         activeSlide.style.width = '604px';
         activeSlide.children[0].classList.add('news-card--big-card');
 
+
       }
       paginationBulletsHide(this);
     },
@@ -235,8 +251,20 @@ new Swiper(newsSwiperContainer, {
         const activeSlide = this.slides[this.activeIndex];
         activeSlide.style.width = '604px';
         activeSlide.children[0].classList.add('news-card--big-card');
+        preventLastSlidesScroll(this);
+
       }
 
+    },
+    click: function (swiper,) {
+      const LAST_SLIDES_COUNT = 2;
+      const clickedIndex = swiper.clickedIndex;
+      swiper.slideTo(clickedIndex); // Переключаемся на выбранный слайд
+      // Для последних 2 слайдов - только активация
+      if (clickedIndex >= swiper.slides.length - LAST_SLIDES_COUNT) {
+        swiper.slideTo(clickedIndex, 0); // Мгновенное переключение
+        return false; // Отменяем стандартное поведение
+      }
     },
   },
   breakpoints: {

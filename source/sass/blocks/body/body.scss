@@ -34,3 +34,9 @@
   display: flex;
   flex-direction: column;
 }
+
+.body--modal-open {
+  overflow: hidden;
+  position: fixed;
+  overflow-y: scroll;
+}
