@@ -5,7 +5,6 @@ import 'swiper/css/grid';
 const newsSwiperContainer = document.querySelector('.news__swiper');
 
 const SLIDES_TO_DUPLICATE_BY_BREAKPOINT = [8, 16, 16];
-
 const SLIDES_BY_PAGE = 3;
 
 const itLastSides = (swiper) => {
@@ -27,7 +26,6 @@ const updateSlideSizes = (swiper, index) => {
 const disableBulletTabIndex = () => {
   const bullets = newsSwiperContainer.querySelectorAll('.swiper-pagination-bullet');
   bullets.forEach((button) => {
-
     if (button.classList.contains('swiper-pagination-bullet-active')) {
       button.setAttribute('tabindex', '-1');
       button.blur();
@@ -45,7 +43,6 @@ const updateTabIndex = (swiper) => {
     const button = slide.querySelector('.news-card__link');
     if (button) {
       button.setAttribute('tabindex', '-1');
-
     }
   });
 
@@ -104,6 +101,17 @@ const updateTabIndex = (swiper) => {
   }
 };
 
+const updateButtons = (swiper) => {
+  const nextButton = swiper.navigation.nextEl;
+  const prevButton = swiper.navigation.prevEl;
+
+  const isFirstSlide = swiper.activeIndex < SLIDES_BY_PAGE;
+  const isLastSlide = swiper.activeIndex >= swiper.slides.length - SLIDES_BY_PAGE;
+
+  nextButton.disabled = isLastSlide;
+  prevButton.disabled = isFirstSlide;
+};
+
 const duplicateSlides = (swiper) => {
   const wrapper = swiper.wrapperEl;
   const originalSlides = Array.from(swiper.slides);
@@ -143,7 +151,6 @@ const duplicateSlides = (swiper) => {
         originalIndex = i % originalSlides.length;
       }
     }
-
     const clone = originalSlides[originalIndex].cloneNode(true);
     fragment.appendChild(clone);
   }
@@ -194,6 +201,29 @@ const paginationBulletsHide = (swiper) => {
 
 };
 
+const handleNavigationButtonsClick = (swiper) => {
+  const nextButton = swiper.navigation.nextEl;
+  const prevButton = swiper.navigation.prevEl;
+  const STEP = SLIDES_BY_PAGE - 1;
+  const lastActiveIndex = swiper.slides.length - SLIDES_BY_PAGE;
+
+  nextButton.removeEventListener('click', nextButton.clickHandler);
+  prevButton.removeEventListener('click', prevButton.clickHandler);
+
+  nextButton.clickHandler = () => {
+    swiper.slideTo(Math.min(swiper.activeIndex + STEP, lastActiveIndex));
+    updateButtons(swiper);
+  };
+
+  prevButton.clickHandler = () => {
+    swiper.slideTo(Math.max(swiper.activeIndex - STEP, 0));
+    updateButtons(swiper);
+  };
+
+  nextButton.addEventListener('click', nextButton.clickHandler);
+  prevButton.addEventListener('click', prevButton.clickHandler);
+};
+
 const handleLastBulletsClick = (swiper) => {
   const bullets = swiper.pagination.bullets;
   const totalSlides = swiper.slides.length;
@@ -216,12 +246,9 @@ const handleLastBulletsClick = (swiper) => {
     });
   });
 };
-
 const handleLastSlidesClick = (swiper, index) => {
   const bullets = swiper.pagination.bullets;
-
   bullets.forEach((bullet) => bullet.classList.remove('swiper-pagination-bullet-active'));
-
   swiper.pagination.bullets[index].classList.add('swiper-pagination-bullet-active');
 };
 
@@ -259,8 +286,10 @@ new Swiper(newsSwiperContainer, {
       disableBulletTabIndex();
 
       if (window.innerWidth >= 1440) {
+        updateButtons(this);
+        handleNavigationButtonsClick(this);
         handleLastBulletsClick(this);
-        this.slideTo(10);
+        updateSlideSizes(this, this.activeIndex);
       }
       paginationBulletsHide(this);
     },
@@ -271,15 +300,19 @@ new Swiper(newsSwiperContainer, {
 
       if (window.innerWidth >= 1440) {
         updateSlideSizes(this, this.activeIndex);
+        updateButtons(this);
 
         if (itLastSides(this)) {
+          const index = this.activeIndex;
           this.slideTo(this.slides.length - SLIDES_BY_PAGE);
-
+          updateSlideSizes(this, index);
+          handleLastSlidesClick(this, index);
         }
       }
     },
     click: function () {
       this.slideTo(this.clickedIndex);
+
       if (window.innerWidth >= 1440) {
         updateSlideSizes(this, this.clickedIndex);
         if (itLastSides(this)) {
