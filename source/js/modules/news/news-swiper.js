@@ -194,7 +194,6 @@ const paginationBulletsHide = (swiper) => {
 
 };
 
-
 const handleLastBulletsClick = (swiper) => {
   const bullets = swiper.pagination.bullets;
   const totalSlides = swiper.slides.length;
@@ -207,23 +206,30 @@ const handleLastBulletsClick = (swiper) => {
         updateSlideSizes(swiper, index);
         return;
       }
-
       bullets.forEach((b) => b.classList.remove('swiper-pagination-bullet-active'));
       bullet.classList.add('swiper-pagination-bullet-active');
 
       if (index === lastBulletsStart) {
         swiper.slideTo(index);
       }
-
       updateSlideSizes(swiper, index);
     });
   });
 };
 
+const handleLastSlidesClick = (swiper, index) => {
+  const bullets = swiper.pagination.bullets;
+
+  bullets.forEach((bullet) => bullet.classList.remove('swiper-pagination-bullet-active'));
+
+  swiper.pagination.bullets[index].classList.add('swiper-pagination-bullet-active');
+};
+
+
 // const newsSwiper =
 new Swiper(newsSwiperContainer, {
   modules: [Navigation, Grid, Pagination],
-  speed: 300,
+  speed: 500,
   slidesPerView: 1,
   slidesPerGroup: 1,
   spaceBetween: 15,
@@ -254,9 +260,6 @@ new Swiper(newsSwiperContainer, {
 
       if (window.innerWidth >= 1440) {
         handleLastBulletsClick(this);
-        updateSlideSizes(this, this.activeIndex);
-        // !!!!!
-
         this.slideTo(10);
       }
       paginationBulletsHide(this);
@@ -267,36 +270,23 @@ new Swiper(newsSwiperContainer, {
       paginationBulletsHide(this);
 
       if (window.innerWidth >= 1440) {
-        this.slides.forEach((slide) => {
-          slide.style.width = '286px';
-          slide.children[0].classList.remove('news-card--big-card');
-        });
-
-        const activeSlide = this.slides[this.activeIndex];
-        activeSlide.style.width = '604px';
-        activeSlide.children[0].classList.add('news-card--big-card');
+        updateSlideSizes(this, this.activeIndex);
 
         if (itLastSides(this)) {
-          this.slideTo(this.slides.length - SLIDES_BY_PAGE, 500);
+          this.slideTo(this.slides.length - SLIDES_BY_PAGE);
+
         }
       }
     },
-    click: function (swiper,) {
-      const LAST_SLIDES_COUNT = 2;
-      const clickedIndex = swiper.clickedIndex;
-      swiper.slideTo(clickedIndex);
-      if (clickedIndex >= swiper.slides.length - LAST_SLIDES_COUNT - 1) {
-        // swiper.slideTo(clickedIndex, 0);
-
-        this.slides.forEach((slide) => {
-          slide.style.width = '286px';
-          slide.children[0].classList.remove('news-card--big-card');
-
-        });
-        swiper.slides[swiper.clickedIndex].style.width = '604px';
-        swiper.slides[swiper.clickedIndex].children[0].classList.add('news-card--big-card');
+    click: function () {
+      this.slideTo(this.clickedIndex);
+      if (window.innerWidth >= 1440) {
+        updateSlideSizes(this, this.clickedIndex);
+        if (itLastSides(this)) {
+          handleLastSlidesClick(this, this.clickedIndex);
+        }
       }
-    },
+    }
   },
   breakpoints: {
     768: {
