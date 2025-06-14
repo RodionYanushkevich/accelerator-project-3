@@ -209,10 +209,15 @@
 .news__swiper {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+
+  // gap: 24px;
   width: 290px;
 
+  height: 680px;
+
   @media ($tablet-breakpoint) {
+    height: unset;
+
     width: 678px;
     overflow: hidden;
     gap: 30px;

@@ -4,7 +4,8 @@ import 'swiper/css/grid';
 // import 'swiper/css/pagination';
 const newsSwiperContainer = document.querySelector('.news__swiper');
 
-const SLIDES_TO_DUPLICATE_BY_BREAKPOINT = [8, 16, 16];
+const SLIDES_TO_DUPLICATE = 16;
+
 const SLIDES_BY_PAGE = 3;
 
 const itLastSides = (swiper) => {
@@ -36,68 +37,32 @@ const disableBulletTabIndex = () => {
 };
 
 const updateTabIndex = (swiper) => {
-  const slides = swiper.wrapperEl.childNodes;
-  const activeIndex = swiper.activeIndex;
+  const slides = Array.from(swiper.slides);
 
   slides.forEach((slide) => {
     const button = slide.querySelector('.news-card__link');
     if (button) {
       button.setAttribute('tabindex', '-1');
+      button.style.backgroundColor = 'red';
     }
   });
+  const step = swiper.activeIndex;
+  const activeSlide1 = swiper.slides[swiper.activeIndex + step];
+  const activeSlide2 = swiper.slides[swiper.activeIndex + step + 1];
 
-  if (window.innerWidth < 768) {
-    slides.forEach((slide, index) => {
-      const button = slide.querySelector('.news-card__link');
-
-      const isVisible = index === activeIndex || index === activeIndex + 4;
-
-      if (isVisible) {
-        button.setAttribute('tabindex', '0');
-      } else {
-        button.setAttribute('tabindex', '-1');
-      }
-    });
-  }
-  if (window.innerWidth < 1440) {
-
-    const index2 = activeIndex;
-    const visibleIndexes = [
-      activeIndex + index2,
-      activeIndex + index2 + 1,
-      activeIndex + index2 + 2,
-      activeIndex + index2 + 3.
-    ];
-
-    visibleIndexes.forEach((index) => {
-
-      const button = slides[index].querySelector('.news-card__link');
-      button.setAttribute('tabindex', '0');
-    });
-  }
-
-  if (window.innerWidth >= 1440) {
-    const totalSlides = slides.length;
-    let visibleIndexes = [];
-
-    if (activeIndex >= totalSlides - SLIDES_BY_PAGE) {
-      if (activeIndex === totalSlides - 1) {
-        visibleIndexes = [activeIndex];
-      } else if (activeIndex === totalSlides - 2) {
-        visibleIndexes = [activeIndex, activeIndex + 1];
-      } else {
-        visibleIndexes = [activeIndex, activeIndex + 1, activeIndex + 2];
-      }
-    } else {
-      visibleIndexes = [activeIndex, activeIndex + 1, activeIndex + 2];
+  if (activeSlide1) {
+    const button1 = activeSlide1.querySelector('.news-card__link');
+    if (button1) {
+      button1.setAttribute('tabindex', '0');
+      button1.style.backgroundColor = 'green';
     }
-
-    visibleIndexes.forEach((index) => {
-      const button = slides[index].querySelector('.news-card__link');
-      if (button) {
-        button.setAttribute('tabindex', '0');
-      }
-    });
+  }
+  if (activeSlide2) {
+    const button2 = activeSlide2.querySelector('.news-card__link');
+    if (button2) {
+      button2.setAttribute('tabindex', '0');
+      button2.style.backgroundColor = 'green';
+    }
   }
 };
 
@@ -116,41 +81,11 @@ const duplicateSlides = (swiper) => {
   const wrapper = swiper.wrapperEl;
   const originalSlides = Array.from(swiper.slides);
   wrapper.innerHTML = '';
-  const getSlidesCount = () => {
-    if (window.innerWidth >= 1440) {
-      return SLIDES_TO_DUPLICATE_BY_BREAKPOINT[2];
-    }
-    if (window.innerWidth >= 768) {
-      return SLIDES_TO_DUPLICATE_BY_BREAKPOINT[1];
-    }
-    return SLIDES_TO_DUPLICATE_BY_BREAKPOINT[0];
-  };
-
-  const slidesToCreate = getSlidesCount();
   const fragment = document.createDocumentFragment();
 
-  for (let i = 0; i < slidesToCreate; i++) {
-    let originalIndex = null;
+  for (let i = 0; i < SLIDES_TO_DUPLICATE; i++) {
+    const originalIndex = i % originalSlides.length;
 
-    if (window.innerWidth < 768) {
-      if (i < 4) {
-        if (i % 2 === 0) {
-          originalIndex = 0;
-        } else {
-          originalIndex = 2;
-        }
-      } else {
-        if (i % 2 === 0) {
-          originalIndex = 1;
-        } else {
-          originalIndex = 3;
-        }
-      }
-    } else {
-      if (slidesToCreate === SLIDES_TO_DUPLICATE_BY_BREAKPOINT[2]) {
-        originalIndex = i % originalSlides.length;
-      }
-    }
     const clone = originalSlides[originalIndex].cloneNode(true);
     fragment.appendChild(clone);
   }
@@ -251,22 +186,29 @@ const handleLastSlidesClick = (swiper, index) => {
   bullets.forEach((bullet) => bullet.classList.remove('swiper-pagination-bullet-active'));
   swiper.pagination.bullets[index].classList.add('swiper-pagination-bullet-active');
 };
-
+const updateSlideHeight = (swiper) => {
+  swiper.slides.forEach((slide, index) => {
+    if (index % 2 !== 0) {
+      slide.style.height = '240px';
+    }
+  });
+};
 
 // const newsSwiper =
 new Swiper(newsSwiperContainer, {
   modules: [Navigation, Grid, Pagination],
   speed: 500,
-  slidesPerView: 1,
+  grid: {
+    rows: 2,
+    fill: 'column',
+    slidesPerView: 2,
+  },
   slidesPerGroup: 1,
   spaceBetween: 15,
   // a11y: {
   //   enabled: true,
   // },
-  grid: {
-    rows: 2,
-    fill: 'row',
-  },
+
   navigation: {
     nextEl: '.news__swiper-button.swiper-button-next',
     prevEl: '.news__swiper-button.swiper-button-prev',
@@ -281,8 +223,13 @@ new Swiper(newsSwiperContainer, {
   on: {
     init: function () {
       duplicateSlides(this);
-      updateTabIndex(this);
       this.update();
+      updateTabIndex(this);
+
+      if (window.innerWidth < 768) {
+        updateSlideHeight(this);
+      }
+
       disableBulletTabIndex();
 
       if (window.innerWidth >= 1440) {
@@ -295,8 +242,8 @@ new Swiper(newsSwiperContainer, {
     },
     slideChange: function () {
       disableBulletTabIndex();
-      updateTabIndex(this);
       paginationBulletsHide(this);
+      updateTabIndex(this);
 
       if (window.innerWidth >= 1440) {
         updateSlideSizes(this, this.activeIndex);
@@ -311,9 +258,9 @@ new Swiper(newsSwiperContainer, {
       }
     },
     click: function () {
-      this.slideTo(this.clickedIndex);
-
       if (window.innerWidth >= 1440) {
+        this.slideTo(this.clickedIndex);
+
         updateSlideSizes(this, this.clickedIndex);
         if (itLastSides(this)) {
           handleLastSlidesClick(this, this.clickedIndex);
