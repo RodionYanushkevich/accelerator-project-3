@@ -1,6 +1,15 @@
 import Swiper from 'swiper';
 import { Navigation, A11y, Grid, Pagination } from 'swiper/modules';
 import 'swiper/css/grid';
+
+
+const isMobile = window.matchMedia('(max-width: 767px)').matches;
+const tabletBreakpoint = window.matchMedia('(min-width: 768px)');
+const isTablet = window.matchMedia('(min-width: 768px)').matches;
+const desktopBreakpoint = window.matchMedia('(min-width: 1440px)');
+const isDesktop = window.matchMedia('(min-width: 1440px)').matches;
+
+
 // import 'swiper/css/pagination';
 const newsSwiperContainer = document.querySelector('.news__swiper');
 
@@ -37,34 +46,39 @@ const disableBulletTabIndex = () => {
 };
 
 const updateTabIndex = (swiper) => {
-  const slides = Array.from(swiper.slides);
+  const slides = swiper.slides;
+  const step = swiper.activeIndex + swiper.activeIndex;
 
-  slides.forEach((slide) => {
+  Array.from(slides).forEach((slide) => {
     const button = slide.querySelector('.news-card__link');
-    if (button) {
-      button.setAttribute('tabindex', '-1');
-      button.style.backgroundColor = 'red';
-    }
+    button.setAttribute('tabindex', '-1');
+    button.style.setProperty('background-color', 'red');
   });
-  const step = swiper.activeIndex;
-  const activeSlide1 = swiper.slides[swiper.activeIndex + step];
-  const activeSlide2 = swiper.slides[swiper.activeIndex + step + 1];
 
-  if (activeSlide1) {
-    const button1 = activeSlide1.querySelector('.news-card__link');
-    if (button1) {
-      button1.setAttribute('tabindex', '0');
-      button1.style.backgroundColor = 'green';
+  let activeSlides;
+
+  if (window.innerWidth < 768) {
+    activeSlides = [slides[step], slides[step + 1]];
+  } else if (window.innerWidth < 1440) {
+    activeSlides = [slides[step], slides[step + 1], slides[step + 2], slides[step + 3]];
+  } else {
+
+    activeSlides = [slides[swiper.activeIndex], slides[swiper.activeIndex + 1], slides[swiper.activeIndex + 2]];
+    if (itLastSides(swiper)) {
+      const lastSlideIndex = slides.length;
+
+
+      activeSlides = [slides[lastSlideIndex - SLIDES_BY_PAGE + 1], slides[lastSlideIndex - SLIDES_BY_PAGE], slides[lastSlideIndex - SLIDES_BY_PAGE + 2]];
     }
   }
-  if (activeSlide2) {
-    const button2 = activeSlide2.querySelector('.news-card__link');
-    if (button2) {
-      button2.setAttribute('tabindex', '0');
-      button2.style.backgroundColor = 'green';
-    }
-  }
+
+  activeSlides.forEach((slide) => {
+    const button = slide.querySelector('.news-card__link');
+    button.setAttribute('tabindex', '0');
+    button.style.setProperty('background-color', 'green');
+  });
 };
+
 
 const updateButtons = (swiper) => {
   const nextButton = swiper.navigation.nextEl;
@@ -193,105 +207,93 @@ const updateSlideHeight = (swiper) => {
     }
   });
 };
+let newsSwiper;
 
-// const newsSwiper =
-new Swiper(newsSwiperContainer, {
-  modules: [Navigation, Grid, Pagination],
-  speed: 500,
-  grid: {
-    rows: 2,
-    fill: 'column',
-    slidesPerView: 2,
-  },
-  slidesPerGroup: 1,
-  spaceBetween: 15,
-  // a11y: {
-  //   enabled: true,
-  // },
-
-  navigation: {
-    nextEl: '.news__swiper-button.swiper-button-next',
-    prevEl: '.news__swiper-button.swiper-button-prev',
-  },
-  pagination: {
-    el: '.news__pagination.swiper-pagination',
-    clickable: true,
-    renderBullet: function (index,) {
-      return `<button class="news__swiper-bullet swiper-pagination-bullet" type='button'>${index + 1}</button>`;
-    }
-  },
-  on: {
-    init: function () {
-      duplicateSlides(this);
-      this.update();
-      updateTabIndex(this);
-
-      if (window.innerWidth < 768) {
-        updateSlideHeight(this);
-      }
-
-      disableBulletTabIndex();
-
-      if (window.innerWidth >= 1440) {
-        updateButtons(this);
-        handleNavigationButtonsClick(this);
-        handleLastBulletsClick(this);
-        updateSlideSizes(this, this.activeIndex);
-      }
-      paginationBulletsHide(this);
+newsSwiper =
+  new Swiper(newsSwiperContainer, {
+    modules: [Navigation, Grid, Pagination],
+    speed: 500,
+    grid: {
+      rows: 2,
+      fill: 'column',
     },
-    slideChange: function () {
-      disableBulletTabIndex();
-      paginationBulletsHide(this);
-      updateTabIndex(this);
+    slidesPerGroup: 1,
+    spaceBetween: 15,
+    navigation: {
+      nextEl: '.news__swiper-button.swiper-button-next',
+      prevEl: '.news__swiper-button.swiper-button-prev',
+    },
+    pagination: {
+      el: '.news__pagination.swiper-pagination',
+      clickable: true,
+      renderBullet: function (index,) {
+        return `<button class="news__swiper-bullet swiper-pagination-bullet" type='button'>${index + 1}</button>`;
+      }
+    },
+    on: {
+      init: function () {
+        duplicateSlides(this);
+        this.update();
+        disableBulletTabIndex();
+        paginationBulletsHide(this);
+        updateTabIndex(this);
 
-      if (window.innerWidth >= 1440) {
-        updateSlideSizes(this, this.activeIndex);
-        updateButtons(this);
 
-        if (itLastSides(this)) {
-          const index = this.activeIndex;
-          this.slideTo(this.slides.length - SLIDES_BY_PAGE);
-          updateSlideSizes(this, index);
-          handleLastSlidesClick(this, index);
+        if (window.innerWidth < 768) {
+          updateSlideHeight(this);
+        }
+
+        if (isDesktop) {
+
+          updateButtons(this);
+          handleNavigationButtonsClick(this);
+          handleLastBulletsClick(this);
+          updateSlideSizes(this, this.activeIndex);
+        }
+
+      },
+      slideChange: function () {
+        disableBulletTabIndex();
+        paginationBulletsHide(this);
+        updateTabIndex(this);
+
+        if (isDesktop) {
+          updateSlideSizes(this, this.activeIndex);
+          updateButtons(this);
+
+          if (itLastSides(this)) {
+            const index = this.activeIndex;
+            this.slideTo(this.slides.length - SLIDES_BY_PAGE);
+            updateSlideSizes(this, index);
+            handleLastSlidesClick(this, index);
+          }
+        }
+      },
+      click: function () {
+        if (isDesktop) {
+          this.slideTo(this.clickedIndex);
+          updateSlideSizes(this, this.clickedIndex);
+          if (itLastSides(this)) {
+            handleLastSlidesClick(this, this.clickedIndex);
+          }
         }
       }
     },
-    click: function () {
-      if (window.innerWidth >= 1440) {
-        this.slideTo(this.clickedIndex);
-
-        updateSlideSizes(this, this.clickedIndex);
-        if (itLastSides(this)) {
-          handleLastSlidesClick(this, this.clickedIndex);
-        }
+    breakpoints: {
+      768: {
+        grid: { rows: 2, fill: 'row' },
+        slidesPerGroup: 2,
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      1440: {
+        grid: { rows: 1, fill: 'row' },
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        spaceBetween: 32,
       }
     }
-  },
-  breakpoints: {
-    768: {
-      grid: {
-        rows: 2,
-        fill: 'row',
-      },
-      slidesPerGroup: 2,
-      spaceBetween: 30,
-      slidesPerView: 2,
-    },
-    1440: {
-      grid: {
-        rows: 1,
-        fill: 'row',
-      },
-      pagination: {
-        clickable: false,
-      },
-      // centeredSlides: true,
-      slidesPerView: 1,
-      slidesPerGroup: 1,
-      spaceBetween: 32,
-      // allowTouchMove: false,
-      // simulateTouch: false
-    }
-  }
-});
+  });
+
+// tabletBreakpoint.addEventListener('change', updateSwiper);
+// desktopBreakpoint.addEventListener('change', updateSwiper);
