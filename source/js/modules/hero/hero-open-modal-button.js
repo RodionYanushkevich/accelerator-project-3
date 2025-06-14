@@ -3,9 +3,19 @@
 const openModalButtons = document.querySelectorAll('.hero-card__button');
 const modal = document.querySelector('.modal');
 
+let savedScrollPosition = 0;
+
 const closeModal = () => {
-  modal.close();
+  document.body.style.top = '0';
   document.body.classList.remove('body--modal-open');
+
+  window.scrollTo({
+    top: savedScrollPosition,
+    behavior: 'instant'
+  });
+
+  modal.close();
+
   modal.removeEventListener('click', handleOutsideClick);
   document.removeEventListener('keydown', handleEscapeKey);
 
@@ -23,17 +33,20 @@ function handleEscapeKey(e) {
 }
 
 const openModal = () => {
-  modal.showModal();
+
+  savedScrollPosition = window.scrollY;
+
   document.body.classList.add('body--modal-open');
+  document.body.style.top = `-${savedScrollPosition}px`;
+  modal.showModal();
+
   modal.addEventListener('click', handleOutsideClick);
   document.addEventListener('keydown', handleEscapeKey);
 
 };
-
 
 openModalButtons.forEach((button) => {
   button.addEventListener('click', () => {
     openModal();
   });
 });
-// openModal();

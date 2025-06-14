@@ -6,10 +6,26 @@ const newsSwiperContainer = document.querySelector('.news__swiper');
 
 const SLIDES_TO_DUPLICATE_BY_BREAKPOINT = [8, 16, 16];
 
+const SLIDES_BY_PAGE = 3;
+
+const itLastSides = (swiper) => {
+  const blockFromSlide = swiper.slides.length - SLIDES_BY_PAGE;
+  return swiper.activeIndex >= blockFromSlide;
+};
+
+const updateSlideSizes = (swiper, index) => {
+  swiper.slides.forEach((slide) => {
+    slide.style.width = '286px';
+    slide.children[0].classList.remove('news-card--big-card');
+  });
+
+  swiper.slides[index].style.width = '604px';
+  swiper.slides[index].children[0].classList.add('news-card--big-card');
+
+};
+
 const disableBulletTabIndex = () => {
-
   const bullets = newsSwiperContainer.querySelectorAll('.swiper-pagination-bullet');
-
   bullets.forEach((button) => {
 
     if (button.classList.contains('swiper-pagination-bullet-active')) {
@@ -20,7 +36,6 @@ const disableBulletTabIndex = () => {
     }
   });
 };
-
 
 const updateTabIndex = (swiper) => {
   const slides = swiper.wrapperEl.childNodes;
@@ -63,11 +78,12 @@ const updateTabIndex = (swiper) => {
       button.setAttribute('tabindex', '0');
     });
   }
+
   if (window.innerWidth >= 1440) {
     const totalSlides = slides.length;
     let visibleIndexes = [];
 
-    if (activeIndex >= totalSlides - 3) {
+    if (activeIndex >= totalSlides - SLIDES_BY_PAGE) {
       if (activeIndex === totalSlides - 1) {
         visibleIndexes = [activeIndex];
       } else if (activeIndex === totalSlides - 2) {
@@ -92,7 +108,6 @@ const duplicateSlides = (swiper) => {
   const wrapper = swiper.wrapperEl;
   const originalSlides = Array.from(swiper.slides);
   wrapper.innerHTML = '';
-
   const getSlidesCount = () => {
     if (window.innerWidth >= 1440) {
       return SLIDES_TO_DUPLICATE_BY_BREAKPOINT[2];
@@ -102,8 +117,8 @@ const duplicateSlides = (swiper) => {
     }
     return SLIDES_TO_DUPLICATE_BY_BREAKPOINT[0];
   };
-  const slidesToCreate = getSlidesCount();
 
+  const slidesToCreate = getSlidesCount();
   const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < slidesToCreate; i++) {
@@ -150,11 +165,10 @@ const paginationBulletsHide = (swiper) => {
     return;
   }
 
+  let start, end;
   bullets.forEach((bullet) => {
     bullet.style.display = 'none';
   });
-
-  let start, end;
 
   if (activeIndex < 2) {
     start = 0;
@@ -167,6 +181,11 @@ const paginationBulletsHide = (swiper) => {
     end = activeIndex + 1;
   }
 
+  if (window.innerWidth >= 1440 && itLastSides(swiper)) {
+    start = totalSlides - SLIDES_BY_PAGE - 1;
+    end = totalSlides;
+  }
+
   for (let i = start; i <= end; i++) {
     if (bullets[i]) {
       bullets[i].style.display = 'flex';
@@ -175,20 +194,31 @@ const paginationBulletsHide = (swiper) => {
 
 };
 
-const preventLastSlidesScroll = (swiper) => {
-  const LAST_SLIDES_COUNT = 2;
-  const isLastSlides = swiper.activeIndex >= swiper.slides.length - LAST_SLIDES_COUNT;
 
-  // Динамически меняем параметры
-  swiper.params.allowTouchMove = !isLastSlides;
-  swiper.params.simulateTouch = !isLastSlides;
-  if (swiper.activeIndex >= swiper.slides.length - 3) {
-    swiper.slideTo(swiper.slides.length - 3, 500);
-    swiper.slides.swiper.slides.length.classList.add('swiper-slide-active');
+const handleLastBulletsClick = (swiper) => {
+  const bullets = swiper.pagination.bullets;
+  const totalSlides = swiper.slides.length;
+  const lastBulletsStart = totalSlides - SLIDES_BY_PAGE;
 
-  }
+  bullets.forEach((bullet, index) => {
+    bullet.addEventListener('click', () => {
+      if (index < lastBulletsStart) {
+        swiper.slideTo(index);
+        updateSlideSizes(swiper, index);
+        return;
+      }
+
+      bullets.forEach((b) => b.classList.remove('swiper-pagination-bullet-active'));
+      bullet.classList.add('swiper-pagination-bullet-active');
+
+      if (index === lastBulletsStart) {
+        swiper.slideTo(index);
+      }
+
+      updateSlideSizes(swiper, index);
+    });
+  });
 };
-
 
 // const newsSwiper =
 new Swiper(newsSwiperContainer, {
@@ -223,17 +253,11 @@ new Swiper(newsSwiperContainer, {
       disableBulletTabIndex();
 
       if (window.innerWidth >= 1440) {
-        this.update();
-        const activeSlide = this.slides[this.activeIndex];
+        handleLastBulletsClick(this);
+        updateSlideSizes(this, this.activeIndex);
+        // !!!!!
 
-        this.slides.forEach((slide) => {
-          slide.style.width = '286px';
-        });
-
-        activeSlide.style.width = '604px';
-        activeSlide.children[0].classList.add('news-card--big-card');
-
-
+        this.slideTo(10);
       }
       paginationBulletsHide(this);
     },
@@ -246,24 +270,31 @@ new Swiper(newsSwiperContainer, {
         this.slides.forEach((slide) => {
           slide.style.width = '286px';
           slide.children[0].classList.remove('news-card--big-card');
-
         });
+
         const activeSlide = this.slides[this.activeIndex];
         activeSlide.style.width = '604px';
         activeSlide.children[0].classList.add('news-card--big-card');
-        preventLastSlidesScroll(this);
 
+        if (itLastSides(this)) {
+          this.slideTo(this.slides.length - SLIDES_BY_PAGE, 500);
+        }
       }
-
     },
     click: function (swiper,) {
       const LAST_SLIDES_COUNT = 2;
       const clickedIndex = swiper.clickedIndex;
-      swiper.slideTo(clickedIndex); // Переключаемся на выбранный слайд
-      // Для последних 2 слайдов - только активация
-      if (clickedIndex >= swiper.slides.length - LAST_SLIDES_COUNT) {
-        swiper.slideTo(clickedIndex, 0); // Мгновенное переключение
-        return false; // Отменяем стандартное поведение
+      swiper.slideTo(clickedIndex);
+      if (clickedIndex >= swiper.slides.length - LAST_SLIDES_COUNT - 1) {
+        // swiper.slideTo(clickedIndex, 0);
+
+        this.slides.forEach((slide) => {
+          slide.style.width = '286px';
+          slide.children[0].classList.remove('news-card--big-card');
+
+        });
+        swiper.slides[swiper.clickedIndex].style.width = '604px';
+        swiper.slides[swiper.clickedIndex].children[0].classList.add('news-card--big-card');
       }
     },
   },
@@ -281,6 +312,9 @@ new Swiper(newsSwiperContainer, {
       grid: {
         rows: 1,
         fill: 'row',
+      },
+      pagination: {
+        clickable: false,
       },
       // centeredSlides: true,
       slidesPerView: 1,
