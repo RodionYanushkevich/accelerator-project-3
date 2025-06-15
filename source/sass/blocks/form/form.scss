@@ -21,6 +21,7 @@
 
 
 .form__wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -53,11 +54,6 @@
     outline: none;
   }
 
-  &:required {
-    border: 1px solid $base-white;
-    background-color: transparent;
-  }
-
   &:valid {
     opacity: 1;
   }
@@ -69,7 +65,7 @@
   }
 }
 
-.form.validate-on-submit .form__input:invalid {
+.form__input.invalid:invalid {
   background: rgba(255, 94, 102, 0.2);
   border: 1px solid #ff5e66;
   opacity: 1;
@@ -83,7 +79,7 @@
   opacity: 1;
 }
 
-.form__inputfocus-visible + label {
+.form__input:focus-visible + label {
   opacity: 1;
 }
 
@@ -98,9 +94,14 @@
   @media ($tablet-breakpoint) {
     margin-right: 0;
   }
+
+  &:active {
+    opacity: 1;
+  }
 }
 
 .form__wrapper textarea {
+  resize: none;
   min-height: 94px;
 
   @media ($tablet-breakpoint) {
@@ -112,6 +113,7 @@
   }
 }
 
+
 .form__input[name="city"] {
   &:focus {
     opacity: 1;
@@ -121,6 +123,12 @@
 .form__input[name="city"] option {
   color: $base-primary;
 }
+
+.form__input[name="city"].invalid option {
+  color: $base-primary;
+  background-color: $base-white;
+}
+
 
 .form__title {
   margin: 0;
@@ -166,6 +174,8 @@
 }
 
 .form__label {
+  position: relative;
+  top: 1px;
   margin-bottom: 2px;
   font-size: 12px;
   line-height: 117%;
@@ -188,10 +198,6 @@
   }
 }
 
-.form__label[for="privacy-policy-agree"] {
-  margin: 0;
-  order: 0;
-}
 
 .form__label[for="city"] {
   @media ($desktop-breakpoint) {
@@ -201,18 +207,25 @@
 
 .form__checkbox {
   position: absolute;
-  bottom: 50%;
+  bottom: 0;
+  left: 5px;
+
   width: 1px;
   height: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
 }
 
+.form__label[for="privacy-policy-agree"] {
+  margin: 0;
+  order: 0;
+}
+
 .form__checkbox:focus-visible + label {
   opacity: 0.8;
 }
 
-.form__checkbox:invalid + label {
+.form__checkbox.invalid:invalid + label {
   opacity: 1;
 
   &::before {
@@ -243,7 +256,6 @@
   width: 100%;
   white-space: wrap;
 
-
   &:hover {
     opacity: 1;
 
@@ -260,7 +272,6 @@
       opacity: 1;
     }
   }
-
 
   &::before {
     content: "";
@@ -350,7 +361,8 @@
     color: inherit;
     border-color: inherit;
     min-height: 44px;
-    padding: 10px;
+
+    // padding: 10px;
 
     @media ($tablet-breakpoint) {
       min-height: 50px;
@@ -410,7 +422,6 @@
 
   .form__label[for="modal-privacy-policy-agree"] {
     margin: 0;
-
     order: 0;
   }
 

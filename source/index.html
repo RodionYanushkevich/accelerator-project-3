@@ -762,9 +762,9 @@
             <label class="form__label" for="message">Ваше сообщение</label>
           </div>
 
-          <div class="form__wrapper">
+          <div class="form__wrapper form__wrapper--select">
             <select class="form__input" id="city" name="city" required autocomplete="off">
-              <option value="" disabled selected hidden></option>
+              <option data-placeholder="true"></option>
               <option value="moscow">Москва</option>
               <option value="spb">Санкт-Петербург</option>
               <option value="kazan">Казань</option>
@@ -858,6 +858,9 @@
 
     <form class="modal__form form form--white-background" method="post" action="https://echo.htmlacademy.ru">
 
+      <button class="modal__form-close-button" type="button">
+        <span class="visually-hidden">закрыть модальное окно</span>
+      </button>
       <div class="form__wrapper">
         <h2 class="form__title">Напишите нам</h2>
         <p class="form__description">Оставьте ваши контакты, если у вас остались вопросы — мы на них ответим!</p>
@@ -873,24 +876,26 @@
         <label class="form__label" for="modal-phone">Телефон</label>
       </div>
 
-      <div class="form__wrapper">
-        <select class="form__input" id="modal-city" name="city" required autocomplete="off">
-          <option value="" disabled selected hidden></option>
+      <div class="form__wrapper form__wrapper--select">
+        <select class="form__input form__input--modal-select" id="modal-city" name="city" required autocomplete="off">
+          <option data-placeholder="true"></option>
           <option value="moscow">Москва</option>
           <option value="spb">Санкт-Петербург</option>
           <option value="kazan">Казань</option>
         </select>
         <label class="form__label" for="modal-city">Выберите город</label>
       </div>
+      <div class="form__wrapper">
 
-      <input class="form__checkbox" type="checkbox" id="modal-privacy-policy-agree" name="privacy-policy-agree" required>
-      <label class="form__label" for="modal-privacy-policy-agree">
-        Я согласен на обработку моих персональных <br>
-        данных
-        <svg width="10" height="10">
-          <use href="__spritemap#sprite-check"></use>
-        </svg>
-      </label>
+        <input class="form__checkbox" type="checkbox" id="modal-privacy-policy-agree" name="privacy-policy-agree" required>
+        <label class="form__label" for="modal-privacy-policy-agree">
+          Я согласен на обработку моих персональных <br>
+          данных
+          <svg width="10" height="10">
+            <use href="__spritemap#sprite-check"></use>
+          </svg>
+        </label>
+      </div>
 
       <button class="form__button button" type="submit">
         <span class="button__description">отправить</span>
@@ -901,6 +906,7 @@
         </span>
       </button>
     </form>
+
   </dialog>
   <script type="module" src="js/main.js"></script>
 

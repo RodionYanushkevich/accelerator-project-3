@@ -1,6 +1,7 @@
 
 
-const openModalButtons = document.querySelectorAll('.hero-card__button');
+const openModalButton = document.querySelector('.mission__button');
+const closeModalButton = document.querySelector('.modal__form-close-button');
 const modal = document.querySelector('.modal');
 
 let savedScrollPosition = 0;
@@ -45,8 +46,10 @@ const openModal = () => {
 
 };
 
-openModalButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    openModal();
-  });
+openModalButton.addEventListener('click', () => {
+  openModal();
 });
+closeModalButton.addEventListener('click', () => {
+  closeModal();
+});
+
