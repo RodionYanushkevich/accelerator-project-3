@@ -12,16 +12,31 @@
 
 /* VENDOR */
 @import "./vendor/nebo.css";
+@import "./vendor/slimselect.css";
 
 /* OTHERS */
 @import "./blocks/others/button";
+@import "./blocks/others/small-button";
+@import "./blocks/others/swiper-button";
 @import "./blocks/others/title";
+@import "./blocks/others/scrollbar";
+@import "./blocks/others/select";
+
 
 /* BlOCKS */
 
+/* BODY */
+@import "./blocks/body/body";
+
+/* MODAL */
+@import "./blocks/modal/modal";
+
+/* HEADER */
+@import "./blocks/header/header";
+@import "./blocks/header/navigation";
+
 /* HERO */
 @import "./blocks/hero/hero";
-@import "./blocks/hero/navigation";
 @import "./blocks/hero/hero-card";
 
 /* ABOUT */

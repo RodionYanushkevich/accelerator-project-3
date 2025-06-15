@@ -7,6 +7,7 @@
   padding: 30px 15px;
   row-gap: 15px;
 
+  min-height: 472px;
 
   border: 2px solid #316dc2;
   border-radius: 16px;
@@ -14,13 +15,30 @@
   @media ($tablet-breakpoint) {
     padding: 50px;
 
+    min-height: unset;
+
+
     width: 560px;
     flex-direction: row;
     flex-wrap: wrap;
+
     align-items: center;
+
     justify-content: space-between;
     row-gap: 25px;
     column-gap: 15px;
+  }
+
+  @media ($desktop-breakpoint) {
+    padding: 50px 46px 50px 50px;
+    width: unset;
+
+    min-height: 483px;
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    grid-template-rows: 90px min-content min-content;
+
+    justify-content: space-between;
   }
 }
 
@@ -52,7 +70,9 @@
 
   @media ($desktop-breakpoint) {
     font-size: 18px;
-    line-height: 133%;
+    line-height: 134%;
+
+    // margin-top: 1px;
   }
 }
 
@@ -72,6 +92,11 @@
 
     column-gap: 25px;
     width: 229px;
+  }
+
+  @media ($desktop-breakpoint) {
+    margin-top: 2px;
+    width: min-content;
   }
 }
 
@@ -99,6 +124,7 @@
   @media ($desktop-breakpoint) {
     font-size: 14px;
     line-height: 129%;
+    white-space: nowrap;
   }
 }
 
@@ -117,6 +143,7 @@
   @media ($desktop-breakpoint) {
     font-size: 24px;
     line-height: 108%;
+    grid-column: 1/-1;
   }
 
   &:first-of-type {
@@ -149,6 +176,6 @@
 
   @media ($desktop-breakpoint) {
     font-size: 16px;
-    line-height: 162%;
+    line-height: 163%;
   }
 }

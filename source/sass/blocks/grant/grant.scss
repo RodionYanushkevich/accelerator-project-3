@@ -1,22 +1,49 @@
 .grant {
+  // padding: 70px 15px;
+  // display: flex;
+  // flex-direction: column;
+  // row-gap: 30px;
+
+
+  // color: $base-white;
+  background-color: $base-secondary;
+
+  // @media ($tablet-breakpoint) {
+  //   padding: 100px 45px;
+  //   row-gap: 40px;
+  // }
+
+  @media ($desktop-breakpoint) {
+    padding: 0;
+    width: 100%;
+
+    // align-items: center;
+  }
+}
+
+.grand__wrapper {
   padding: 70px 15px;
   display: flex;
   flex-direction: column;
   row-gap: 30px;
-
-
   color: $base-white;
-  background-color: $base-secondary;
 
   @media ($tablet-breakpoint) {
     padding: 100px 45px;
     row-gap: 40px;
   }
 
+
   @media ($desktop-breakpoint) {
-    flex-direction: row;
+    box-sizing: border-box;
+    min-width: 1134px;
+
     padding: 120px 206px 120px 100px;
+    display: flex;
+    flex-direction: row;
     column-gap: 138px;
+
+    justify-content: center;
   }
 }
 
@@ -27,6 +54,10 @@
 
   @media ($tablet-breakpoint) {
     row-gap: 30px;
+  }
+
+  @media ($desktop-breakpoint) {
+    max-width: 498px;
   }
 }
 
@@ -79,6 +110,7 @@
   }
 
   @media ($desktop-breakpoint) {
+    max-width: 498px;
     row-gap: 45px;
   }
 }

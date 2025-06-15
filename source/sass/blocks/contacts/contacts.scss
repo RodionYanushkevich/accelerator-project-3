@@ -13,7 +13,7 @@
   }
 
   @media ($desktop-breakpoint) {
-    padding: 120px 100px;
+    padding: 121px 100px 120px;
     justify-content: space-between;
     row-gap: 40px;
   }
@@ -112,6 +112,12 @@
 .contacts picture {
   order: 2;
   align-self: center;
+
+  // @media ($desktop-breakpoint) {
+  margin-left: auto;
+  margin-right: auto;
+
+  // }
 }
 
 .contacts__img {

@@ -13,6 +13,7 @@
   }
 
   @media ($desktop-breakpoint) {
+    align-self: center;
     padding: 60px 100px;
     flex-direction: row;
     flex-wrap: wrap;

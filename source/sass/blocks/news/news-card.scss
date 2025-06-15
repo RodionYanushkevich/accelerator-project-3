@@ -1,11 +1,19 @@
 .news-card {
   box-sizing: border-box;
   position: relative;
+  width: 290px;
+  transition: width 1000ms;
+  overflow: hidden;
 
-  width: min-content;
+  @media ($tablet-breakpoint) {
+    width: 324px;
+  }
 
   @media ($desktop-breakpoint) {
-    // width: unset;
+    width: 100%;
+
+    // &--big-card {
+    // }
   }
 }
 
@@ -19,15 +27,16 @@
   display: flex;
   flex-direction: column;
   z-index: 1;
-
+  transition: width 1000ms;
 
   @media ($tablet-breakpoint) {
     width: 240px;
   }
 
   @media ($desktop-breakpoint) {
-    width: 100%;
-    padding-right: 42px;
+    width: 244px;
+
+    // padding-right: 42px;
 
     // min-width: 244px;
 
@@ -35,9 +44,16 @@
   }
 }
 
+// .news-card__container > * {
+//   position: relative;
+//   top: 1px;
+// }
+
 .news-card--big-card .news-card__container {
+  // padding-right: 136px;
+
   @media ($desktop-breakpoint) {
-    padding-right: 136px;
+    width: 468px;
   }
 }
 
@@ -51,10 +67,11 @@
 .news-card__date {
   position: relative;
   border-radius: 0 12px 0 0;
-  padding: 12px 12px 6px 0;
+  padding: 13px 12px 5px 0;
 
   width: min-content;
 
+  // min-width: none;
   font-size: 12px;
   line-height: 100%;
   letter-spacing: 0.01em;
@@ -88,7 +105,7 @@
   position: relative;
   box-sizing: border-box;
   margin: 0;
-  padding: 10px 18px 4px 0;
+  padding: 11px 18px 3px 0;
 
   width: 200px;
 
@@ -98,7 +115,7 @@
 
   border-radius: 0 12px 0 0;
   background-color: $primary-lighter;
-
+  transition: width 1000ms;
 
   &::after {
     @include reverse-border-radius(16px,0);
@@ -111,6 +128,9 @@
 
 
   @media ($tablet-breakpoint) {
+    position: relative;
+
+    // top: 1px;
     font-size: 20px;
     line-height: 120%;
     width: 207px;
@@ -123,6 +143,8 @@
     font-size: 24px;
     line-height: 108%;
 
+    width: 190px;
+
     // width: max-content;
 
     // width: 190px;
@@ -130,6 +152,8 @@
 }
 
 .news-card p {
+  position: relative;
+  top: 1px;
   margin: 0;
   padding: 0;
   font-size: 12px;
@@ -139,6 +163,9 @@
 
 
   @media ($tablet-breakpoint) {
+    // position: unset;
+    top: 0;
+
     font-size: 14px;
     line-height: 143%;
   }
@@ -155,6 +182,8 @@
   align-items: center;
   padding: 12px 10px 10px 0;
   gap: 10px;
+
+  // width: 263px;
 
   border-radius: 0 12px 0 0;
   background-color: $primary-lighter;
@@ -173,24 +202,23 @@
   @media ($tablet-breakpoint) {
     padding: 12px 18px 15px 0;
     gap: 16px;
+
+    justify-content: space-between;
+
+    // width: 240px;
   }
 }
 
 .news-card__img {
   border-radius: 12px;
   background-color: #add8e6;
-}
+  object-fit: contain;
 
-.news-card__link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  color: $base-white;
+  @media ($desktop-breakpoint) {
+    width: 100%;
 
-  flex-shrink: 0;
-
-  background-color: $base-secondary;
-  border-radius: 50%;
+    // height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 }

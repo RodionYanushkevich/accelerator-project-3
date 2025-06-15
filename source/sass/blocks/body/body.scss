@@ -1,0 +1,42 @@
+.body {
+  position: relative;
+}
+
+.body--overlay-shown {
+  position: fixed;
+  overflow-y: scroll;
+
+
+  &::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: #0d1d33;
+    z-index: 2;
+    opacity: 0.4;
+  }
+}
+
+.body__header {
+  position: absolute;
+  top: 20px;
+
+  @media ($tablet-breakpoint) {
+    top: 30px;
+  }
+}
+
+.body__main {
+  display: flex;
+  flex-direction: column;
+}
+
+.body--modal-open {
+  overflow: hidden;
+  position: fixed;
+  overflow-y: scroll;
+}
