@@ -66,6 +66,8 @@
   }
 
   @media ($desktop-breakpoint) {
+    overflow: hidden;
+
     width: 1240px;
   }
 }
@@ -107,47 +109,3 @@
     right: 132px;
   }
 }
-
-// .programs__scrollbar.swiper-scrollbar {
-//   @media (width < $tablet) {
-//     display: none;
-//   }
-
-//   box-sizing: border-box;
-//   position: relative;
-//   margin-top: 50px;
-
-//   // !динамично мож?
-//   width: 562px;
-
-//   height: 2px;
-//   background-color: rgba(49, 109, 194, 0.2);
-
-//   @media ($desktop-breakpoint) {
-//     width: 1136px;
-// // !!!!!!
-//     display: block !important;
-
-//     // display: block !important;
-//   }
-// }
-
-// .programs__scrollbar .swiper-scrollbar-drag {
-//   position: relative;
-//   top: -5px;
-//   height: 10px;
-
-//   cursor: pointer;
-
-//   &::after {
-//     content: "";
-//     box-sizing: border-box;
-//     position: absolute;
-//     top: 5px;
-//     left: 0;
-//     display: block;
-//     height: 2px;
-//     width: 100%;
-//     background-color: $base-secondary;
-//   }
-// }

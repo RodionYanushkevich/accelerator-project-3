@@ -112,6 +112,12 @@
 .contacts picture {
   order: 2;
   align-self: center;
+
+  // @media ($desktop-breakpoint) {
+  margin-left: auto;
+  margin-right: auto;
+
+  // }
 }
 
 .contacts__img {

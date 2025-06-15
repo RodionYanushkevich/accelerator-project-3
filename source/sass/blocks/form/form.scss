@@ -49,13 +49,46 @@
   }
 
   &:focus-visible {
+    opacity: 1;
     outline: none;
+  }
+
+  &:required {
+    border: 1px solid $base-white;
+    background-color: transparent;
+  }
+
+  &:valid {
+    opacity: 1;
   }
 
   &:disabled {
     background-color: rgba(255, 255, 255, 0.2);
     opacity: 0.4;
+    pointer-events: none;
   }
+}
+
+.form.validate-on-submit .form__input:invalid {
+  background: rgba(255, 94, 102, 0.2);
+  border: 1px solid #ff5e66;
+  opacity: 1;
+}
+
+.form__input:hover + label {
+  opacity: 1;
+}
+
+.form__input:active + label {
+  opacity: 1;
+}
+
+.form__inputfocus-visible + label {
+  opacity: 1;
+}
+
+.form__input:valid + label {
+  opacity: 1;
 }
 
 .form__wrapper select {
@@ -79,8 +112,13 @@
   }
 }
 
-// классы
-select option {
+.form__input[name="city"] {
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.form__input[name="city"] option {
   color: $base-primary;
 }
 
@@ -92,7 +130,7 @@ select option {
   font-size: 18px;
   line-height: 122%;
 
-  color: $base-secondary;
+  color: inherit;
 
   @media ($tablet-breakpoint) {
     font-size: 28px;
@@ -137,6 +175,7 @@ select option {
   width: min-content;
   white-space: nowrap;
 
+  order: -1;
 
   @media ($tablet-breakpoint) {
     font-size: 14px;
@@ -151,6 +190,7 @@ select option {
 
 .form__label[for="privacy-policy-agree"] {
   margin: 0;
+  order: 0;
 }
 
 .form__label[for="city"] {
@@ -160,7 +200,33 @@ select option {
 }
 
 .form__checkbox {
-  display: none;
+  position: absolute;
+  bottom: 50%;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.form__checkbox:focus-visible + label {
+  opacity: 0.8;
+}
+
+.form__checkbox:invalid + label {
+  opacity: 1;
+
+  &::before {
+    background: rgba(255, 94, 102, 0.2);
+    opacity: 0.7;
+    border: 1px solid #ff5e66;
+  }
+}
+
+.form__checkbox:disabled + label {
+  &::before {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid #ffffff;
+  }
 }
 
 .form__checkbox + label {
@@ -177,12 +243,32 @@ select option {
   width: 100%;
   white-space: wrap;
 
+
+  &:hover {
+    opacity: 1;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    opacity: 1;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+
   &::before {
     content: "";
     box-sizing: border-box;
     display: block;
     width: 20px;
     height: 20px;
+    opacity: 0.7;
 
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 2px;
@@ -234,8 +320,6 @@ select option {
 }
 
 .form__button .button__wrapper {
-  // background-color: $base-white;
-  // color: $base-secondary;
   flex-grow: 0;
   justify-self: end;
 }
@@ -274,6 +358,8 @@ select option {
   }
 
   .form__title {
+    color: $base-secondary;
+
     @media ($desktop-breakpoint) {
       line-height: 23px;
     }
@@ -291,6 +377,7 @@ select option {
   }
 
   .form__wrapper {
+    position: relative;
     font-size: 14px;
     line-height: 100%;
 
@@ -319,6 +406,12 @@ select option {
 
   .form__checkbox + label::before {
     background-color: $base-secondary;
+  }
+
+  .form__label[for="modal-privacy-policy-agree"] {
+    margin: 0;
+
+    order: 0;
   }
 
   .form__button {

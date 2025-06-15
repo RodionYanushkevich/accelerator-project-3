@@ -1,7 +1,7 @@
 .news {
   position: relative;
 
-  padding: 50px 15px;
+  padding: 50px 15px 10px;
   color: $base-secondary;
   display: flex;
   flex-direction: column;
@@ -11,22 +11,43 @@
   overflow: hidden;
 
   @media ($tablet-breakpoint) {
-    // !!!!
+    --padding-size: 45px;
+
     padding: 50px 45px 112px;
+    align-self: center;
+
     row-gap: 30px;
+
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      height: 100%;
+      width: var(--padding-size);
+      background-color: $primary-lighter;
+      z-index: 2;
+    }
+
+    &::after {
+      left: unset;
+      right: 0;
+    }
   }
+
 
   @media ($desktop-breakpoint) {
     --padding-size: 100px;
 
     padding: 60px var(--padding-size) 132px;
-    align-self: center;
 
     // margin: 0 100px;
     width: 1240px;
 
     // padding: 60px 0 132px;
-
     row-gap: 40px;
 
     &::after,
@@ -70,12 +91,6 @@
 
 .news__links-swiper {
   width: 100%;
-
-  // & li {
-  //   width: min-content;
-
-  //   // flex-shrink: 1;
-  // }
 
   @media ($tablet-breakpoint) {
     align-self: center;
@@ -148,53 +163,35 @@
 }
 
 .news__swiper-buttons-container {
+  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 90;
+  left: 15px;
+  bottom: 50px;
+  width: calc(100% - 30px);
 
-  // align-self: center;
+  @media ($tablet-breakpoint) {
+    left: 45px;
+
+    width: calc(100% - 90px);
+    bottom: 50px;
+  }
+
   @media ($desktop-breakpoint) {
-    position: absolute;
-
+    left: 100px;
     width: calc(100% - 200px);
     bottom: 60px;
   }
 }
 
-.news__swiper-button.swiper-button-prev {
-  order: -1;
-}
-
-.news__swiper-button.swiper-button-next {
-  order: 1;
-}
-
 .news__list.swiper-wrapper {
-  // box-sizing: border-box;
   padding: 0;
   margin: 0;
   list-style: none;
-  row-gap: 5px;
+  row-gap: 2px;
 
-  // width: 1240px;
-  // overflow: hidden;
-
-  // display: grid;
-  // grid-template-columns: min-content;
-  // grid-template-rows: repeat(2, min-content);
-  // flex-direction: column;
-  // flex-wrap: wrap;
-
-  // height: 660px;
-
-  // // align-items: start;
-  // // justify-content: start;
-  // // height: 590px;
-  // justify-content: space-between;
-
-  // column-gap: 15px;
-
-  // row-gap: 20px;
   @media ($tablet-breakpoint) {
     gap: 0;
   }
@@ -207,8 +204,10 @@
 }
 
 .news__swiper {
+  align-self: center;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   // gap: 24px;
   width: 290px;
@@ -216,29 +215,20 @@
   height: 680px;
 
   @media ($tablet-breakpoint) {
+    align-self: flex-start;
     height: unset;
 
+    // width: 324px;
     width: 678px;
 
-    overflow: hidden;
+    overflow: visible;
     gap: 30px;
   }
 
   @media ($desktop-breakpoint) {
-    // width: min-content;
-
+    align-self: flex-start;
     width: 286px;
-
-    // width: 604px;
-
-    // width: 922px;
-
-    // width: 982px;
-    // width: 1240px;
-
     overflow: visible;
-
-    // gap: 30px;
   }
 }
 
@@ -247,18 +237,20 @@
   gap: 16px;
   justify-content: start;
   flex-wrap: wrap;
+
+  @media ($tablet-breakpoint) {
+    gap: 20px;
+  }
 }
 
 
 .news__pagination .swiper-pagination-bullet {
   width: 26px;
   height: 26px;
-  display: none;
 
-  // display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
-
 
   font-family: $font-primary;
   font-style: normal;
@@ -314,37 +306,9 @@
   }
 }
 
-// .news__pagination .swiper-pagination-bullet-active-prev,
-// .news__pagination .swiper-pagination-bullet-active,
-// .news__pagination .swiper-pagination-bullet-active-next,
-// .news__pagination .swiper-pagination-bullet-active-next-next {
-//   display: flex;
-// }
-
 .news__pagination .swiper-pagination-bullet-active {
   background-color: $base-secondary;
   color: $base-white;
   opacity: 1;
   pointer-events: none;
 }
-
-// .news__list-item {
-//   @media (width < $tablet) {
-//     &:nth-child(1) {
-//       order: 1;
-//     }
-
-//     &:nth-child(2) {
-//       order: 2;
-//     }
-
-//     &:nth-child(3) {
-//       order: 3;
-//     }
-
-//     &:nth-child(4) {
-//       order: 4;
-//     }
-//   }
-// }
-

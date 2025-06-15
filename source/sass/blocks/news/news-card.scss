@@ -143,6 +143,8 @@
     font-size: 24px;
     line-height: 108%;
 
+    width: 190px;
+
     // width: max-content;
 
     // width: 190px;
@@ -210,13 +212,13 @@
 .news-card__img {
   border-radius: 12px;
   background-color: #add8e6;
-  object-fit: contain; /* или contain, в зависимости от потребностей */
+  object-fit: contain;
 
   @media ($desktop-breakpoint) {
     width: 100%;
 
     // height: 100%;
-    object-fit: cover; /* или contain, в зависимости от потребностей */
+    object-fit: cover;
     display: block;
   }
 }

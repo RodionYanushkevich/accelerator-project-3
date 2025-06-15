@@ -1,9 +1,16 @@
 import Swiper from 'swiper';
-// import { Navigation, Scrollbar } from 'swiper/modules';
 import { A11y, Navigation, Scrollbar } from 'swiper/modules';
 // import 'swiper/css/a11y';
 
+import { duplicateSlides } from '../../util.js';
+
 const programsSwiperContainer = document.querySelector('.programs__swiper');
+const swiperWrapper = programsSwiperContainer.children[0];
+
+const originalSlidesArray = Array.from(swiperWrapper.children);
+
+
+const SLIDES_TO_DUPLICATE = 9;
 
 // const initSwiper = () => {
 // programsSwiper =
@@ -41,6 +48,12 @@ new Swiper(programsSwiperContainer, {
       spaceBetween: 30,
       allowTouchMove: false,
       simulateTouch: false
+    }
+  },
+  on: {
+    init: function () {
+
+      duplicateSlides(this, originalSlidesArray, SLIDES_TO_DUPLICATE);
     }
   }
 });

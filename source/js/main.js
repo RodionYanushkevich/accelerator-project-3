@@ -16,5 +16,6 @@ import '../js/modules/news/news-swiper.js';
 import '../js/modules/reviews/reviews-swiper.js';
 import '../js/modules/programs/programs-swiper.js';
 
+import '../js/modules/form/form-validation.js';
 
 import '../js/modules/faq/accordion.js';

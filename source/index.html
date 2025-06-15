@@ -354,33 +354,35 @@
     </section>
 
     <section class="grant" data-test="grant">
-      <div class="grant__container">
-        <h2 class="grant__title title">Как поехать</h2>
-        <p>Свяжитесь с координатором, чтобы узнать
-          полную информацию. Вы получите
-          актуальные сведения о доступных
-          программах и городах, в которых можете
-          пройти программу.</p>
+      <div class="grand__wrapper">
+        <div class="grant__container">
+          <h2 class="grant__title title">Как поехать</h2>
+          <p>Свяжитесь с координатором, чтобы узнать
+            полную информацию. Вы получите
+            актуальные сведения о доступных
+            программах и городах, в которых можете
+            пройти программу.</p>
 
-        <picture>
-          <source type="image/webp" media="(min-width:1440px)" srcset="img/grant/arrows-desktop@1x.webp 1x, img/grant/arrows-desktop@2x.webp 2x" width="498" height="363">
-          <source type="image/webp" media="(min-width:768px)" srcset="img/grant/arrows-tablet@1x.webp 1x, img/grant/arrows-tablet@2x.webp 2x" width="678" height="375">
-          <img class="grant__img" src="img/grant/arrows-mobile@1x.webp" srcset="img/grant/arrows-mobile@2x.webp" alt="изображение стрелок направлений" width="290" height="200">
-        </picture>
-      </div>
+          <picture>
+            <source type="image/webp" media="(min-width:1440px)" srcset="img/grant/arrows-desktop@1x.webp 1x, img/grant/arrows-desktop@2x.webp 2x" width="498" height="363">
+            <source type="image/webp" media="(min-width:768px)" srcset="img/grant/arrows-tablet@1x.webp 1x, img/grant/arrows-tablet@2x.webp 2x" width="678" height="375">
+            <img class="grant__img" src="img/grant/arrows-mobile@1x.webp" srcset="img/grant/arrows-mobile@2x.webp" alt="изображение стрелок направлений" width="290" height="200">
+          </picture>
+        </div>
 
-      <div class="grant__list-container">
-        <h3 class="grant__subtitle">Чтобы получить грант
-          на обучение, вам нужно:</h3>
+        <div class="grant__list-container">
+          <h3 class="grant__subtitle">Чтобы получить грант
+            на обучение, вам нужно:</h3>
 
-        <ol class="grant__list">
-          <li class="grant__item">Быть в возрасте от 16 до 30 лет</li>
-          <li class="grant__item">Иметь оконченное среднее образование</li>
-          <li class="grant__item">Иметь документально подтверждённое отсутствие
-            судимости и пройти консульскую проверку</li>
-          <li class="grant__item">За последние 2 года быть не больше 3х месяцев
-            подряд непрерывно в одной стране</li>
-        </ol>
+          <ol class="grant__list">
+            <li class="grant__item">Быть в возрасте от 16 до 30 лет</li>
+            <li class="grant__item">Иметь оконченное среднее образование</li>
+            <li class="grant__item">Иметь документально подтверждённое отсутствие
+              судимости и пройти консульскую проверку</li>
+            <li class="grant__item">За последние 2 года быть не больше 3х месяцев
+              подряд непрерывно в одной стране</li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -746,38 +748,40 @@
           </div>
 
           <div class="form__wrapper">
-            <label class="form__label" for="name">Имя</label>
             <input class="form__input" type="text" id="name" name="name" required autocomplete="off">
+            <label class="form__label" for="name">Имя</label>
           </div>
 
           <div class="form__wrapper">
-            <label class="form__label" for="phone">Телефон</label>
             <input class="form__input" type="tel" id="phone" name="phone" required autocomplete="off">
+            <label class="form__label" for="phone">Телефон</label>
           </div>
 
           <div class="form__wrapper">
-            <label class="form__label" for="message">Ваше сообщение</label>
             <textarea class="form__input" id="message" name="message" rows="4" required autocomplete="off"></textarea>
+            <label class="form__label" for="message">Ваше сообщение</label>
           </div>
 
           <div class="form__wrapper">
-            <label class="form__label" for="city">Выберите город</label>
             <select class="form__input" id="city" name="city" required autocomplete="off">
               <option value="" disabled selected hidden></option>
               <option value="moscow">Москва</option>
               <option value="spb">Санкт-Петербург</option>
               <option value="kazan">Казань</option>
             </select>
+            <label class="form__label" for="city">Выберите город</label>
           </div>
 
-          <input class="form__checkbox" type="checkbox" id="privacy-policy-agree" name="privacy-policy-agree">
-          <label class="form__label" for="privacy-policy-agree">
-            Я согласен на обработку моих персональных <br>
-            данных
-            <svg width="10" height="10">
-              <use href="__spritemap#sprite-check"></use>
-            </svg>
-          </label>
+          <div class="form__wrapper">
+            <input class="form__checkbox" type="checkbox" id="privacy-policy-agree" name="privacy-policy-agree" required>
+            <label class="form__label" for="privacy-policy-agree">
+              Я согласен на обработку моих персональных <br>
+              данных
+              <svg width="10" height="10">
+                <use href="__spritemap#sprite-check"></use>
+              </svg>
+            </label>
+          </div>
 
           <button class="form__button button button--blue-background" type="submit">
             <span class="button__description">отправить</span>
@@ -860,26 +864,26 @@
       </div>
 
       <div class="form__wrapper">
-        <label class="form__label" for="modal-name">Имя</label>
         <input class="form__input" type="text" id="modal-name" name="name" required autocomplete="off">
+        <label class="form__label" for="modal-name">Имя</label>
       </div>
 
       <div class="form__wrapper">
-        <label class="form__label" for="modal-phone">Телефон</label>
         <input class="form__input" type="tel" id="modal-phone" name="phone" required autocomplete="off">
+        <label class="form__label" for="modal-phone">Телефон</label>
       </div>
 
       <div class="form__wrapper">
-        <label class="form__label" for="modal-city">Выберите город</label>
         <select class="form__input" id="modal-city" name="city" required autocomplete="off">
           <option value="" disabled selected hidden></option>
           <option value="moscow">Москва</option>
           <option value="spb">Санкт-Петербург</option>
           <option value="kazan">Казань</option>
         </select>
+        <label class="form__label" for="modal-city">Выберите город</label>
       </div>
 
-      <input class="form__checkbox" type="checkbox" id="modal-privacy-policy-agree" name="privacy-policy-agree">
+      <input class="form__checkbox" type="checkbox" id="modal-privacy-policy-agree" name="privacy-policy-agree" required>
       <label class="form__label" for="modal-privacy-policy-agree">
         Я согласен на обработку моих персональных <br>
         данных

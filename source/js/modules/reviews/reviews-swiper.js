@@ -1,7 +1,17 @@
 import Swiper from 'swiper';
 import { Navigation, Scrollbar } from 'swiper/modules';
+import { duplicateSlides } from '../../util.js';
 
 const reviewsSwiperContainer = document.querySelector('.reviews__swiper');
+
+
+const swiperWrapper = reviewsSwiperContainer.children[0];
+
+const originalSlidesArray = Array.from(swiperWrapper.children);
+
+
+const SLIDES_TO_DUPLICATE = 6;
+
 
 // const initSwiper = () => {
 // programsSwiper =
@@ -25,9 +35,7 @@ new Swiper(reviewsSwiperContainer, {
   },
   breakpoints: {
     768: {
-      // slidesPerGroup: 1,
       spaceBetween: 30,
-      // slidesPerView: 2,
     },
     1440: {
       scrollbar: {
@@ -36,7 +44,12 @@ new Swiper(reviewsSwiperContainer, {
       slidesPerView: 2,
       spaceBetween: 32,
       allowTouchMove: false,
-      simulateTouch: false
+      simulateTouch: false,
+    }
+  },
+  on: {
+    init: function () {
+      duplicateSlides(this, originalSlidesArray, SLIDES_TO_DUPLICATE);
     }
   }
 });

@@ -12,6 +12,8 @@
   }
 
   @media ($desktop-breakpoint) {
+    align-self: center;
+
     padding: 60px 100px 70px;
   }
 }
@@ -55,11 +57,10 @@
 .reviews__swiper {
   @media ($tablet-breakpoint) {
     width: 560px;
-
-    // asdasd
   }
 
   @media ($desktop-breakpoint) {
+    overflow: hidden;
     width: 1240px;
   }
 }
