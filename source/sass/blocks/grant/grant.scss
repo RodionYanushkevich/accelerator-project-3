@@ -7,7 +7,7 @@
   }
 }
 
-.grand__wrapper {
+.grant__wrapper {
   display: flex;
   flex-direction: column;
   padding: 70px 15px;
@@ -40,10 +40,6 @@
 
   @media ($tablet-breakpoint) {
     row-gap: 30px;
-  }
-
-  @media ($desktop-breakpoint) {
-    max-width: 498px;
   }
 }
 

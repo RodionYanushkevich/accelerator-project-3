@@ -1,5 +1,3 @@
-// import { compensateOverflowPadding } from '../../util.js';
-
 const navigation = document.querySelector('.navigation');
 const navLinks = navigation.querySelectorAll('.navigation__link');
 const dropdownSubMenuList = navigation.querySelectorAll('.navigation__item--dropdown');
@@ -7,6 +5,7 @@ const dropdownSubMenuList = navigation.querySelectorAll('.navigation__item--drop
 const [dropdownNavigationButton, dropdownNavigationList] = navigation.children;
 
 let isMenuOpen = false;
+const TRANSITION_TIME = 300;
 
 const updateTabindex = () => {
   navLinks.forEach((link) => {
@@ -45,8 +44,7 @@ const closeNavigation = (isClickOutside) => {
   if (isClickOutside && dropdownNavigationButton.classList.contains('navigation__button--active')) {
     setTimeout(() => {
       dropdownNavigationButton.classList.remove('navigation__button--active');
-    }, 500);
-    // !!! ПЕРЕМЕННЫЕ ПО РУТ
+    }, TRANSITION_TIME);
   } else {
     dropdownNavigationButton.classList.remove('navigation__button--active');
   }

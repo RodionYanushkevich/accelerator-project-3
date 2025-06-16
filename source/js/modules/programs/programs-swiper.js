@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
 import { A11y, Navigation, Scrollbar } from 'swiper/modules';
-// import 'swiper/css/a11y';
 
 import { duplicateSlides } from '../../util.js';
 
@@ -15,6 +14,7 @@ new Swiper(programsSwiperContainer, {
   modules: [A11y, Navigation, Scrollbar],
   speed: 300,
   slidesPerView: 1,
+  slidesPerGroup: 1,
   autoHeight: true,
   spaceBetween: 20,
   navigation: {
@@ -30,7 +30,7 @@ new Swiper(programsSwiperContainer, {
   },
   breakpoints: {
     768: {
-      slidesPerGroup: 1,
+      slidesPerGroup: 2,
       spaceBetween: 30,
       slidesPerView: 2,
       allowTouchMove: true,
@@ -40,6 +40,8 @@ new Swiper(programsSwiperContainer, {
       scrollbar: {
         dragSize: 394,
       },
+      slidesPerGroup: 3,
+
       slidesPerView: 3,
       spaceBetween: 30,
       allowTouchMove: false,

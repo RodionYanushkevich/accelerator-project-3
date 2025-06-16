@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, A11y, Grid, Pagination } from 'swiper/modules';
+import { Navigation, Grid, Pagination } from 'swiper/modules';
 import 'swiper/css/grid';
 
 import { duplicateSlides, mobileBreakpoint, tabletBreakpoint, desktopBreakpoint } from '../../util.js';
@@ -47,7 +47,6 @@ const updateTabIndex = (swiper) => {
   Array.from(slides).forEach((slide) => {
     const button = slide.querySelector('.news-card__link');
     button.setAttribute('tabindex', '-1');
-    // button.style.setProperty('background-color', 'red');
   });
 
   let activeSlides;
@@ -70,7 +69,6 @@ const updateTabIndex = (swiper) => {
   activeSlides.forEach((slide) => {
     const button = slide.querySelector('.news-card__link');
     button.setAttribute('tabindex', '0');
-    // button.style.setProperty('background-color', 'green');
   });
 };
 
@@ -231,10 +229,6 @@ function ininSwiper() {
           }
 
           if (window.innerWidth >= 1440) {
-            // setTimeout(() => {
-            //   this.slides[0].style.width = '604px';
-            //   this.slides[0].children[0].classList.add('news-card--big-card');
-            // }, 20);
             this.slides.forEach((slide) => {
               slide.style.order = '';
             });
