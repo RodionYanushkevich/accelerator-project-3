@@ -5,7 +5,6 @@ import 'swiper/css/effect-fade';
 const paginationBulletsCreate = (swiper) => {
   const activeSlide = swiper.slides[swiper.activeIndex];
   const paginationParent = activeSlide.querySelector('.swiper-pagination');
-
   paginationParent.innerHTML = '';
 
   for (let i = 0; i < swiper.slides.length; i++) {
@@ -51,7 +50,6 @@ const tabIndexToggle = (swiper) => {
   activeSlide.querySelector('.hero-card__button').setAttribute('tabindex', '0');
 };
 
-
 new Swiper('.hero__swiper', {
   modules: [EffectFade, A11y],
   loop: true,
@@ -66,15 +64,16 @@ new Swiper('.hero__swiper', {
       allowTouchMove: false,
       simulateTouch: false
     },
-    on: {
-      init: function () {
-        paginationBulletsCreate(this);
-        disableTabIndex(this);
-      },
-      slideChange: function () {
-        paginationBulletsCreate(this);
-        tabIndexToggle(this);
-      },
-    }
   },
+  on: {
+    init: function () {
+      paginationBulletsCreate(this);
+      disableTabIndex(this);
+    },
+    slideChange: function () {
+      paginationBulletsCreate(this);
+      tabIndexToggle(this);
+    },
+  }
+
 });

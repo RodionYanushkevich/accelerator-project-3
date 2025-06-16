@@ -3,11 +3,9 @@
   display: grid;
   grid-template-columns: 1fr 40px;
   grid-template-rows: min-content 0fr;
-
   justify-content: space-between;
-  align-items: center;
   padding: 20px 15px;
-
+  align-items: center;
   row-gap: 0;
 
   border: 2px solid $base-secondary;
@@ -102,7 +100,9 @@
 
   font-size: 14px;
   line-height: 143%;
+
   opacity: 0;
+
   transition: opacity 300ms;
 
   @media ($tablet-breakpoint) {
@@ -111,15 +111,15 @@
   }
 
   @media ($desktop-breakpoint) {
-    // margin-top: 21px;
-
     line-height: 162%;
   }
 }
 
 .accordion--open p {
   color: $primary-lighter;
+
   visibility: visible;
+
   transition: all 300ms;
 
   opacity: 1;
@@ -131,12 +131,11 @@
 
   background-color: $base-secondary;
 
-
   &:hover,
   &:focus-visible {
-    outline: none;
     background-color: $base-secondary;
     border: 2px solid $base-white;
+    outline: none;
   }
 
   &:hover .accordion__button,
@@ -170,6 +169,7 @@
 
 .accordion__button {
   position: relative;
+
   display: block;
   width: 40px;
   height: 40px;

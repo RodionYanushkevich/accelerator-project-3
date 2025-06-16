@@ -16,6 +16,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+
   color: $base-secondary;
 
   @media ($tablet-breakpoint) {
@@ -39,6 +40,7 @@
 
   @media ($tablet-breakpoint) {
     width: 498px;
+
     font-size: 16px;
     line-height: 125%;
   }
@@ -51,8 +53,9 @@
 
 .mission__button {
   margin-top: 10px;
-  background-color: transparent;
   width: 223px;
+
+  background-color: transparent;
 
   @media ($tablet-breakpoint) {
     width: 279px;

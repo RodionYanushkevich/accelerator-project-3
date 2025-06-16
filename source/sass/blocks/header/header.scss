@@ -4,7 +4,6 @@
   width: 100%;
   padding: 0 15px;
   min-width: 320px;
-
   align-items: center;
 
   @media ($tablet-breakpoint) {
@@ -19,6 +18,7 @@
 .header__logo {
   position: absolute;
   top: 1px;
+
   z-index: 2;
 
   @media ($tablet-breakpoint) {

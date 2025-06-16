@@ -2,28 +2,14 @@
   position: relative;
   box-sizing: border-box;
 
-  // display: flex;
-  // flex-direction: column;
-
   overflow: hidden;
 
-  // justify-content: end;
   width: 100%;
-
-  // min-height: 568px;
-  // height: 100%;
-
-  @media ($tablet-breakpoint) {
-    // min-height: 1024px;
-  }
-
-  @media ($desktop-breakpoint) {
-    // min-height: 800px;
-  }
 }
 
 .hero__list {
   padding: 0;
   margin: 0;
+
   list-style: none;
 }

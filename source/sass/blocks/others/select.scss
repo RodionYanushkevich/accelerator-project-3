@@ -59,7 +59,7 @@
   }
 }
 
-.select-option.ss-selected {
+.select .select-option.ss-selected {
   color: $base-white;
   background-color: $base-secondary;
 
@@ -73,7 +73,7 @@
   border: 1px solid $base-white;
 }
 
-.select-option {
+.select .select-option {
   padding: 17px 20px;
   color: $base-primary;
   background-color: $base-white;
