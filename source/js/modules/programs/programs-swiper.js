@@ -9,18 +9,12 @@ const swiperWrapper = programsSwiperContainer.children[0];
 
 const originalSlidesArray = Array.from(swiperWrapper.children);
 
-
 const SLIDES_TO_DUPLICATE = 9;
 
-// const initSwiper = () => {
-// programsSwiper =
-
 new Swiper(programsSwiperContainer, {
-  // modules: [Navigation, Scrollbar],
   modules: [A11y, Navigation, Scrollbar],
   speed: 300,
   slidesPerView: 1,
-  // a11y: { enabled: true },
   autoHeight: true,
   spaceBetween: 20,
   navigation: {
@@ -39,6 +33,8 @@ new Swiper(programsSwiperContainer, {
       slidesPerGroup: 1,
       spaceBetween: 30,
       slidesPerView: 2,
+      allowTouchMove: true,
+      simulateTouch: true
     },
     1440: {
       scrollbar: {

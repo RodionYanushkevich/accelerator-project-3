@@ -49,6 +49,7 @@ const openModal = () => {
 openModalButton.addEventListener('click', () => {
   openModal();
 });
+
 closeModalButton.addEventListener('click', () => {
   closeModal();
 });

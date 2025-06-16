@@ -1,18 +1,18 @@
-.ss-main .ss-arrow path {
+.select .ss-arrow path {
   stroke: $base-white;
   stroke-width: 10px;
 }
 
-.ss-main.form__input--modal-select .ss-arrow path {
+.select.form__input--modal-select .ss-arrow path {
   stroke: $base-primary;
 }
 
-.ss-main .ss-arrow {
+.select .ss-arrow {
   transform: scaleX(1.4);
   opacity: 1;
 }
 
-.ss-main.form__input {
+.select.form__input {
   border-radius: 8px;
   height: 52px;
   width: calc(100% - 10px);
@@ -30,7 +30,7 @@
   }
 }
 
-.ss-main.form__input.form__input--modal-select {
+.select.form__input.form__input--modal-select {
   border-color: rgba(72, 72, 72, 0.3);
 
   &:focus,
@@ -40,18 +40,17 @@
   }
 }
 
-.ss-main.form__input.invalid {
+.select.form__input.invalid {
   background: rgba(255, 94, 102, 0.2);
-  opacity: 0.7;
   border: 1px solid #ff5e66;
 }
 
-.form__input.ss-content {
+.select.form__input ~ .ss-content {
   position: absolute;
   width: calc(100% - 10px);
-  top: 84px;
+  top: 90px;
   height: max-content;
-
+  border-radius: 8px;
   background-color: $base-white;
   padding: 0;
 
@@ -63,6 +62,15 @@
 .select-option.ss-selected {
   color: $base-white;
   background-color: $base-secondary;
+
+  &:hover {
+    color: $base-primary;
+    background-color: $base-secondary;
+  }
+}
+
+.select[aria-activedescendant] {
+  border: 1px solid $base-white;
 }
 
 .select-option {

@@ -61,22 +61,20 @@ new Swiper('.hero__swiper', {
   fadeEffect: { crossFade: true },
   a11y: { enabled: true },
   autoHeight: true,
-
-  on: {
-    init: function () {
-      paginationBulletsCreate(this);
-      disableTabIndex(this);
+  breakpoints: {
+    1440: {
+      allowTouchMove: false,
+      simulateTouch: false
     },
-    slideChange: function () {
-      paginationBulletsCreate(this);
-      tabIndexToggle(this);
-
-    },
-    breakpoints: {
-      1440: {
-        allowTouchMove: false,
-        simulateTouch: false
-      }
+    on: {
+      init: function () {
+        paginationBulletsCreate(this);
+        disableTabIndex(this);
+      },
+      slideChange: function () {
+        paginationBulletsCreate(this);
+        tabIndexToggle(this);
+      },
     }
-  }
+  },
 });

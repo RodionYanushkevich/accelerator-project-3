@@ -297,7 +297,24 @@
 }
 
 .form__checkbox:checked + .form__label::before {
-  background-color: transparent;
+  opacity: 1;
+  background-color: $base-white;
+}
+
+.form__checkbox:checked + .form__label:focus::before,
+.form__checkbox:checked + .form__label:hover::before {
+  background-color: $base-secondary;
+  border: 1px solid $base-white;
+}
+
+.form__checkbox:disabled + .form__label::before {
+  background: #a9afb7;
+}
+
+.form__checkbox:checked + .form__label:hover svg,
+.form__checkbox:disabled + .form__label svg,
+.form__checkbox:checked + .form__label svg {
+  color: $base-white;
 }
 
 .form__checkbox:checked + .form__label svg {
@@ -306,6 +323,7 @@
   display: block;
   width: 10px;
   height: 10px;
+  color: $base-secondary;
 }
 
 .form__label br {

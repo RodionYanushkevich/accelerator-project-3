@@ -9,9 +9,6 @@ const swiperWrapper = newsSwiperContainer.children[0];
 
 const originalSlidesArray = Array.from(swiperWrapper.children);
 
-
-// import 'swiper/css/pagination';
-
 const SLIDES_TO_DUPLICATE = 16;
 
 const SLIDES_BY_PAGE = [2, 4, 3];
@@ -235,10 +232,12 @@ function ininSwiper() {
 
           if (window.innerWidth >= 1440) {
             // setTimeout(() => {
-            //   // this.style.order = '';
             //   this.slides[0].style.width = '604px';
             //   this.slides[0].children[0].classList.add('news-card--big-card');
             // }, 20);
+            this.slides.forEach((slide) => {
+              slide.style.order = '';
+            });
             updateButtons(this);
             handleLastBulletsClick(this);
             handleNavigationButtonsClick(this);
@@ -282,7 +281,6 @@ function ininSwiper() {
         },
         1440: {
           grid: { rows: 1, fill: 'row' },
-          // resizeObserver: false,
           updateOnWindowResize: false,
           slidesPerGroup: 1,
           slidesPerView: 1,
@@ -296,7 +294,6 @@ const updateSwiper = (e) => {
   if (e.matches) {
     ininSwiper();
   }
-
 };
 
 ininSwiper();
