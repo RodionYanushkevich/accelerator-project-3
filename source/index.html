@@ -6,22 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Internship</title>
   <link rel="stylesheet" href="sass/style.scss">
+
+  <meta name="description" content="Проект «Стажировка» — международные программы стажировок, волонтёрства и обучения за рубежом. Гранты, карьерные возможности и уникальный опыт для молодых специалистов. Присоединяйтесь!">
   <link rel="preload" href="./fonts/manrope/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="./fonts/manrope/Manrope-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="./fonts/manrope/Manrope-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
-
 </head>
 
 <body class="page-body body">
   <header class="body__header header">
     <img class="header__logo logo header__logo--menuopen" src="img/logo.svg" alt="Логотип Internship" width="52" height="52">
+
     <nav class="header__nav navigation">
 
-      <button class="navigation__button button" type="button">
+      <button class="navigation__button button" type="button" aria-label="Открыть меню">
         <span class="button__description">меню</span>
         <span class="button__wrapper">
-          <svg width="18" height="8">
+          <svg width="18" height="8" aria-hidden="true">
             <use href="/__spritemap#sprite-burger"></use>
           </svg></span>
       </button>
@@ -753,9 +755,9 @@
           <div class="form__wrapper form__wrapper--select">
             <select class="form__input select" id="city" name="city" required autocomplete="off">
               <option data-placeholder="true" label=" "></option>
-              <option value="moscow">Москва</option>
-              <option value="spb">Санкт-Петербург</option>
-              <option value="kazan">Казань</option>
+              <option value="moscow" label="Москва">Москва</option>
+              <option value="spb" label="Санкт-Петербург">Санкт-Петербург</option>
+              <option value="kazan" label="Казань">Казань</option>
             </select>
             <label class="form__label" for="city">Выберите город</label>
           </div>
@@ -817,9 +819,9 @@
 
     <ul class="footer__social social">
       <li class="social__item">
-        <a class="social__link social__link--vk" href="#" aria-label="мы в VK" target="_blank"
+        <a class="social__link social__link--vk" href="#" aria-label="Мы в ВКонтакте" target="_blank"
            rel="noopener noreferrer">
-          <svg width="12" height="8">
+          <svg width="12" height="8" aria-hidden="true">
             <use href="/__spritemap#sprite-vk"></use>
           </svg>
         </a>
@@ -828,7 +830,7 @@
       <li class="social__item">
         <a class="social__link social__link--ok" href="#" aria-label="Одноклассники" target="_blank"
            rel="noopener noreferrer">
-          <svg width="8" height="12">
+          <svg width="8" height="12" aria-hidden="true">
             <use href="/__spritemap#sprite-odnoklassniki"></use>
           </svg>
         </a>
@@ -837,7 +839,7 @@
       <li class="social__item">
         <a class="social__link social__link--reddit" href="#" aria-label="Реддит" target="_blank"
            rel="noopener noreferrer">
-          <svg width="12" height="12">
+          <svg width="12" height="12" aria-hidden="true">
             <use href="/__spritemap#sprite-reddit"></use>
           </svg>
         </a>
@@ -845,7 +847,7 @@
     </ul>
 
   </footer>
-  <dialog class="body__modal modal">
+  <dialog class="body__modal modal" aria-modal="true">
 
     <form class="modal__form form form--white-background" method="post" action="https://echo.htmlacademy.ru">
 
@@ -882,7 +884,7 @@
         <label class="form__label" for="modal-privacy-policy-agree">
           Я согласен на обработку моих персональных <br>
           данных
-          <svg width="10" height="10">
+          <svg width="10" height="10" aria-hidden="true">
             <use href="__spritemap#sprite-check"></use>
           </svg>
         </label>

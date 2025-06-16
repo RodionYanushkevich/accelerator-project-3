@@ -26,6 +26,11 @@
 
   @media ($tablet-breakpoint) {
     padding: 0;
+    width: 100%;
+  }
+
+  @media ($desktop-breakpoint) {
+    width: unset;
   }
 }
 

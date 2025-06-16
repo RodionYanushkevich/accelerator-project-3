@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { EffectFade, A11y } from 'swiper/modules';
+import { EffectFade } from 'swiper/modules';
 import 'swiper/css/effect-fade';
 
 const paginationBulletsCreate = (swiper) => {
@@ -51,7 +51,7 @@ const tabIndexToggle = (swiper) => {
 };
 
 new Swiper('.hero__swiper', {
-  modules: [EffectFade, A11y],
+  modules: [EffectFade],
   loop: true,
   speed: 300,
   slidesPerView: 1,
@@ -73,6 +73,7 @@ new Swiper('.hero__swiper', {
     slideChange: function () {
       paginationBulletsCreate(this);
       tabIndexToggle(this);
+      document.activeElement.blur();
     },
   }
 

@@ -16,7 +16,10 @@ const mainFormSelect =
     cssClasses: {
       option: 'select-option'
     },
-
+    a11y: {
+      ariaLabel: 'Выберите вариант',
+      ariaRequired: true,
+    },
     settings: {
       placeholderText: '',
       showSearch: false,
@@ -38,13 +41,16 @@ const modalFormSlimSelect =
     cssClasses: {
       option: 'select-option'
     },
-
     settings: {
       placeholderText: '',
       showSearch: false,
       contentPosition: 'relative',
       contentLocation: modalSelectWrapper,
       showOptionTooltips: true
+    },
+    a11y: {
+      ariaLabel: 'Выберите вариант',
+      ariaRequired: true,
     },
     events: {
       beforeOpen: () => {
@@ -53,7 +59,6 @@ const modalFormSlimSelect =
     }
 
   });
-
 
 document.querySelectorAll('.ss-main').forEach((selectNewEl, index) => {
   selectNewEl.classList.add('select');

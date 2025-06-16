@@ -17,6 +17,7 @@ new Swiper(programsSwiperContainer, {
   slidesPerGroup: 1,
   autoHeight: true,
   spaceBetween: 20,
+  a11y: { enabled: true },
   navigation: {
     nextEl: '.programs__swiper-button.swiper-button-next',
     prevEl: '.programs__swiper-button.swiper-button-prev',
