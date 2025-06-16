@@ -42,8 +42,6 @@ new Swiper(reviewsSwiperContainer, {
       },
       slidesPerView: 2,
       spaceBetween: 32,
-      allowTouchMove: false,
-      simulateTouch: false,
     }
   },
   on: {
