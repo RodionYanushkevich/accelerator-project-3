@@ -1,8 +1,8 @@
 .news-card {
-  box-sizing: border-box;
   position: relative;
+
+  box-sizing: border-box;
   width: 290px;
-  transition: width 1000ms;
   overflow: hidden;
 
   @media ($tablet-breakpoint) {
@@ -11,15 +11,13 @@
 
   @media ($desktop-breakpoint) {
     width: 100%;
-
-    // &--big-card {
-    // }
   }
 }
 
 .news-card__container {
-  box-sizing: border-box;
   position: absolute;
+
+  box-sizing: border-box;
   left: 0;
   bottom: 0;
   width: 263px;
@@ -27,7 +25,7 @@
   display: flex;
   flex-direction: column;
   z-index: 1;
-  transition: width 1000ms;
+  transition: width 300ms ease-in;
 
   @media ($tablet-breakpoint) {
     width: 240px;
@@ -35,23 +33,10 @@
 
   @media ($desktop-breakpoint) {
     width: 244px;
-
-    // padding-right: 42px;
-
-    // min-width: 244px;
-
-    // width: max-content;
   }
 }
 
-// .news-card__container > * {
-//   position: relative;
-//   top: 1px;
-// }
-
 .news-card--big-card .news-card__container {
-  // padding-right: 136px;
-
   @media ($desktop-breakpoint) {
     width: 468px;
   }
@@ -66,12 +51,12 @@
 
 .news-card__date {
   position: relative;
+
   border-radius: 0 12px 0 0;
   padding: 13px 12px 5px 0;
 
   width: min-content;
 
-  // min-width: none;
   font-size: 12px;
   line-height: 100%;
   letter-spacing: 0.01em;
@@ -79,15 +64,14 @@
 
   background-color: $primary-lighter;
 
-
   &::before {
     @include reverse-border-radius(16px,0);
 
     bottom: unset;
     right: unset;
-
     top: 0;
     left: 0;
+
     transform: translateY(-16px);
     background-image: url("/__spritemap#sprite-angle-news-view");
   }
@@ -103,6 +87,7 @@
 
 .news-card__title {
   position: relative;
+
   box-sizing: border-box;
   margin: 0;
   padding: 11px 18px 3px 0;
@@ -114,8 +99,9 @@
   line-height: 112%;
 
   border-radius: 0 12px 0 0;
+
   background-color: $primary-lighter;
-  transition: width 1000ms;
+  transition: width 300ms ease-in;
 
   &::after {
     @include reverse-border-radius(16px,0);
@@ -130,7 +116,6 @@
   @media ($tablet-breakpoint) {
     position: relative;
 
-    // top: 1px;
     font-size: 20px;
     line-height: 120%;
     width: 207px;
@@ -144,16 +129,13 @@
     line-height: 108%;
 
     width: 190px;
-
-    // width: max-content;
-
-    // width: 190px;
   }
 }
 
 .news-card p {
   position: relative;
   top: 1px;
+
   margin: 0;
   padding: 0;
   font-size: 12px;
@@ -163,7 +145,6 @@
 
 
   @media ($tablet-breakpoint) {
-    // position: unset;
     top: 0;
 
     font-size: 14px;
@@ -177,18 +158,18 @@
 
 .news-card__link-wrapper {
   position: relative;
+
+  justify-self: start;
+
   box-sizing: border-box;
   display: flex;
   align-items: center;
   padding: 12px 10px 10px 0;
   gap: 10px;
 
-  // width: 263px;
-
   border-radius: 0 12px 0 0;
   background-color: $primary-lighter;
 
-  justify-self: start;
 
   &::after {
     @include reverse-border-radius(16px,0);
@@ -204,8 +185,6 @@
     gap: 16px;
 
     justify-content: space-between;
-
-    // width: 240px;
   }
 }
 
@@ -216,9 +195,8 @@
 
   @media ($desktop-breakpoint) {
     width: 100%;
-
-    // height: 100%;
-    object-fit: cover;
     display: block;
+
+    object-fit: cover;
   }
 }

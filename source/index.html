@@ -12,17 +12,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
 
 </head>
-<!-- пример использования спрайта -->
-<!-- <img src="/__spritemap#sprite-logo-view" alt="Это спрайт">
-  <svg>
-    <use href="/__spritemap#sprite-user"></use>
-  </svg> -->
-<!-- примеры требуемых атрибутов data-test="*" -->
 
 <body class="page-body body">
-
-  <!-- !!!!!!!!!!!!!! -->
-  <!-- липкий футер не забудь -->
   <header class="body__header header">
     <img class="header__logo logo header__logo--menuopen" src="img/logo.svg" alt="Логотип Internship" width="52" height="52">
     <nav class="header__nav navigation">
@@ -69,16 +60,16 @@
 
           <ul class="navigation__dropdown-list">
             <li class="navigation__dropdown-item">
-              <a class="navigation__dropdown-link" href="#">рыба</a>
+              <a class="navigation__dropdown-link" href="#">Волонтёрство</a>
             </li>
             <li class="navigation__dropdown-item">
-              <a class="navigation__dropdown-link" href="#">рыба</a>
+              <a class="navigation__dropdown-link" href="#">Стажировки</a>
             </li>
             <li class="navigation__dropdown-item">
-              <a class="navigation__dropdown-link" href="#">рыба</a>
+              <a class="navigation__dropdown-link" href="#">Карьера</a>
             </li>
             <li class="navigation__dropdown-item">
-              <a class="navigation__dropdown-link" href="#">рыба</a>
+              <a class="navigation__dropdown-link" href="#">Путешествия</a>
             </li>
           </ul>
 
@@ -90,13 +81,10 @@
     </nav>
   </header>
 
-  <!-- !!!!!! -->
-  <!-- липкий -->
   <main class="body__main">
     <section class="hero" data-test="hero">
       <h1 class="visually-hidden">Проект "Стажировка"</h1>
 
-      <!-- </div> -->
       <div class="hero__swiper swiper-container">
         <ul class="hero__list swiper-wrapper">
           <li class="hero__list-item swiper-slide ">
@@ -120,14 +108,14 @@
                   в разных городах, ощущая
                   настоящий студенческий стиль жизни!</p>
                 <div class="hero-card__button-background-wrapper">
-                  <button class="hero-card__button button" type="button">
+                  <a class="hero-card__button button" href="#">
                     <span class="button__description">подробнее</span>
                     <span class="button__wrapper">
                       <svg width="8" height="8">
                         <use href="/__spritemap#sprite-link-arrow"></use>
                       </svg>
                     </span>
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -149,14 +137,14 @@
 
                 <p>Возможности для преподавания, органического сельского хозяйства, устойчивого образа жизни и другое.</p>
                 <div class="hero-card__button-background-wrapper">
-                  <button class="hero-card__button button" type="button">
+                  <a class="hero-card__button button" href="#">
                     <span class="button__description">подробнее</span>
                     <span class="button__wrapper">
                       <svg width="8" height="8">
                         <use href="/__spritemap#sprite-link-arrow"></use>
                       </svg>
                     </span>
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -180,14 +168,14 @@
 
                 <p>Получите незаменимый опыт работы в ведущих мировых компаниях и государственных организациях.</p>
                 <div class="hero-card__button-background-wrapper">
-                  <button class="hero-card__button button" type="button">
+                  <a class="hero-card__button button" href="#">
                     <span class="button__description">подробнее</span>
                     <span class="button__wrapper">
                       <svg width="8" height="8">
                         <use href="/__spritemap#sprite-link-arrow"></use>
                       </svg>
                     </span>
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -198,7 +186,7 @@
       </div>
     </section>
 
-    <section class="about" data-test="about">
+    <section class="about" data-test="about" id="about">
 
       <div class="about__container">
         <h2 class="about__title title">О проекте «Стажировка»</h2>
@@ -254,7 +242,7 @@
       </ul>
     </section>
 
-    <section class="programs" data-test="programs">
+    <section class="programs" data-test="programs" id="programs">
       <h2 class="programs__title title">Программы</h2>
 
       <div class="programs__swiper swiper-container">
@@ -353,8 +341,8 @@
 
     </section>
 
-    <section class="grant" data-test="grant">
-      <div class="grand__wrapper">
+    <section class="grant" data-test="grant" id="grant">
+      <div class="grant__wrapper">
         <div class="grant__container">
           <h2 class="grant__title title">Как поехать</h2>
           <p>Свяжитесь с координатором, чтобы узнать
@@ -386,7 +374,7 @@
       </div>
     </section>
 
-    <section class="news" data-test="news">
+    <section class="news" data-test="news" id="news">
       <h2 class="news__title title">Новости и материалы</h2>
 
       <div class="news__links-swiper">
@@ -395,7 +383,7 @@
           <li class="news__navigation-item"><a class="news__navigation-link" href="#">Волонтёрство</a></li>
           <li class="news__navigation-item "><a class="news__navigation-link " href="#">Стажировки</a></li>
           <li class="news__navigation-item"><a class="news__navigation-link" href="#">Карьера</a></li>
-          <li class="news__navigation-item"><a class="news__navigation-link" href="#">путешествия</a></li>
+          <li class="news__navigation-item"><a class="news__navigation-link" href="#">Путешествия</a></li>
         </ul>
       </div>
 
@@ -605,7 +593,7 @@
       </ul>
     </section>
 
-    <section class="reviews" data-test="reviews">
+    <section class="reviews" data-test="reviews" id="reviews">
       <h2 class="reviews__title title">Отзывы</h2>
 
       <div class="reviews__swiper swiper-container">
@@ -706,7 +694,7 @@
 
     </section>
 
-    <section class="contacts" data-test="contacts">
+    <section class="contacts" data-test="contacts" id="contacts">
       <h2 class="contacts__title title">Контакты</h2>
 
       <ul class="contacts__list">
@@ -763,8 +751,8 @@
           </div>
 
           <div class="form__wrapper form__wrapper--select">
-            <select class="form__input" id="city" name="city" required autocomplete="off">
-              <option data-placeholder="true"></option>
+            <select class="form__input select" id="city" name="city" required autocomplete="off">
+              <option data-placeholder="true" label=" "></option>
               <option value="moscow">Москва</option>
               <option value="spb">Санкт-Петербург</option>
               <option value="kazan">Казань</option>
@@ -829,7 +817,8 @@
 
     <ul class="footer__social social">
       <li class="social__item">
-        <a class="social__link social__link--vk" href="#" aria-label="мы в VK">
+        <a class="social__link social__link--vk" href="#" aria-label="мы в VK" target="_blank"
+           rel="noopener noreferrer">
           <svg width="12" height="8">
             <use href="/__spritemap#sprite-vk"></use>
           </svg>
@@ -837,7 +826,8 @@
       </li>
 
       <li class="social__item">
-        <a class="social__link social__link--ok" href="#" aria-label="Одноклассники">
+        <a class="social__link social__link--ok" href="#" aria-label="Одноклассники" target="_blank"
+           rel="noopener noreferrer">
           <svg width="8" height="12">
             <use href="/__spritemap#sprite-odnoklassniki"></use>
           </svg>
@@ -845,7 +835,8 @@
       </li>
 
       <li class="social__item">
-        <a class="social__link social__link--reddit" href="#" aria-label="Реддит">
+        <a class="social__link social__link--reddit" href="#" aria-label="Реддит" target="_blank"
+           rel="noopener noreferrer">
           <svg width="12" height="12">
             <use href="/__spritemap#sprite-reddit"></use>
           </svg>
@@ -877,8 +868,8 @@
       </div>
 
       <div class="form__wrapper form__wrapper--select">
-        <select class="form__input form__input--modal-select" id="modal-city" name="city" required autocomplete="off">
-          <option data-placeholder="true"></option>
+        <select class="form__input select form__input--modal-select" id="modal-city" name="city" required autocomplete="off">
+          <option data-placeholder="true" label=" "></option>
           <option value="moscow">Москва</option>
           <option value="spb">Санкт-Петербург</option>
           <option value="kazan">Казань</option>

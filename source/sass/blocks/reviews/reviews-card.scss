@@ -1,6 +1,4 @@
 .reviews-card {
-  color: $base-secondary;
-
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -9,21 +7,17 @@
 
   min-height: 472px;
 
+  color: $base-secondary;
   border: 2px solid #316dc2;
   border-radius: 16px;
 
   @media ($tablet-breakpoint) {
     padding: 50px;
-
     min-height: unset;
-
-
     width: 560px;
     flex-direction: row;
     flex-wrap: wrap;
-
     align-items: center;
-
     justify-content: space-between;
     row-gap: 25px;
     column-gap: 15px;
@@ -32,12 +26,10 @@
   @media ($desktop-breakpoint) {
     padding: 50px 46px 50px 50px;
     width: unset;
-
     min-height: 483px;
     display: grid;
     grid-template-columns: repeat(2, min-content);
     grid-template-rows: 90px min-content min-content;
-
     justify-content: space-between;
   }
 }
@@ -45,6 +37,7 @@
 .reviews-card__figure {
   margin: 0;
   padding: 0;
+
   display: flex;
   column-gap: 10px;
   align-items: center;
@@ -71,8 +64,6 @@
   @media ($desktop-breakpoint) {
     font-size: 18px;
     line-height: 134%;
-
-    // margin-top: 1px;
   }
 }
 
@@ -87,9 +78,7 @@
 
   @media ($tablet-breakpoint) {
     grid-template-columns: repeat(2, auto);
-
     row-gap: 11px;
-
     column-gap: 25px;
     width: 229px;
   }

@@ -27,10 +27,11 @@
 
   @media ($tablet-breakpoint) {
     padding: 0;
-    border-radius: 16px;
     display: flex;
     justify-content: start;
     max-width: 1070px;
+
+    border-radius: 16px;
 
     background-size: 652px 780px;
 
@@ -40,8 +41,10 @@
   }
 
   @media ($desktop-breakpoint) {
-    background-size: 1240px 800px;
     max-width: 1425px;
+
+    background-size: 1240px 800px;
+
     background-image: url("/img/form/form-background-desktop@1x.webp");
   }
 

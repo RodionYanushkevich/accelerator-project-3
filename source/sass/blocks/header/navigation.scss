@@ -3,12 +3,12 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content 0fr;
-
   width: 100%;
   gap: 4px;
+
   overflow: hidden;
 
-  transition: grid-template-rows 500ms;
+  transition: grid-template-rows 300ms;
 
   &--open {
     grid-template-rows: min-content 1fr;
@@ -38,7 +38,7 @@
 
   opacity: 0;
 
-  transition: opacity 500ms, padding 900ms;
+  transition: opacity 300ms, padding 300ms;
 
   @media ($tablet-breakpoint) {
     width: min-content;
@@ -71,7 +71,7 @@
   opacity: 0;
 
   &--open {
-    transition: opacity 500ms;
+    transition: opacity 300ms;
     opacity: 1;
     visibility: visible;
   }
@@ -147,7 +147,7 @@
 
   row-gap: 0;
 
-  transition: gap 300ms, grid-template-rows 600ms;
+  transition: gap 300ms, grid-template-rows 300ms;
 }
 
 .navigation__item--dropdown-open {
@@ -217,6 +217,7 @@
 
     .button__wrapper {
       color: $base-secondary;
+
       transform: rotate(0);
     }
   }
@@ -273,9 +274,10 @@
 }
 
 .navigation__button--active .button__wrapper {
-  transform: rotate(-225deg);
   color: $base-secondary;
   background-color: $base-white;
+
+  transform: rotate(-225deg);
 
   &::before,
   &::after {
@@ -283,6 +285,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+
     display: block;
     background-color: $base-secondary;
     transform: translateX(-50%) translateY(-50%);

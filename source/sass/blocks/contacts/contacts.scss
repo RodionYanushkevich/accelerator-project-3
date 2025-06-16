@@ -3,6 +3,7 @@
   flex-direction: column;
   row-gap: 30px;
   padding: 70px 15px;
+
   color: $base-white;
   background-color: $base-secondary;
 
@@ -68,14 +69,16 @@
 .contacts__item-title {
   margin: 0;
   padding: 0;
+  display: flex;
 
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.01em;
   line-height: 100%;
   text-transform: uppercase;
+
   color: $primary-lighter;
-  display: flex;
+
   opacity: 0.8;
 }
 
@@ -110,22 +113,17 @@
 }
 
 .contacts picture {
-  order: 2;
   align-self: center;
 
-  // @media ($desktop-breakpoint) {
   margin-left: auto;
   margin-right: auto;
 
-  // }
+  order: 2;
 }
 
 .contacts__img {
   border-radius: 16px;
   background-color: #f9f7e8;
-
-  // width: 100%;
-  // height: 100%;
 }
 
 .contacts__list-item a {

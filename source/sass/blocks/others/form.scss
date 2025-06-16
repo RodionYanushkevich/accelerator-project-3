@@ -4,7 +4,9 @@
   flex-direction: column;
   gap: 20px;
   padding: 15px 15px 27px;
+
   border-radius: 16px;
+
   background-color: $base-secondary;
   color: $base-white;
 
@@ -31,6 +33,7 @@
   box-sizing: border-box;
   border-radius: 8px;
   min-height: 50px;
+  padding: 14px;
 
   font-family: $font-primary;
   font-style: normal;
@@ -39,11 +42,11 @@
   line-height: 100%;
 
   border: 1px solid $base-white;
-  opacity: 0.3;
+
   color: $primary-lighter;
   background-color: transparent;
 
-  padding: 14px;
+  opacity: 0.3;
 
   &:hover {
     opacity: 1;
@@ -141,16 +144,17 @@
   color: inherit;
 
   @media ($tablet-breakpoint) {
-    font-size: 28px;
-
-    line-height: 100%;
     padding: 11px 0;
+
+    font-size: 28px;
+    line-height: 100%;
   }
 
   @media ($desktop-breakpoint) {
+    padding: 14px 0;
+
     font-size: 32px;
     line-height: 112%;
-    padding: 14px 0;
   }
 }
 
@@ -164,6 +168,7 @@
   @media ($tablet-breakpoint) {
     margin-top: 10px;
     margin-bottom: 20px;
+
     font-size: 16px;
     line-height: 125%;
   }
@@ -176,14 +181,16 @@
 .form__label {
   position: relative;
   top: 1px;
+
   margin-bottom: 2px;
+  width: min-content;
+  white-space: nowrap;
+
   font-size: 12px;
   line-height: 117%;
   color: $primary-lighter;
-  opacity: 0.8;
 
-  width: min-content;
-  white-space: nowrap;
+  opacity: 0.8;
 
   order: -1;
 
@@ -209,7 +216,6 @@
   position: absolute;
   bottom: 0;
   left: 5px;
-
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -230,31 +236,37 @@
 
   &::before {
     background: rgba(255, 94, 102, 0.2);
-    opacity: 0.7;
     border: 1px solid #ff5e66;
+
+    opacity: 0.7;
   }
 }
 
 .form__checkbox:disabled + label {
   &::before {
     background: rgba(255, 255, 255, 0.6);
+
     border: 1px solid #ffffff;
   }
 }
 
 .form__checkbox + label {
   position: relative;
-  color: $base-white;
-  opacity: 1;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 10px;
-  user-select: none;
+
   font-weight: 400;
   font-size: 12px;
   line-height: 117%;
-  width: 100%;
+
+
+  user-select: none;
   white-space: wrap;
+
+  color: $base-white;
+  opacity: 1;
 
   &:hover {
     opacity: 1;
@@ -265,8 +277,8 @@
   }
 
   &:focus-visible {
-    outline: none;
     opacity: 1;
+    outline: none;
 
     &::before {
       opacity: 1;
@@ -279,14 +291,14 @@
     display: block;
     width: 20px;
     height: 20px;
-    opacity: 0.7;
+
+    flex-shrink: 0;
 
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 2px;
-
     background-color: $base-white;
 
-    flex-shrink: 0;
+    opacity: 0.7;
 
     cursor: pointer;
   }
@@ -297,15 +309,35 @@
 }
 
 .form__checkbox:checked + .form__label::before {
-  background-color: transparent;
+  opacity: 1;
+  background-color: $base-white;
+}
+
+.form__checkbox:checked + .form__label:focus::before,
+.form__checkbox:checked + .form__label:hover::before {
+  background-color: $base-secondary;
+  border: 1px solid $base-white;
+}
+
+.form__checkbox:disabled + .form__label::before {
+  background: #a9afb7;
+}
+
+.form__checkbox:checked + .form__label:hover svg,
+.form__checkbox:disabled + .form__label svg,
+.form__checkbox:checked + .form__label svg {
+  color: $base-white;
 }
 
 .form__checkbox:checked + .form__label svg {
   position: absolute;
   left: 5px;
+
   display: block;
   width: 10px;
   height: 10px;
+
+  color: $base-secondary;
 }
 
 .form__label br {
@@ -337,6 +369,7 @@
 
 .form--white-background {
   position: relative;
+
   padding: 40px 15px;
   gap: 15px;
 
@@ -358,11 +391,10 @@
   }
 
   .form__input {
-    color: inherit;
-    border-color: inherit;
     min-height: 44px;
 
-    // padding: 10px;
+    color: inherit;
+    border-color: inherit;
 
     @media ($tablet-breakpoint) {
       min-height: 50px;
@@ -390,6 +422,7 @@
 
   .form__wrapper {
     position: relative;
+
     font-size: 14px;
     line-height: 100%;
 

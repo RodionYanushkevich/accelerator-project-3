@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, A11y, Grid, Pagination } from 'swiper/modules';
+import { Navigation, Grid, Pagination } from 'swiper/modules';
 import 'swiper/css/grid';
 
 import { duplicateSlides, mobileBreakpoint, tabletBreakpoint, desktopBreakpoint } from '../../util.js';
@@ -8,9 +8,6 @@ const newsSwiperContainer = document.querySelector('.news__swiper');
 const swiperWrapper = newsSwiperContainer.children[0];
 
 const originalSlidesArray = Array.from(swiperWrapper.children);
-
-
-// import 'swiper/css/pagination';
 
 const SLIDES_TO_DUPLICATE = 16;
 
@@ -50,7 +47,6 @@ const updateTabIndex = (swiper) => {
   Array.from(slides).forEach((slide) => {
     const button = slide.querySelector('.news-card__link');
     button.setAttribute('tabindex', '-1');
-    // button.style.setProperty('background-color', 'red');
   });
 
   let activeSlides;
@@ -73,7 +69,6 @@ const updateTabIndex = (swiper) => {
   activeSlides.forEach((slide) => {
     const button = slide.querySelector('.news-card__link');
     button.setAttribute('tabindex', '0');
-    // button.style.setProperty('background-color', 'green');
   });
 };
 
@@ -234,11 +229,9 @@ function ininSwiper() {
           }
 
           if (window.innerWidth >= 1440) {
-            // setTimeout(() => {
-            //   // this.style.order = '';
-            //   this.slides[0].style.width = '604px';
-            //   this.slides[0].children[0].classList.add('news-card--big-card');
-            // }, 20);
+            this.slides.forEach((slide) => {
+              slide.style.order = '';
+            });
             updateButtons(this);
             handleLastBulletsClick(this);
             handleNavigationButtonsClick(this);
@@ -282,7 +275,6 @@ function ininSwiper() {
         },
         1440: {
           grid: { rows: 1, fill: 'row' },
-          // resizeObserver: false,
           updateOnWindowResize: false,
           slidesPerGroup: 1,
           slidesPerView: 1,
@@ -296,7 +288,6 @@ const updateSwiper = (e) => {
   if (e.matches) {
     ininSwiper();
   }
-
 };
 
 ininSwiper();

@@ -1,9 +1,4 @@
-// Vendor
-// ---------------------------------
-
-// @import "vendor/normalize";
-
-// COMMON
+/* COMMON */
 @import "./common/mixins";
 @import "./common/variables";
 @import "./common/fonts";
@@ -21,7 +16,6 @@
 @import "./blocks/others/title";
 @import "./blocks/others/scrollbar";
 @import "./blocks/others/select";
-
 
 /* BlOCKS */
 
@@ -68,7 +62,7 @@
 
 /* FORM */
 @import "./blocks/form/form-section";
-@import "./blocks/form/form";
+@import "./blocks/others/form";
 
 /* FOOTER */
 @import "./blocks/footer/footer";

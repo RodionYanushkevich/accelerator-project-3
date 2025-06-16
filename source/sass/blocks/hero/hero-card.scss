@@ -6,8 +6,6 @@
   flex-direction: column;
 
   color: $base-secondary;
-
-  // overflow: hidden;
 }
 
 .hero-card__wrapper {
@@ -68,10 +66,11 @@
 
 .hero-card p {
   position: relative;
+
   box-sizing: border-box;
-  margin: 0;
   padding: 0 14px 15px;
   width: calc(100% - 23px);
+  margin: 0;
 
   font-size: 16px;
   line-height: 125%;
@@ -114,6 +113,7 @@
 
 .hero-card__button-background-wrapper {
   position: relative;
+
   padding: 10px 15px;
   width: min-content;
 
@@ -147,18 +147,20 @@
 
 .hero-card__pagination {
   position: relative;
+
   display: flex;
   padding: 10px 16px;
   width: min-content;
-  background-color: $base-white;
-  border-radius: 12px 12px 0 0;
   justify-content: center;
   align-items: center;
   gap: 10px;
 
+  border-radius: 12px 12px 0 0;
+  background-color: $base-white;
 
   @media ($tablet-breakpoint) {
     padding: 14px 20px;
+
     border-radius: 20px 20px 0 0;
     gap: 12px;
   }
@@ -180,18 +182,21 @@
   padding: 0;
   margin: 0;
   display: flex;
-  border-radius: 50%;
   width: 8px;
   height: 8px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
   background-color: transparent;
 
   border: 2px solid $base-secondary;
-  flex-shrink: 0;
+
   cursor: pointer;
 
   &:hover {
     background-color: $base-secondary;
     border: 2px solid $base-white;
+
     opacity: 0.7;
   }
 

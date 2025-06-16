@@ -1,7 +1,7 @@
 .about {
-  justify-self: center;
   box-sizing: border-box;
   display: flex;
+  justify-self: center;
   flex-direction: column;
   gap: 40px;
   padding: 50px 15px;
@@ -13,8 +13,8 @@
   }
 
   @media ($desktop-breakpoint) {
-    align-self: center;
     padding: 60px 100px;
+    align-self: center;
     flex-direction: row;
     flex-wrap: wrap;
   }

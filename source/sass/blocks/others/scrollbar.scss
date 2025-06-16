@@ -7,7 +7,6 @@
   position: relative;
   margin-top: 50px;
 
-  // !динамично мож?
   width: 562px;
 
   height: 2px;
@@ -15,30 +14,28 @@
 
   @media ($desktop-breakpoint) {
     width: 1136px;
-
-    // !!!!!!
-    display: block !important;
-
-    // display: block !important;
   }
 }
 
 .scrollbar .swiper-scrollbar-drag {
   position: relative;
   top: -5px;
+
   height: 10px;
 
   cursor: pointer;
 
   &::after {
     content: "";
-    box-sizing: border-box;
     position: absolute;
     top: 5px;
     left: 0;
+
+    box-sizing: border-box;
     display: block;
     height: 2px;
     width: 100%;
+
     background-color: $base-secondary;
   }
 }

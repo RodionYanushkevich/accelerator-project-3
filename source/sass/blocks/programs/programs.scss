@@ -1,5 +1,6 @@
 .programs {
   position: relative;
+
   box-sizing: border-box;
   padding: 50px 15px;
   display: flex;
@@ -18,12 +19,11 @@
   }
 
   @media ($desktop-breakpoint) {
-    gap: 40px;
-    align-items: center;
-
-    align-self: center;
     padding: 60px 100px 70px;
+    align-items: center;
+    align-self: center;
     max-width: $desktop;
+    gap: 40px;
   }
 }
 
@@ -35,9 +35,10 @@
 }
 
 .programs__button {
-  background-color: transparent;
   padding-left: 30px;
   gap: 31px;
+
+  background-color: transparent;
 
   @media ($tablet-breakpoint) {
     order: 2;
@@ -57,10 +58,12 @@
 
 .programs__swiper {
   overflow: hidden;
+
   width: 100%;
 
   @media ($tablet-breakpoint) {
     overflow: unset;
+
     width: 678px;
     order: 3;
   }
